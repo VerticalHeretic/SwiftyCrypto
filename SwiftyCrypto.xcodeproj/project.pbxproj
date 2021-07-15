@@ -11,6 +11,7 @@
 		7A11E94B26A06E9800B3D36C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11E94A26A06E9800B3D36C /* ContentView.swift */; };
 		7A11E94D26A06E9900B3D36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11E94C26A06E9900B3D36C /* Assets.xcassets */; };
 		7A11E95026A06E9900B3D36C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11E94F26A06E9900B3D36C /* Preview Assets.xcassets */; };
+		7A11E95926A06F7800B3D36C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11E95826A06F7800B3D36C /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		7A11E94C26A06E9900B3D36C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A11E94F26A06E9900B3D36C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7A11E95126A06E9900B3D36C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A11E95826A06F7800B3D36C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		7A11E94726A06E9800B3D36C /* SwiftyCrypto */ = {
 			isa = PBXGroup;
 			children = (
+				7A11E95726A06F6300B3D36C /* Extensions */,
 				7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */,
 				7A11E94A26A06E9800B3D36C /* ContentView.swift */,
 				7A11E94C26A06E9900B3D36C /* Assets.xcassets */,
@@ -67,6 +70,14 @@
 				7A11E94F26A06E9900B3D36C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7A11E95726A06F6300B3D36C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7A11E95826A06F7800B3D36C /* Color.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 			files = (
 				7A11E94B26A06E9800B3D36C /* ContentView.swift in Sources */,
 				7A11E94926A06E9800B3D36C /* SwiftyCryptoApp.swift in Sources */,
+				7A11E95926A06F7800B3D36C /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
