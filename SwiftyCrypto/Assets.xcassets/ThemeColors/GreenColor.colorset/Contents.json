@@ -6,7 +6,7 @@
         "components" : {
           "alpha" : "1.000",
           "blue" : "0.000",
-          "green" : "0.560",
+          "green" : "0.641",
           "red" : "0.000"
         }
       },
@@ -23,9 +23,9 @@
         "color-space" : "srgb",
         "components" : {
           "alpha" : "1.000",
-          "blue" : "0.474",
-          "green" : "0.981",
-          "red" : "0.450"
+          "blue" : "0.000",
+          "green" : "0.747",
+          "red" : "0.302"
         }
       },
       "idiom" : "universal"
