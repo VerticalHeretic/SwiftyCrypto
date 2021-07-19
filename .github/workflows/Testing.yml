@@ -1,0 +1,19 @@
+name: Testing
+on:
+  pull_request:
+    branches:
+    - main
+jobs:
+  test:
+    name: Testing app
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Testing iOS app
+        run: |
+          set -eo pipefail
+          xcodebuild -project SwiftyCrypto.xcodeproj \
+            -scheme SwiftyCrypto \
+            -destination platform=iOS\ Simulator,OS=14.4,name=iPhone\ 12 \
+            clean test | xcpretty
