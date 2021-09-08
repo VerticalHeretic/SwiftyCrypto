@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A0E75B826E954A300C6DFB5 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E75B726E954A300C6DFB5 /* NetworkingManager.swift */; };
 		7A11E94926A06E9800B3D36C /* SwiftyCryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */; };
 		7A11E94B26A06E9800B3D36C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11E94A26A06E9800B3D36C /* ContentView.swift */; };
 		7A11E94D26A06E9900B3D36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11E94C26A06E9900B3D36C /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A0E75B726E954A300C6DFB5 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		7A11E94526A06E9800B3D36C /* SwiftyCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyCryptoApp.swift; sourceTree = "<group>"; };
 		7A11E94A26A06E9800B3D36C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A0E75B626E9542000C6DFB5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7A0E75B726E954A300C6DFB5 /* NetworkingManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		7A11E93C26A06E9800B3D36C = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		7A11E94726A06E9800B3D36C /* SwiftyCrypto */ = {
 			isa = PBXGroup;
 			children = (
+				7A0E75B626E9542000C6DFB5 /* Utilities */,
 				7A11E96626A2E9BD00B3D36C /* Models */,
 				7A11E95A26A2DF4A00B3D36C /* Core */,
 				7A11E95726A06F6300B3D36C /* Extensions */,
@@ -312,6 +323,7 @@
 				7A11E94926A06E9800B3D36C /* SwiftyCryptoApp.swift in Sources */,
 				7A11E96326A2E04600B3D36C /* CircleButtonView.swift in Sources */,
 				7A11E95926A06F7800B3D36C /* Color.swift in Sources */,
+				7A0E75B826E954A300C6DFB5 /* NetworkingManager.swift in Sources */,
 				7A11E96526A2E32D00B3D36C /* CircleButtonAnimationView.swift in Sources */,
 				7AA8719326A5E5E900D3B2FE /* PreviewProvider.swift in Sources */,
 				7AA8719526A5E9C300D3B2FE /* Double.swift in Sources */,
