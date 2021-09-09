@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7A0E75B826E954A300C6DFB5 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E75B726E954A300C6DFB5 /* NetworkingManager.swift */; };
+		7A0E75BB26E9E8E500C6DFB5 /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E75BA26E9E8E500C6DFB5 /* CoinImageView.swift */; };
+		7A0E75BD26E9EC6900C6DFB5 /* CoinImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E75BC26E9EC6900C6DFB5 /* CoinImageService.swift */; };
+		7A0E75BF26E9EDA500C6DFB5 /* CoinImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E75BE26E9EDA500C6DFB5 /* CoinImageViewModel.swift */; };
 		7A11E94926A06E9800B3D36C /* SwiftyCryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */; };
 		7A11E94B26A06E9800B3D36C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11E94A26A06E9800B3D36C /* ContentView.swift */; };
 		7A11E94D26A06E9900B3D36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11E94C26A06E9900B3D36C /* Assets.xcassets */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		7A0E75B726E954A300C6DFB5 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		7A0E75BA26E9E8E500C6DFB5 /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
+		7A0E75BC26E9EC6900C6DFB5 /* CoinImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageService.swift; sourceTree = "<group>"; };
+		7A0E75BE26E9EDA500C6DFB5 /* CoinImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageViewModel.swift; sourceTree = "<group>"; };
 		7A11E94526A06E9800B3D36C /* SwiftyCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyCryptoApp.swift; sourceTree = "<group>"; };
 		7A11E94A26A06E9800B3D36C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +87,15 @@
 				7A0E75B726E954A300C6DFB5 /* NetworkingManager.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7A0E75B926E9E8D700C6DFB5 /* CoinImage */ = {
+			isa = PBXGroup;
+			children = (
+				7A0E75BA26E9E8E500C6DFB5 /* CoinImageView.swift */,
+				7A0E75BE26E9EDA500C6DFB5 /* CoinImageViewModel.swift */,
+			);
+			path = CoinImage;
 			sourceTree = "<group>";
 		};
 		7A11E93C26A06E9800B3D36C = {
@@ -174,6 +189,7 @@
 		7A11E96026A2E02000B3D36C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7A0E75B926E9E8D700C6DFB5 /* CoinImage */,
 				7A11E96126A2E03900B3D36C /* CircleButton */,
 			);
 			path = Components;
@@ -200,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				7A55E31026A68C1500384DB6 /* CoinDataService.swift */,
+				7A0E75BC26E9EC6900C6DFB5 /* CoinImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -319,11 +336,14 @@
 				7AA8719126A5E59D00D3B2FE /* CoinRowView.swift in Sources */,
 				7A2F4DEA26A5FDB200C6FA3E /* HomeViewModel.swift in Sources */,
 				7A11E94B26A06E9800B3D36C /* ContentView.swift in Sources */,
+				7A0E75BD26E9EC6900C6DFB5 /* CoinImageService.swift in Sources */,
 				7A11E95F26A2DF7400B3D36C /* HomeView.swift in Sources */,
+				7A0E75BB26E9E8E500C6DFB5 /* CoinImageView.swift in Sources */,
 				7A11E94926A06E9800B3D36C /* SwiftyCryptoApp.swift in Sources */,
 				7A11E96326A2E04600B3D36C /* CircleButtonView.swift in Sources */,
 				7A11E95926A06F7800B3D36C /* Color.swift in Sources */,
 				7A0E75B826E954A300C6DFB5 /* NetworkingManager.swift in Sources */,
+				7A0E75BF26E9EDA500C6DFB5 /* CoinImageViewModel.swift in Sources */,
 				7A11E96526A2E32D00B3D36C /* CircleButtonAnimationView.swift in Sources */,
 				7AA8719326A5E5E900D3B2FE /* PreviewProvider.swift in Sources */,
 				7AA8719526A5E9C300D3B2FE /* Double.swift in Sources */,
