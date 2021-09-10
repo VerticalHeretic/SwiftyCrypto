@@ -13,10 +13,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
+      - name: Install dependecies
+        run: | 
+          gem install bundler
+          bundle install 
       - name: Testing iOS app
         run: |
-          set -eo pipefail
-          xcodebuild -project SwiftyCrypto.xcodeproj \
-            -scheme SwiftyCrypto \
-            -destination platform=iOS\ Simulator,OS=14.4,name=iPhone\ 12 \
-            clean test | xcpretty
+          bundle exec fastlane tests
