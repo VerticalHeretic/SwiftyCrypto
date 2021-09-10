@@ -15,8 +15,6 @@ jobs:
         uses: actions/checkout@v1
       - name: Install dependecies
         run: | 
-          ruby --version 
-          gem --version
           gem install bundler
           bundle install 
       - name: Testing iOS app
