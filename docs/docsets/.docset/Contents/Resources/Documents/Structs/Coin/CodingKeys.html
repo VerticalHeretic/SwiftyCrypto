@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CodingKeys Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../../js/jquery.min.js" defer></script>
+    <script src="../../js/jazzy.js" defer></script>
+    
+    <script src="../../js/lunr.min.js" defer></script>
+    <script src="../../js/typeahead.jquery.js" defer></script>
+    <script src="../../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Enum/CodingKeys" class="dashAnchor"></a>
+    <a title="CodingKeys Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../../index.html"> Docs</a> (17% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../../index.html"> Reference</a>
+        <img id="carat" src="../../img/carat.png" />
+        CodingKeys Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../readme.html">README</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/CoinDataService.html">CoinDataService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/CoinImageService.html">CoinImageService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/CoinImageViewModel.html">CoinImageViewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/DeveloperPreview.html">DeveloperPreview</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/HomeViewModel.html">HomeViewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/LocalFileManager.html">LocalFileManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/NetworkingManager.html">NetworkingManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/NetworkingManager/NetworkingError.html">– NetworkingError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Extensions/Color.html">Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/Double.html">Double</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Extensions/PreviewProvider.html">PreviewProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Protocols/ImageSavingManager.html">ImageSavingManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Structs/CircleButtonAnimationView.html">CircleButtonAnimationView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CircleButtonAnimationView_Previews.html">CircleButtonAnimationView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CircleButtonView.html">CircleButtonView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CircleButtonView_Previews.html">CircleButtonView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Coin.html">Coin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Coin/CodingKeys.html">– CodingKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinImageView.html">CoinImageView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinImageView_Previews.html">CoinImageView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinRowView.html">CoinRowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/CoinRowView_Previews.html">CoinRowView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/ColorTheme.html">ColorTheme</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/ContentView.html">ContentView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/ContentView_Previews.html">ContentView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/HomeView.html">HomeView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/HomeView_Previews.html">HomeView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/SparklineIn7D.html">SparklineIn7D</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/SwiftyCryptoApp.html">SwiftyCryptoApp</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Typealiases.html#/s:12SwiftyCrypto25NetworkResultAnyPublishera">NetworkResultAnyPublisher</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CodingKeys</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CodingKeys</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CodingKey</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO2idyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO2idyA2EmF">id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">id</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO6symbolyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/symbol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO6symbolyA2EmF">symbol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">symbol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO4nameyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO4nameyA2EmF">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">name</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO5imageyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/image" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO5imageyA2EmF">image</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">image</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO3athyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/ath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO3athyA2EmF">ath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ath</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO3atlyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/atl" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO3atlyA2EmF">atl</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">atl</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO12currentPriceyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/currentPrice" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO12currentPriceyA2EmF">currentPrice</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">currentPrice</span> <span class="o">=</span> <span class="s">"current_price"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO9marketCapyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/marketCap" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO9marketCapyA2EmF">marketCap</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">marketCap</span> <span class="o">=</span> <span class="s">"market_cap"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO13marketCapRankyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/marketCapRank" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO13marketCapRankyA2EmF">marketCapRank</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">marketCapRank</span> <span class="o">=</span> <span class="s">"market_cap_rank"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO21fullyDilutedValuationyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/fullyDilutedValuation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO21fullyDilutedValuationyA2EmF">fullyDilutedValuation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fullyDilutedValuation</span> <span class="o">=</span> <span class="s">"fully_diluted_valuation"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO11totalVolumeyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/totalVolume" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO11totalVolumeyA2EmF">totalVolume</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">totalVolume</span> <span class="o">=</span> <span class="s">"total_volume"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO7high24HyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/high24H" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO7high24HyA2EmF">high24H</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">high24H</span> <span class="o">=</span> <span class="s">"high_24h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO6low24HyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/low24H" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO6low24HyA2EmF">low24H</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">low24H</span> <span class="o">=</span> <span class="s">"low_24h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO14priceChange24HyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/priceChange24H" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO14priceChange24HyA2EmF">priceChange24H</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">priceChange24H</span> <span class="o">=</span> <span class="s">"price_change_24h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO24priceChangePercentage24HyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/priceChangePercentage24H" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO24priceChangePercentage24HyA2EmF">priceChangePercentage24H</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">priceChangePercentage24H</span> <span class="o">=</span> <span class="s">"price_change_percentage_24h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO18marketCapChange24HyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/marketCapChange24H" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO18marketCapChange24HyA2EmF">marketCapChange24H</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">marketCapChange24H</span> <span class="o">=</span> <span class="s">"market_cap_change_24h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO28marketCapChangePercentage24HyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/marketCapChangePercentage24H" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO28marketCapChangePercentage24HyA2EmF">marketCapChangePercentage24H</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">marketCapChangePercentage24H</span> <span class="o">=</span> <span class="s">"market_cap_change_percentage_24h"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO17circulatingSupplyyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/circulatingSupply" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO17circulatingSupplyyA2EmF">circulatingSupply</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">circulatingSupply</span> <span class="o">=</span> <span class="s">"circulating_supply"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO11totalSupplyyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/totalSupply" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO11totalSupplyyA2EmF">totalSupply</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">totalSupply</span> <span class="o">=</span> <span class="s">"total_supply"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO9maxSupplyyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/maxSupply" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO9maxSupplyyA2EmF">maxSupply</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">maxSupply</span> <span class="o">=</span> <span class="s">"max_supply"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO19athChangePercentageyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/athChangePercentage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO19athChangePercentageyA2EmF">athChangePercentage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">athChangePercentage</span> <span class="o">=</span> <span class="s">"ath_change_percentage"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO7athDateyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/athDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO7athDateyA2EmF">athDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">athDate</span> <span class="o">=</span> <span class="s">"ath_date"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO19atlChangePercentageyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/atlChangePercentage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO19atlChangePercentageyA2EmF">atlChangePercentage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">atlChangePercentage</span> <span class="o">=</span> <span class="s">"atl_change_percentage"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO7atlDateyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/atlDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO7atlDateyA2EmF">atlDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">atlDate</span> <span class="o">=</span> <span class="s">"atl_date"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO11lastUpdatedyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/lastUpdated" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO11lastUpdatedyA2EmF">lastUpdated</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">lastUpdated</span> <span class="o">=</span> <span class="s">"last_updated"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO11sparkline7dyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/sparkline7d" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO11sparkline7dyA2EmF">sparkline7d</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sparkline7d</span> <span class="o">=</span> <span class="s">"sparkline_in_7d"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto4CoinV10CodingKeysO15currentHoldingsyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/currentHoldings" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto4CoinV10CodingKeysO15currentHoldingsyA2EmF">currentHoldings</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">currentHoldings</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2021 <a class="link" href="" target="_blank" rel="noopener" rel="external"></a>. All rights reserved. (Last updated: 2021-09-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
