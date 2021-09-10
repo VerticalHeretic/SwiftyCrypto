@@ -6,3 +6,11 @@
 
 Crypto Currency feed app, made with course by: [Swiftful Thinking](https://www.youtube.com/channel/UCp25X4LzOLaksp5qY0YMUzg), and my tweaks, CI pipeline, testing etc.
 
+### How to: 
+---
+#### Documentation
+To generate new documentation for the project you can just simply use: 
+
+```bash
+make documentation
+```
