@@ -9,7 +9,7 @@ Crypto Currency feed app, made with course by: [Swiftful Thinking](https://www.y
 ### How to: 
 ---
 #### Documentation
-To generate new documentation for the project you can just simply use: 
+To generate new [documentation](https://lswarss.github.io/SwiftyCrypto/) for the project you can just simply use: 
 
 ```bash
 make documentation
