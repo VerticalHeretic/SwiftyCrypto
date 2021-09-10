@@ -21,4 +21,4 @@ jobs:
           bundle install 
       - name: Testing iOS app
         run: |
-          fastlane tests
+          bundle exec fastlane tests
