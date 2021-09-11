@@ -19,7 +19,13 @@ class HomeViewModel : ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        addSubscribers()
+        
+        if ProcessInfo.processInfo.environment["IS_UNIT_TESTING"] == "1" {
+            allCoins = [Coin.testableCoin, Coin.testableCoin, Coin.testableCoin]
+        } else {
+            addSubscribers()
+        }
+   
     }
     
     /// Adds subscribers to the view model
