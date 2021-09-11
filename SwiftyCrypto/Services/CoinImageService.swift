@@ -12,6 +12,7 @@ import Combine
 class CoinImageService {
     
     @Published var image : UIImage? = nil
+    @Published var isLoading : Bool = false
     
     private let fileManager = LocalFileManager.instance
     private var imageSubscription : AnyCancellable?
@@ -31,6 +32,7 @@ class CoinImageService {
             image = savedImage
             print("[✅] Retrieved image from File Manager")
         } else {
+            self.isLoading = true
             downloadCoinImage()
             print("[🛬] Downloading image now")
         }
@@ -47,6 +49,7 @@ class CoinImageService {
                 
                 guard let self = self, let downloadedImage = returnedImage else { return }
                 
+                self.isLoading = false
                 self.image = returnedImage
                 self.imageSubscription?.cancel()
                 self.fileManager.saveImage(image: downloadedImage, imageName: self.imageName, folderName: self.folderName)
