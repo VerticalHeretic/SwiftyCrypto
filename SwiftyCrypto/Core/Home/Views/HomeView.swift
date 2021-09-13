@@ -17,28 +17,35 @@ struct HomeView: View {
         ZStack {
             // background layer
             Color.theme.background.ignoresSafeArea()
-            
-            // content layer
-            VStack {
-                homeHeader
-                
-                HomeStatsView(showPortfolio: $showPortfolio)
-                SearchBarView(searchText: $vm.searchText)
-                
-                columnTitles
-                
-                if !showPortfolio {
-                    allCoinsList
-                    .transition(.move(edge: .leading))
+                        
+                // content layer
+                VStack {
+                    homeHeader
                     
+                    HomeStatsView(showPortfolio: $showPortfolio)
+                    SearchBarView(searchText: $vm.searchText)
+                    
+                    columnTitles
+                    
+                    if vm.isLoading {
+                        ProgressView()
+                            .padding(.top, 200)
+                            .transition(.opacity)
+                    } else {
+                        
+                        if !showPortfolio {
+                            allCoinsList
+                                .transition(.move(edge: .leading))
+                            
+                        }
+                        
+                        if showPortfolio {
+                            portfolioCoinsList
+                                .transition(.move(edge: .trailing))
+                        }
+                   
                 }
-                
-                if showPortfolio {
-                    portfolioCoinsList
-                        .transition(.move(edge: .trailing))
-                }
-                
-                Spacer(minLength: 0)
+                    Spacer(minLength: 0)
             }
             
         }
