@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>HomeViewModel Class Reference</title>
+    <title>MarketData Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/HomeViewModel" class="dashAnchor"></a>
-    <a title="HomeViewModel Class Reference"></a>
+    <a name="//apple_ref/swift/Struct/MarketData" class="dashAnchor"></a>
+    <a title="MarketData Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (17% documented)</p>
@@ -29,7 +29,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        HomeViewModel Class Reference
+        MarketData Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -193,11 +193,11 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>HomeViewModel</h1>
+            <h1>MarketData</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">HomeViewModel</span> <span class="p">:</span> <span class="kt">ObservableObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">MarketData</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
 
                 </div>
               </div>
@@ -210,9 +210,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12SwiftyCrypto13HomeViewModelC10statisticsSayAA9StatisticVGvp"></a>
-                    <a name="//apple_ref/swift/Property/statistics" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC10statisticsSayAA9StatisticVGvp">statistics</a>
+                    <a name="/s:12SwiftyCrypto10MarketDataV22activeCryptocurrenciesSivp"></a>
+                    <a name="//apple_ref/swift/Property/activeCryptocurrencies" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV22activeCryptocurrenciesSivp">activeCryptocurrencies</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -227,8 +227,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@Published</span>
-<span class="k">var</span> <span class="nv">statistics</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Statistic.html">Statistic</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">activeCryptocurrencies</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -238,9 +237,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12SwiftyCrypto13HomeViewModelC8allCoinsSayAA4CoinVGvp"></a>
-                    <a name="//apple_ref/swift/Property/allCoins" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC8allCoinsSayAA4CoinVGvp">allCoins</a>
+                    <a name="/s:12SwiftyCrypto10MarketDataV12upcomingIcosSivp"></a>
+                    <a name="//apple_ref/swift/Property/upcomingIcos" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV12upcomingIcosSivp">upcomingIcos</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -255,8 +254,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@Published</span>
-<span class="k">var</span> <span class="nv">allCoins</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Coin.html">Coin</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">upcomingIcos</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -266,9 +264,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12SwiftyCrypto13HomeViewModelC14portfolioCoinsSayAA4CoinVGvp"></a>
-                    <a name="//apple_ref/swift/Property/portfolioCoins" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC14portfolioCoinsSayAA4CoinVGvp">portfolioCoins</a>
+                    <a name="/s:12SwiftyCrypto10MarketDataV11ongoingIcosSivp"></a>
+                    <a name="//apple_ref/swift/Property/ongoingIcos" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV11ongoingIcosSivp">ongoingIcos</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -283,8 +281,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@Published</span>
-<span class="k">var</span> <span class="nv">portfolioCoins</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Coin.html">Coin</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">ongoingIcos</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -294,9 +291,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12SwiftyCrypto13HomeViewModelC10searchTextSSvp"></a>
-                    <a name="//apple_ref/swift/Property/searchText" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC10searchTextSSvp">searchText</a>
+                    <a name="/s:12SwiftyCrypto10MarketDataV9endedIcosSivp"></a>
+                    <a name="//apple_ref/swift/Property/endedIcos" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV9endedIcosSivp">endedIcos</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -311,8 +308,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@Published</span>
-<span class="k">var</span> <span class="nv">searchText</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">endedIcos</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -322,9 +318,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12SwiftyCrypto13HomeViewModelC12coinsLoadingSbvp"></a>
-                    <a name="//apple_ref/swift/Property/coinsLoading" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC12coinsLoadingSbvp">coinsLoading</a>
+                    <a name="/s:12SwiftyCrypto10MarketDataV7marketsSivp"></a>
+                    <a name="//apple_ref/swift/Property/markets" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV7marketsSivp">markets</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -339,8 +335,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@Published</span>
-<span class="k">var</span> <span class="nv">coinsLoading</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">markets</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -350,9 +345,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12SwiftyCrypto13HomeViewModelCACycfc"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelCACycfc">init()</a>
+                    <a name="/s:12SwiftyCrypto10MarketDataV05totalC3CapSDySSSdGvp"></a>
+                    <a name="//apple_ref/swift/Property/totalMarketCap" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV05totalC3CapSDySSSdGvp">totalMarketCap</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -367,7 +362,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">totalMarketCap</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Double</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -377,9 +372,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12SwiftyCrypto13HomeViewModelC14addSubscribersyyF"></a>
-                    <a name="//apple_ref/swift/Method/addSubscribers()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC14addSubscribersyyF">addSubscribers()</a>
+                    <a name="/s:12SwiftyCrypto10MarketDataV11totalVolumeSDySSSdGvp"></a>
+                    <a name="//apple_ref/swift/Property/totalVolume" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV11totalVolumeSDySSSdGvp">totalVolume</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -387,14 +382,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds subscribers to the view model</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addSubscribers</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">totalVolume</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Double</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -404,9 +399,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12SwiftyCrypto13HomeViewModelC11filterCoins4text5coinsSayAA4CoinVGSS_AItF"></a>
-                    <a name="//apple_ref/swift/Method/filterCoins(text:coins:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC11filterCoins4text5coinsSayAA4CoinVGSS_AItF">filterCoins(text:<wbr>coins:<wbr>)</a>
+                    <a name="/s:12SwiftyCrypto10MarketDataV19marketCapPercentageSDySSSdGvp"></a>
+                    <a name="//apple_ref/swift/Property/marketCapPercentage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV19marketCapPercentageSDySSSdGvp">marketCapPercentage</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -414,51 +409,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Filter coins by the given text. It checks if any coin&rsquo;s name, symbol or id contains the given text.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">filterCoins</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">coins</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Coin.html">Coin</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/Coin.html">Coin</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">marketCapPercentage</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Double</span><span class="p">]</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>text</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Search text</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>coins</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Arrays of coins to search in</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>Array of filtered coins</p>
                       </div>
                     </section>
                   </div>
@@ -466,9 +426,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12SwiftyCrypto13HomeViewModelC19mapGlobalMarketData06marketiE0SayAA9StatisticVGAA0hI0VSg_tF"></a>
-                    <a name="//apple_ref/swift/Method/mapGlobalMarketData(marketDataModel:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC19mapGlobalMarketData06marketiE0SayAA9StatisticVGAA0hI0VSg_tF">mapGlobalMarketData(marketDataModel:<wbr>)</a>
+                    <a name="/s:12SwiftyCrypto10MarketDataV31marketCapChangePercentage24HUsdSdvp"></a>
+                    <a name="//apple_ref/swift/Property/marketCapChangePercentage24HUsd" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV31marketCapChangePercentage24HUsdSdvp">marketCapChangePercentage24HUsd</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -476,39 +436,152 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Maps globalMarketData to wanted parts of top bar in application</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mapGlobalMarketData</span><span class="p">(</span><span class="nv">marketDataModel</span><span class="p">:</span> <span class="kt"><a href="../Structs/MarketData.html">MarketData</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/Statistic.html">Statistic</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">marketCapChangePercentage24HUsd</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>marketDataModel</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Data we get from CoinGeko from global endpoint</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto10MarketDataV9updatedAtSivp"></a>
+                    <a name="//apple_ref/swift/Property/updatedAt" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV9updatedAtSivp">updatedAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
                       </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>Array of wanted statistics</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">updatedAt</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto10MarketDataV10CodingKeysO"></a>
+                    <a name="//apple_ref/swift/Enum/CodingKeys" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV10CodingKeysO">CodingKeys</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Structs/MarketData/CodingKeys.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">CodingKeys</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto10MarketDataV9marketCapSSvp"></a>
+                    <a name="//apple_ref/swift/Property/marketCap" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV9marketCapSSvp">marketCap</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">marketCap</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto10MarketDataV6volumeSSvp"></a>
+                    <a name="//apple_ref/swift/Property/volume" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV6volumeSSvp">volume</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">volume</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto10MarketDataV12btcDominanceSSvp"></a>
+                    <a name="//apple_ref/swift/Property/btcDominance" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto10MarketDataV12btcDominanceSSvp">btcDominance</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Market cap procentage BITCONs have over all markecap</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">btcDominance</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
