@@ -18,9 +18,8 @@ class HomeViewModel : ObservableObject {
         Statistic(title: "Title", value: "Value", percentageChange: -1.0)]
     @Published var allCoins : [Coin] = []
     @Published var portfolioCoins : [Coin] = []
-    
-    
     @Published var searchText : String = ""
+    @Published var isLoading : Bool = false
     
     private let dataService = CoinDataService()
     private var cancellables = Set<AnyCancellable>()
@@ -37,6 +36,14 @@ class HomeViewModel : ObservableObject {
     
     /// Adds subscribers to the view model
     func addSubscribers() {
+        
+//         Updates about data loading
+        dataService.$isLoading
+            .sink { [weak self] (returnedLoading) in
+                self?.isLoading = returnedLoading
+            }
+            .store(in: &cancellables)
+
         // Updates allCoins
         $searchText
             .combineLatest(dataService.$allCoins)
