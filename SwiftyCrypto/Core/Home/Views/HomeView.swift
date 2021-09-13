@@ -27,7 +27,7 @@ struct HomeView: View {
                     
                     columnTitles
                     
-                    if vm.isLoading {
+                    if vm.coinsLoading {
                         ProgressView()
                             .padding(.top, 200)
                             .transition(.opacity)
