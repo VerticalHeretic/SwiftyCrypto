@@ -149,42 +149,42 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
-      "line": 14,
+      "line": 13,
       "symbol": "HomeViewModel.statistics",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
-      "line": 19,
+      "line": 14,
       "symbol": "HomeViewModel.allCoins",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
-      "line": 20,
+      "line": 15,
       "symbol": "HomeViewModel.portfolioCoins",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
-      "line": 21,
+      "line": 16,
       "symbol": "HomeViewModel.searchText",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
-      "line": 22,
-      "symbol": "HomeViewModel.isLoading",
+      "line": 17,
+      "symbol": "HomeViewModel.coinsLoading",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
-      "line": 27,
+      "line": 26,
       "symbol": "HomeViewModel.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -792,6 +792,181 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 166,
+      "symbol": "GlobalData.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 170,
+      "symbol": "MarketData",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 171,
+      "symbol": "MarketData.activeCryptocurrencies",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 171,
+      "symbol": "MarketData.endedIcos",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 171,
+      "symbol": "MarketData.ongoingIcos",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 171,
+      "symbol": "MarketData.upcomingIcos",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 172,
+      "symbol": "MarketData.markets",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 173,
+      "symbol": "MarketData.marketCapPercentage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 173,
+      "symbol": "MarketData.totalMarketCap",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 173,
+      "symbol": "MarketData.totalVolume",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 174,
+      "symbol": "MarketData.marketCapChangePercentage24HUsd",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 175,
+      "symbol": "MarketData.updatedAt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 177,
+      "symbol": "MarketData.CodingKeys",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 178,
+      "symbol": "MarketData.CodingKeys.activeCryptocurrencies",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 179,
+      "symbol": "MarketData.CodingKeys.upcomingIcos",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 180,
+      "symbol": "MarketData.CodingKeys.ongoingIcos",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 181,
+      "symbol": "MarketData.CodingKeys.endedIcos",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 182,
+      "symbol": "MarketData.CodingKeys.markets",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 183,
+      "symbol": "MarketData.CodingKeys.totalMarketCap",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 184,
+      "symbol": "MarketData.CodingKeys.totalVolume",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 185,
+      "symbol": "MarketData.CodingKeys.marketCapPercentage",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 186,
+      "symbol": "MarketData.CodingKeys.marketCapChangePercentage24HUsd",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 187,
+      "symbol": "MarketData.CodingKeys.updatedAt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 190,
+      "symbol": "MarketData.marketCap",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 198,
+      "symbol": "MarketData.volume",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/StatisticModel.swift",
       "line": 10,
       "symbol": "Statistic",
@@ -893,6 +1068,34 @@
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinImageService.swift",
       "line": 24,
       "symbol": "CoinImageService.init(coin:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
+      "line": 11,
+      "symbol": "MarketDataService",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
+      "line": 13,
+      "symbol": "MarketDataService.marketData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
+      "line": 15,
+      "symbol": "MarketDataService.marketSubscription",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
+      "line": 17,
+      "symbol": "MarketDataService.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },

@@ -17,7 +17,7 @@
     <a title="HomeViewModel Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (18% documented)</p>
+        <p><a href="../index.html"> Docs</a> (17% documented)</p>
         <p class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -63,6 +63,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/LocalFileManager.html">LocalFileManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MarketDataService.html">MarketDataService</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NetworkingManager.html">NetworkingManager</a>
@@ -134,6 +137,9 @@
                 <a href="../Structs/ColorTheme.html">ColorTheme</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/GlobalData.html">GlobalData</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/HomeStatsView.html">HomeStatsView</a>
               </li>
               <li class="nav-group-task">
@@ -144,6 +150,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/HomeView_Previews.html">HomeView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MarketData.html">MarketData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MarketData/CodingKeys.html">– CodingKeys</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SearchBarView.html">SearchBarView</a>
@@ -310,9 +322,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12SwiftyCrypto13HomeViewModelC9isLoadingSbvp"></a>
-                    <a name="//apple_ref/swift/Property/isLoading" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC9isLoadingSbvp">isLoading</a>
+                    <a name="/s:12SwiftyCrypto13HomeViewModelC12coinsLoadingSbvp"></a>
+                    <a name="//apple_ref/swift/Property/coinsLoading" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC12coinsLoadingSbvp">coinsLoading</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -328,7 +340,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@Published</span>
-<span class="k">var</span> <span class="nv">isLoading</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+<span class="k">var</span> <span class="nv">coinsLoading</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -447,6 +459,56 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>Array of filtered coins</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12SwiftyCrypto13HomeViewModelC19mapGlobalMarketData06marketiE0SayAA9StatisticVGAA0hI0VSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/mapGlobalMarketData(marketDataModel:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12SwiftyCrypto13HomeViewModelC19mapGlobalMarketData06marketiE0SayAA9StatisticVGAA0hI0VSg_tF">mapGlobalMarketData(marketDataModel:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Maps globalMarketData to wanted parts of top bar in application</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mapGlobalMarketData</span><span class="p">(</span><span class="nv">marketDataModel</span><span class="p">:</span> <span class="kt"><a href="../Structs/MarketData.html">MarketData</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/Statistic.html">Statistic</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>marketDataModel</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Data we get from CoinGeko from global endpoint</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of wanted statistics</p>
                       </div>
                     </section>
                   </div>
