@@ -225,6 +225,7 @@ class DeveloperPreview {
         currentHoldings: 1.5)
     
     let stat1 = Statistic(title: "Market Cup", value: "$12.5Bn", percentageChange: 25.34)
-    let stat2 = Statistic(title: "Total value", value: "$1,23Bn")
+    let stat2 = Statistic(title: "Total Value", value: "$1,23Bn")
+    let stat3 = Statistic(title: "Portfolio Value", value: "$50.4K", percentageChange: -4.20)
     
 }

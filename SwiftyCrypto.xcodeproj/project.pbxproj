@@ -22,6 +22,7 @@
 		7A2F4DEA26A5FDB200C6FA3E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F4DE926A5FDB200C6FA3E /* HomeViewModel.swift */; };
 		7A55E31126A68C1500384DB6 /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A55E31026A68C1500384DB6 /* CoinDataService.swift */; };
 		7A749C2C26EB7D870061C864 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A749C2B26EB7D870061C864 /* UIApplication.swift */; };
+		7A78A92C26EF246D003DCB3E /* HomeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A78A92B26EF246D003DCB3E /* HomeStatsView.swift */; };
 		7A9D999526EB26BA00E7F50B /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D999426EB26BA00E7F50B /* LocalFileManager.swift */; };
 		7A9D999926EB4B2400E7F50B /* LocalFileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D999826EB4B2400E7F50B /* LocalFileManagerTests.swift */; };
 		7A9D999D26EB4B7100E7F50B /* ImagesSavingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D999C26EB4B7100E7F50B /* ImagesSavingManager.swift */; };
@@ -65,6 +66,7 @@
 		7A2F4DE926A5FDB200C6FA3E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7A55E31026A68C1500384DB6 /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
 		7A749C2B26EB7D870061C864 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		7A78A92B26EF246D003DCB3E /* HomeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsView.swift; sourceTree = "<group>"; };
 		7A9D999426EB26BA00E7F50B /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		7A9D999826EB4B2400E7F50B /* LocalFileManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManagerTests.swift; sourceTree = "<group>"; };
 		7A9D999C26EB4B7100E7F50B /* ImagesSavingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSavingManager.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				7A11E95E26A2DF7400B3D36C /* HomeView.swift */,
+				7A78A92B26EF246D003DCB3E /* HomeStatsView.swift */,
 				7AA8719026A5E59D00D3B2FE /* CoinRowView.swift */,
 			);
 			path = Views;
@@ -402,6 +405,7 @@
 				7A11E95926A06F7800B3D36C /* Color.swift in Sources */,
 				7A0E75B826E954A300C6DFB5 /* NetworkingManager.swift in Sources */,
 				7A9D99A326EB782F00E7F50B /* SearchBarView.swift in Sources */,
+				7A78A92C26EF246D003DCB3E /* HomeStatsView.swift in Sources */,
 				7A0E75BF26E9EDA500C6DFB5 /* CoinImageViewModel.swift in Sources */,
 				7A9D999D26EB4B7100E7F50B /* ImagesSavingManager.swift in Sources */,
 				7A11E96526A2E32D00B3D36C /* CircleButtonAnimationView.swift in Sources */,
