@@ -12,6 +12,7 @@ class CoinDataService {
     
     @Published var allCoins: [Coin] = []
     @Published var isLoading : Bool = false
+    @Published var isError : Bool = false
     
     var coinSubscription : AnyCancellable?
     
@@ -26,11 +27,19 @@ class CoinDataService {
         
         coinSubscription = NetworkingManager.download(url: url)
             .decode(type: [Coin].self, decoder: JSONDecoder())
-            .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] (returnedCoins) in
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self.isError = true
+                    print(error.localizedDescription)
+                }
+            }, receiveValue: { [weak self] (returnedCoins) in
                 self?.isLoading = false
                 self?.allCoins = returnedCoins
                 self?.coinSubscription?.cancel()
             })
-           
+        
     }
 }

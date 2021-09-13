@@ -37,6 +37,33 @@ struct HomeView: View {
                         ProgressView()
                             .padding(.top, 200)
                             .transition(.opacity)
+                    } else if vm.showError {
+                        VStack(alignment: .center, spacing: 15){
+                            Image(systemName: "xmark.octagon.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(Color.theme.red)
+                            
+                            Text("Unfortunately error happen when getting data.")
+                                .multilineTextAlignment(.center)
+                            
+                            Button {
+                                vm.addSubscribers()
+                            } label: {
+                                Image(systemName: "repeat")
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .foregroundColor(Color.theme.red)
+                                    )
+                            }
+
+                          
+                        
+                        }
+                        .frame(width: 150)
+                        .padding(.top, 100)
+                        .transition(.opacity)
                     } else {
                         
                         if !showPortfolio {
