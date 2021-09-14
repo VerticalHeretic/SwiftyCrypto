@@ -86,6 +86,7 @@ class HomeViewModel : ObservableObject {
             .store(in: &cancellables)
     }
     
+    /// Updates porfolio data in CoreData storage
     func updatePortfolio(coin: Coin, amount: Double) {
         portfolioDataService.updatePortfolio(coin: coin, amount: amount)
     }

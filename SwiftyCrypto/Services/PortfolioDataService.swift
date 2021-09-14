@@ -29,6 +29,9 @@ class PortfolioDataService {
     
     //MARK: - Public
     
+    /// Updates portfolio for given **Coin** and **Amount**
+    ///
+    /// If given coin id is in CoreData storage and amount if bigger then 0 we update it, if is 0 then we remove the coin from storage.  Else we add new coin to storage.
     func updatePortfolio(coin: Coin, amount: Double) {
         
         if let entity = savedEntities.first(where: { $0.coinID == coin.id }) {
