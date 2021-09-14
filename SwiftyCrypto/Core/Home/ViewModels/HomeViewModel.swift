@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+
 class HomeViewModel : ObservableObject {
     
     @Published var statistics : [Statistic] = []
@@ -15,6 +16,12 @@ class HomeViewModel : ObservableObject {
     @Published var portfolioCoins : [Coin] = []
     @Published var searchText : String = ""
     @Published var coinsLoading : Bool = false
+    @Published var showError : Bool = false
+    {
+        didSet {
+            showError = coinDataService.isError
+        }
+    }
     
     /// Main list of currencies service
     private let coinDataService = CoinDataService()

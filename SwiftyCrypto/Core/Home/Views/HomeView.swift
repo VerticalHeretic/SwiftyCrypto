@@ -9,14 +9,20 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var showPortfolio : Bool = false
+    @State private var showPortfolio : Bool = false // anime right
+    @State private var showPortfolioView : Bool = false // new sheet
     
     @EnvironmentObject private var vm : HomeViewModel
     
     var body: some View {
         ZStack {
             // background layer
-            Color.theme.background.ignoresSafeArea()
+            Color.theme.background
+                .ignoresSafeArea()
+                .sheet(isPresented: $showPortfolioView) {
+                    PortfolioView()
+                        .environmentObject(vm)
+                }
                         
                 // content layer
                 VStack {
@@ -31,6 +37,33 @@ struct HomeView: View {
                         ProgressView()
                             .padding(.top, 200)
                             .transition(.opacity)
+                    } else if vm.showError {
+                        VStack(alignment: .center, spacing: 15){
+                            Image(systemName: "xmark.octagon.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(Color.theme.red)
+                            
+                            Text("Unfortunately error happen when getting data.")
+                                .multilineTextAlignment(.center)
+                            
+                            Button {
+                                vm.addSubscribers()
+                            } label: {
+                                Image(systemName: "repeat")
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .foregroundColor(Color.theme.red)
+                                    )
+                            }
+
+                          
+                        
+                        }
+                        .frame(width: 150)
+                        .padding(.top, 100)
+                        .transition(.opacity)
                     } else {
                         
                         if !showPortfolio {
@@ -68,6 +101,11 @@ extension HomeView {
         HStack{
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
                 .animation(.none)
+                .onTapGesture {
+                    if showPortfolio {
+                        showPortfolioView.toggle()
+                    }
+                }
                 .background(
                 CircleButtonAnimationView(animate: $showPortfolio
                 ))
