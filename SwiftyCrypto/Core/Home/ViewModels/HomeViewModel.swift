@@ -61,17 +61,7 @@ class HomeViewModel : ObservableObject {
         // Updates porfolioCoins
         $allCoins
             .combineLatest(portfolioDataService.$savedEntities)
-            .map { (coins, portfolioEntities) -> [Coin] in
-                
-                coins
-                    .compactMap { coin -> Coin? in
-                        guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id
-                        }) else {
-                            return nil
-                        }
-                        return coin.updateHoldings(amount: entity.amount)
-                    }
-            }
+            .map(mapAllCoinsToPortfolioCoins)
             .sink { [weak self] (returnedCoins) in
                 self?.portfolioCoins = returnedCoins
             }
@@ -94,6 +84,13 @@ class HomeViewModel : ObservableObject {
         portfolioDataService.updatePortfolio(coin: coin, amount: amount)
     }
     
+    /// Reloads data in API handling services
+    func reloadData() {
+        self.coinsLoading = true
+        coinDataService.getCoins()
+        marketDataService.getMarketData()
+        HapticManager.notification(notificationType: .success)
+    }
     
     /**
      Filter coins by the given text. It checks if any coin's name, symbol or id contains the given text.
@@ -112,6 +109,26 @@ class HomeViewModel : ObservableObject {
         return coins.filter { coin -> Bool in
             return coin.name.lowercased().contains(lowercasedText) || coin.symbol.lowercased().contains(lowercasedText) || coin.id.contains(lowercasedText)
         }
+    }
+    
+    /**
+        Maps allCoins and portfolioCoins to return current porfolio coins of the user with prices etc.
+        - Parameters:
+            - allCoins : All coins (probably filtered) from the viewmodel
+            - portfolioEntities: Entities of porfolio, taken from users CoreData storage
+        - Returns: Array of coins in users portfolio
+     
+     */
+    private func mapAllCoinsToPortfolioCoins(allCoins: [Coin], portfolioEntities: [PortfolioEntity]) -> [Coin] {
+        
+        allCoins
+            .compactMap { coin -> Coin? in
+                guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id
+                }) else {
+                    return nil
+                }
+                return coin.updateHoldings(amount: entity.amount)
+            }
     }
     
     /**

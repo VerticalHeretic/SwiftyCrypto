@@ -36,7 +36,6 @@ struct HomeView: View {
                     if vm.coinsLoading {
                         ProgressView()
                             .padding(.top, 200)
-                            .transition(.opacity)
                     } else if vm.showError {
                         VStack(alignment: .center, spacing: 15){
                             Image(systemName: "xmark.octagon.fill")
@@ -59,17 +58,19 @@ struct HomeView: View {
                             }
 
                           
-                        
+                            
                         }
                         .frame(width: 150)
                         .padding(.top, 100)
-                        .transition(.opacity)
                     } else {
                         
                         if !showPortfolio {
-                            allCoinsList
-                                .transition(.move(edge: .leading))
-                            
+                            if vm.coinsLoading {
+                                allCoinsList
+                            } else {
+                                allCoinsList
+                                    .transition(.move(edge: .leading))
+                            }
                         }
                         
                         if showPortfolio {
@@ -155,6 +156,18 @@ extension HomeView {
             }
             Text("Price")
                 .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+            
+            Button {
+                withAnimation(.default) {
+                    
+                    vm.reloadData()
+                }
+            } label: {
+                Image(systemName: "goforward")
+            }
+            
+            .rotationEffect(Angle(degrees: vm.coinsLoading ? 360 : 0), anchor: .center)
+
         }
         .font(.caption)
         .foregroundColor(Color.theme.secondaryText)

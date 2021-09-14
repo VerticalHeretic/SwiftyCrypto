@@ -145,7 +145,7 @@ extension PortfolioView {
                     Text("Save".uppercased())
                 }
                 .opacity(
-                    (selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText)) ? 1.0 : 0.0
+                    (selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText.replacingOccurrences(of: ",", with: "."))) ? 1.0 : 0.0
                 )
             }
             .font(.headline)
@@ -158,7 +158,7 @@ extension PortfolioView {
 extension PortfolioView {
     
     private func getCurrentValue() -> Double {
-        if let quantity = Double(quantityText) {
+        if let quantity = Double(quantityText.replacingOccurrences(of: ",", with: ".")) {
             return quantity * (selectedCoin?.currentPrice ?? 0)
         }
         
@@ -167,7 +167,7 @@ extension PortfolioView {
     
     private func saveButtonPressed() {
         guard let coin = selectedCoin,
-              let amount = Double(quantityText)
+              let amount = Double(quantityText.replacingOccurrences(of: ",", with: "."))
         else { return }
         
         // save to portfolio
