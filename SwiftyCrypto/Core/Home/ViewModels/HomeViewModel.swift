@@ -17,16 +17,13 @@ class HomeViewModel : ObservableObject {
     @Published var searchText : String = ""
     @Published var coinsLoading : Bool = false
     @Published var showError : Bool = false
-    {
-        didSet {
-            showError = coinDataService.isError
-        }
-    }
     
     /// Main list of currencies service
     private let coinDataService = CoinDataService()
     /// Top bar market data service
     private let marketDataService = MarketDataService()
+    /// PorfolioView service to save, get, update, remove from CoreData
+    private let portfolioDataService = PortfolioDataService()
     /// Set of cancelables to store in the subscribers
     private var cancellables = Set<AnyCancellable>()
     
@@ -68,8 +65,31 @@ class HomeViewModel : ObservableObject {
                 self?.statistics = returnedStats
             }
             .store(in: &cancellables)
-            
+                
+        // Updates porfolioCoins
+        $allCoins
+            .combineLatest(portfolioDataService.$savedEntities)
+            .map { (coins, portfolioEntities) -> [Coin] in
+                
+                coins
+                    .compactMap { coin -> Coin? in
+                        guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id
+                        }) else {
+                            return nil
+                        }
+                        return coin.updateHoldings(amount: entity.amount)
+                    }
+            }
+            .sink { [weak self] (returnedCoins) in
+                self?.portfolioCoins = returnedCoins
+            }
+            .store(in: &cancellables)
     }
+    
+    func updatePortfolio(coin: Coin, amount: Double) {
+        portfolioDataService.updatePortfolio(coin: coin, amount: amount)
+    }
+    
     
     /**
      Filter coins by the given text. It checks if any coin's name, symbol or id contains the given text.
