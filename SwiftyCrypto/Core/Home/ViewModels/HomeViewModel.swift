@@ -17,16 +17,13 @@ class HomeViewModel : ObservableObject {
     @Published var searchText : String = ""
     @Published var coinsLoading : Bool = false
     @Published var showError : Bool = false
-    {
-        didSet {
-            showError = coinDataService.isError
-        }
-    }
     
     /// Main list of currencies service
     private let coinDataService = CoinDataService()
     /// Top bar market data service
     private let marketDataService = MarketDataService()
+    /// PorfolioView service to save, get, update, remove from CoreData
+    private let portfolioDataService = PortfolioDataService()
     /// Set of cancelables to store in the subscribers
     private var cancellables = Set<AnyCancellable>()
     
@@ -44,7 +41,7 @@ class HomeViewModel : ObservableObject {
     /// Adds subscribers to the view model
     func addSubscribers() {
         
-//         Updates about data loading
+        //Updates about data loading
         coinDataService.$isLoading
             .sink { [weak self] (returnedLoading) in
                 self?.coinsLoading = returnedLoading
@@ -61,14 +58,38 @@ class HomeViewModel : ObservableObject {
             }
             .store(in: &cancellables)
         
+        // Updates porfolioCoins
+        $allCoins
+            .combineLatest(portfolioDataService.$savedEntities)
+            .map(mapAllCoinsToPortfolioCoins)
+            .sink { [weak self] (returnedCoins) in
+                self?.portfolioCoins = returnedCoins
+            }
+            .store(in: &cancellables)
+        
         // Updates statistics
         marketDataService.$marketData
+            .combineLatest($portfolioCoins)
             .map(mapGlobalMarketData)
             .sink { [weak self] returnedStats in
                 self?.statistics = returnedStats
             }
             .store(in: &cancellables)
-            
+                
+       
+    }
+    
+    /// Updates porfolio data in CoreData storage
+    func updatePortfolio(coin: Coin, amount: Double) {
+        portfolioDataService.updatePortfolio(coin: coin, amount: amount)
+    }
+    
+    /// Reloads data in API handling services
+    func reloadData() {
+        self.coinsLoading = true
+        coinDataService.getCoins()
+        marketDataService.getMarketData()
+        HapticManager.notification(notificationType: .success)
     }
     
     /**
@@ -91,12 +112,33 @@ class HomeViewModel : ObservableObject {
     }
     
     /**
+        Maps allCoins and portfolioCoins to return current porfolio coins of the user with prices etc.
+        - Parameters:
+            - allCoins : All coins (probably filtered) from the viewmodel
+            - portfolioEntities: Entities of porfolio, taken from users CoreData storage
+        - Returns: Array of coins in users portfolio
+     
+     */
+    private func mapAllCoinsToPortfolioCoins(allCoins: [Coin], portfolioEntities: [PortfolioEntity]) -> [Coin] {
+        
+        allCoins
+            .compactMap { coin -> Coin? in
+                guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id
+                }) else {
+                    return nil
+                }
+                return coin.updateHoldings(amount: entity.amount)
+            }
+    }
+    
+    /**
         Maps globalMarketData to wanted parts of top bar in application
         - Parameters:
             - marketDataModel: Data we get from CoinGeko from global endpoint
+            - portfolioCoins : Coins user has in his portfolio
         - Returns: Array of wanted statistics
      */
-    func mapGlobalMarketData(marketDataModel : MarketData?) -> [Statistic] {
+    func mapGlobalMarketData(marketDataModel : MarketData?, portfolioCoins : [Coin]) -> [Statistic] {
         var stats: [Statistic] = []
         
         guard let data = marketDataModel else {
@@ -106,7 +148,23 @@ class HomeViewModel : ObservableObject {
         let marketCap = Statistic(title: "Market Cap", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd)
         let volume = Statistic(title: "24h Volume", value: data.volume)
         let btcDominance = Statistic(title: "BTC Dominance", value: data.btcDominance)
-        let portfolio = Statistic(title: "Portfolio Value", value: "$0.00", percentageChange: 0)
+                
+        let portfolioValue = portfolioCoins
+            .map({ $0.currentHoldingsValue })
+            .reduce(0, +)
+        
+        let previousValue = portfolioCoins
+            .map { (coin) -> Double in
+                let currentValue = coin.currentHoldingsValue
+                let percentChange = coin.priceChangePercentage24H ?? 0 / 100 // 25% -> 25 that is how the data is coming from the API
+                let previousValue = currentValue / (1 + percentChange)
+                return previousValue
+            }
+            .reduce(0, +)
+        
+        let percentageChange = ((portfolioValue - previousValue) / previousValue) * 100
+        
+        let portfolio = Statistic(title: "Portfolio Value", value: portfolioValue.asCurrencyWith2Decimals(), percentageChange: percentageChange)
         
         stats.append(contentsOf: [marketCap, volume, btcDominance, portfolio])
         
