@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-
 class HomeViewModel : ObservableObject {
     
     @Published var statistics : [Statistic] = []
@@ -17,6 +16,7 @@ class HomeViewModel : ObservableObject {
     @Published var searchText : String = ""
     @Published var coinsLoading : Bool = false
     @Published var showError : Bool = false
+    @Published var sortOption : SortOption = .holdings
     
     /// Main list of currencies service
     private let coinDataService = CoinDataService()
@@ -26,6 +26,16 @@ class HomeViewModel : ObservableObject {
     private let portfolioDataService = PortfolioDataService()
     /// Set of cancelables to store in the subscribers
     private var cancellables = Set<AnyCancellable>()
+    
+    /// Main list sorting options
+    enum SortOption {
+        case rank
+        case rankReversed
+        case holdings
+        case holdingsReversed
+        case price
+        case priceReversed
+    }
     
     init() {
         
@@ -41,7 +51,7 @@ class HomeViewModel : ObservableObject {
     /// Adds subscribers to the view model
     func addSubscribers() {
         
-        //Updates about data loading
+        // Updates about data loading
         coinDataService.$isLoading
             .sink { [weak self] (returnedLoading) in
                 self?.coinsLoading = returnedLoading
@@ -50,9 +60,9 @@ class HomeViewModel : ObservableObject {
 
         // Updates allCoins
         $searchText
-            .combineLatest(coinDataService.$allCoins)
+            .combineLatest(coinDataService.$allCoins, $sortOption)
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-            .map(filterCoins)
+            .map(filterAndSortCoins)
             .sink { [weak self] (returnedCoins) in
                 self?.allCoins = returnedCoins
             }
@@ -63,7 +73,9 @@ class HomeViewModel : ObservableObject {
             .combineLatest(portfolioDataService.$savedEntities)
             .map(mapAllCoinsToPortfolioCoins)
             .sink { [weak self] (returnedCoins) in
-                self?.portfolioCoins = returnedCoins
+                guard let self = self else { return }
+            
+                self.portfolioCoins = self.sortPortfolioCoinsIfNeeded(coins: returnedCoins)
             }
             .store(in: &cancellables)
         
@@ -91,6 +103,47 @@ class HomeViewModel : ObservableObject {
         marketDataService.getMarketData()
         HapticManager.notification(notificationType: .success)
     }
+    
+    /**
+     Filter coins by the given text. It checks if any coin's name, symbol or id contains the given text. And then sorts it by given sort option.
+     - Parameters:
+        - text: Search text
+        - coins: Arrays of coins to search in
+        - sort : Sort option from **SortOption** enum
+     - Returns: Array of filtered and sorted coins
+     */
+    func filterAndSortCoins(text: String, coins: [Coin], sort: SortOption) -> [Coin] {
+        var filteredCoins = filterCoins(text: text, coins: coins)
+        sortCoins(sort: sort, coins: &filteredCoins)
+        return filteredCoins
+    }
+    
+    /// Sorts referenced array of coins by given **SortOption**
+    private func sortCoins(sort: SortOption, coins: inout [Coin]) {
+        switch sort {
+        case .rank, .holdings:
+            coins.sort(by: { $0.rank < $1.rank })
+        case .rankReversed, .holdingsReversed:
+             coins.sort(by: { $0.rank > $1.rank })
+        case .price:
+             coins.sort(by: { $0.currentPrice < $1.currentPrice})
+        case .priceReversed:
+             coins.sort(by: { $0.currentPrice > $1.currentPrice})
+        }
+    }
+    
+    /// Sorts  array of coins in portfolio if needed
+    private func sortPortfolioCoinsIfNeeded(coins: [Coin]) -> [Coin]{
+        switch sortOption {
+        case .holdings:
+            return coins.sorted(by: { $0.currentHoldingsValue > $1.currentHoldingsValue})
+        case .holdingsReversed:
+            return coins.sorted(by: { $0.currentHoldingsValue < $1.currentHoldingsValue})
+        default:
+            return coins
+        }
+    }
+    
     
     /**
      Filter coins by the given text. It checks if any coin's name, symbol or id contains the given text.
