@@ -162,6 +162,48 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
+      "line": 10,
+      "symbol": "DetailLoadingView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
+      "line": 11,
+      "symbol": "DetailLoadingView.coin",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
+      "line": 24,
+      "symbol": "DetailView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
+      "line": 26,
+      "symbol": "DetailView.coin",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
+      "line": 28,
+      "symbol": "DetailView.init(coin:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
+      "line": 37,
+      "symbol": "DetailView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
       "line": 11,
       "symbol": "HomeViewModel",
@@ -289,7 +331,7 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/Views/CoinRowView.swift",
-      "line": 28,
+      "line": 31,
       "symbol": "CoinRowView_Previews",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
@@ -324,7 +366,7 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/Views/HomeView.swift",
-      "line": 84,
+      "line": 89,
       "symbol": "HomeView_Previews",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
