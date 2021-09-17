@@ -8,9 +8,15 @@
 import Foundation
 import Combine
 
-class MarketDataService {
+class MarketDataService : ErrorPublishedProtocol {
     
     @Published var marketData: MarketData? = nil
+    @Published private(set) var isError : Bool = false
+    @Published private(set) var error : Error? = nil
+    
+    
+    var errorPublisher: Published<Error?> { _error }
+    var isErrorPublisher: Published<Bool> { _isError }
     
     var marketSubscription : AnyCancellable?
     
@@ -24,10 +30,21 @@ class MarketDataService {
         
         marketSubscription = NetworkingManager.download(url: url)
             .decode(type: GlobalData.self, decoder: JSONDecoder())
-            .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] (returnedGlobalData) in
+            .sink(receiveCompletion: { [weak self] result in
+                switch result {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.showError(error: error)
+                }
+            }, receiveValue: { [weak self] (returnedGlobalData) in
                 self?.marketData = returnedGlobalData.data
                 self?.marketSubscription?.cancel()
             })
-           
+    }
+    
+    func showError(error: Error) {
+        self.isError = true
+        self.error = error
     }
 }

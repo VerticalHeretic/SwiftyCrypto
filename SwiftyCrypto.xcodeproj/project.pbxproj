@@ -47,6 +47,7 @@
 		E0B8DCCE26F4B0A30067648D /* CoinDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8DCCD26F4B0A30067648D /* CoinDetail.swift */; };
 		E0B8DCD026F4B3EA0067648D /* CoinDetailDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8DCCF26F4B3EA0067648D /* CoinDetailDataService.swift */; };
 		E0B8DCD226F4B7BF0067648D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8DCD126F4B7BF0067648D /* DetailViewModel.swift */; };
+		E0B8DCD626F4BE7F0067648D /* ErrorPublisherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8DCD526F4BE7F0067648D /* ErrorPublisherProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		E0B8DCCD26F4B0A30067648D /* CoinDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetail.swift; sourceTree = "<group>"; };
 		E0B8DCCF26F4B3EA0067648D /* CoinDetailDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailDataService.swift; sourceTree = "<group>"; };
 		E0B8DCD126F4B7BF0067648D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewModel.swift; path = SwiftyCrypto/Services/DetailViewModel.swift; sourceTree = SOURCE_ROOT; };
+		E0B8DCD526F4BE7F0067648D /* ErrorPublisherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPublisherProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				7A9D999426EB26BA00E7F50B /* LocalFileManager.swift */,
 				7A9D999C26EB4B7100E7F50B /* ImagesSavingManager.swift */,
 				7AF1190826F0A1720054E4E1 /* HapticManager.swift */,
+				E0B8DCD526F4BE7F0067648D /* ErrorPublisherProtocol.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0AEA6DA26ED08C40085F732 /* StatisticModel.swift in Sources */,
+				E0B8DCD626F4BE7F0067648D /* ErrorPublisherProtocol.swift in Sources */,
 				7A55E31126A68C1500384DB6 /* CoinDataService.swift in Sources */,
 				7A78A93626EF63DE003DCB3E /* CoinLogoView.swift in Sources */,
 				7AA8719126A5E59D00D3B2FE /* CoinRowView.swift in Sources */,
