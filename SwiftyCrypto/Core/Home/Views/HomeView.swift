@@ -82,7 +82,7 @@ struct HomeView: View {
             
         }
         .background(
-            NavigationLink(isActive: $showDetailView, destination: { DetailLoadingView(coin: $selectedCoin) } , label: { EmptyView() }))
+            NavigationLink("", isActive: $showDetailView, destination: {DetailLoadingView(coin: $selectedCoin)}))
     }
 }
 
