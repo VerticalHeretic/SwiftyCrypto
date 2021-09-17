@@ -16,21 +16,19 @@ struct DetailLoadingView : View {
                 DetailView(coin: coin)
             }
         }
-     
     }
-    
 }
 
 struct DetailView: View {
     
-    var coin: Coin
+    @StateObject var vm : DetailViewModel
     
     init(coin: Coin) {
-        self.coin = coin
+        _vm = StateObject(wrappedValue: DetailViewModel(coin: coin))
     }
     
     var body: some View {
-        Text(coin.name)
+        Text("Hello")
     }
 }
 
