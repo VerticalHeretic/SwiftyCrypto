@@ -23,6 +23,8 @@ struct DetailView: View {
     
     @StateObject private var vm : DetailViewModel
     
+    @State private var showFullDescription : Bool = false
+    
     private let columns : [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -42,11 +44,17 @@ struct DetailView: View {
                                     
                     overviewTitle
                     Divider()
+                    
+                    descriptionSection
+                    
                     overviewGrid
                     
                     additionalTitle
                     Divider()
                     additionalGrid
+                    
+                    websiteSection
+                    
                 }
                 .padding()
             }
@@ -120,5 +128,67 @@ extension DetailView {
             CoinImageView(coin: vm.coin)
                 .frame(width: 25, height: 25)
         }
+    }
+    
+    private var descriptionSection : some View {
+        ZStack {
+            if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
+                VStack(alignment: .leading) {
+                    Text(coinDescription)
+                        .lineLimit(showFullDescription ? nil : 3)
+                        .font(.callout)
+                        .foregroundColor(Color.theme.secondaryText)
+                    Button {
+                        withAnimation(.easeInOut) {
+                            HapticManager.notification(notificationType: .success)
+                            showFullDescription.toggle()
+                        }
+                    } label: {
+                        Text(showFullDescription ? "Less" : "Read more..")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(.vertical, 4)
+                    }
+                    .accentColor(Color.theme.accent)
+
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+             
+            }
+        }
+
+    }
+    
+    private var websiteSection : some View {
+        HStack(spacing: 20) {
+            if let website = vm.websiteURL,
+               let url = URL(string: website) {
+                HStack {
+                    Link("Website", destination: url)
+                    Image(systemName: "network")
+                        .foregroundColor(.blue)
+                }
+            }
+            
+            if let redditString = vm.redditURL, let url = URL(string: redditString) {
+                HStack(spacing: 15) {
+                    Link("Reddit", destination: url)
+                    Image("reddit")
+                        .resizable()
+                        .scaledToFit()
+                        .background(
+                        Circle()
+                            .fill(Color.blue)
+                            .frame(width: 25, height: 25, alignment: .center)
+                            
+                        )
+                        .frame(width: 15, height: 15)
+                }
+            }
+        }
+        .accentColor(.blue)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .font(.headline)
+        
     }
 }

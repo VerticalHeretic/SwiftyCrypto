@@ -27,6 +27,7 @@
 		7A78A93026EF301D003DCB3E /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A78A92F26EF301D003DCB3E /* MarketDataService.swift */; };
 		7A78A93226EF5FD3003DCB3E /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A78A93126EF5FD3003DCB3E /* PortfolioView.swift */; };
 		7A78A93626EF63DE003DCB3E /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A78A93526EF63DE003DCB3E /* CoinLogoView.swift */; };
+		7A9779FA26F6558700D8F126 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9779F926F6558700D8F126 /* String.swift */; };
 		7A9D999526EB26BA00E7F50B /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D999426EB26BA00E7F50B /* LocalFileManager.swift */; };
 		7A9D999926EB4B2400E7F50B /* LocalFileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D999826EB4B2400E7F50B /* LocalFileManagerTests.swift */; };
 		7A9D999D26EB4B7100E7F50B /* ImagesSavingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D999C26EB4B7100E7F50B /* ImagesSavingManager.swift */; };
@@ -85,6 +86,7 @@
 		7A78A92F26EF301D003DCB3E /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
 		7A78A93126EF5FD3003DCB3E /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
 		7A78A93526EF63DE003DCB3E /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
+		7A9779F926F6558700D8F126 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7A9D999426EB26BA00E7F50B /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		7A9D999826EB4B2400E7F50B /* LocalFileManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManagerTests.swift; sourceTree = "<group>"; };
 		7A9D999C26EB4B7100E7F50B /* ImagesSavingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSavingManager.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				7AA8719426A5E9C300D3B2FE /* Double.swift */,
 				7A749C2B26EB7D870061C864 /* UIApplication.swift */,
 				7AF1191126F5D0F30054E4E1 /* Date.swift */,
+				7A9779F926F6558700D8F126 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				7A78A92C26EF246D003DCB3E /* HomeStatsView.swift in Sources */,
 				7A78A93026EF301D003DCB3E /* MarketDataService.swift in Sources */,
 				7A0E75BF26E9EDA500C6DFB5 /* CoinImageViewModel.swift in Sources */,
+				7A9779FA26F6558700D8F126 /* String.swift in Sources */,
 				7A9D999D26EB4B7100E7F50B /* ImagesSavingManager.swift in Sources */,
 				7A11E96526A2E32D00B3D36C /* CircleButtonAnimationView.swift in Sources */,
 				7AF1190926F0A1720054E4E1 /* HapticManager.swift in Sources */,
