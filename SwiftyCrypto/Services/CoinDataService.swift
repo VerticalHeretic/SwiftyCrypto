@@ -8,12 +8,17 @@
 import Foundation
 import Combine
 
-class CoinDataService {
-    
+class CoinDataService : ErrorPublishedProtocol {
+
+
     @Published var allCoins: [Coin] = []
     @Published var isLoading : Bool = false
-    @Published var isError : Bool = false
+    @Published private(set) var isError : Bool = false
+    @Published private(set) var error : Error? = nil
     
+    
+    var errorPublisher: Published<Error?> { _error }
+    var isErrorPublisher: Published<Bool> { _isError }
     var coinSubscription : AnyCancellable?
     
     init() {
@@ -26,7 +31,14 @@ class CoinDataService {
         
         coinSubscription = NetworkingManager.download(url: url)
             .decode(type: [Coin].self, decoder: JSONDecoder())
-            .sink(receiveCompletion: NetworkingManager.handleCompletion
+            .sink(receiveCompletion: { [weak self] result in
+                switch result {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.showError(error: error)
+                }
+            }
             , receiveValue: { [weak self] (returnedCoins) in
                 self?.isLoading = false
                 self?.allCoins = returnedCoins
@@ -34,4 +46,10 @@ class CoinDataService {
             })
         
     }
+    
+    func showError(error: Error) {
+        self.isError = true
+        self.error = error
+    }
+    
 }

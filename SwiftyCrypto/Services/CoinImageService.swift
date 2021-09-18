@@ -9,10 +9,16 @@ import Foundation
 import SwiftUI
 import Combine
 
-class CoinImageService {
+class CoinImageService  : ErrorPublishedProtocol {
     
     @Published var image : UIImage? = nil
     @Published var isLoading : Bool = false
+    @Published private(set) var isError : Bool = false
+    @Published private(set) var error : Error? = nil
+    
+    
+    var errorPublisher: Published<Error?> { _error }
+    var isErrorPublisher: Published<Bool> { _isError }
     
     private let fileManager = LocalFileManager.instance
     private var imageSubscription : AnyCancellable?
@@ -45,7 +51,14 @@ class CoinImageService {
             .tryMap({ (data) -> UIImage? in
                 return UIImage(data: data)
             })
-            .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] (returnedImage) in
+            .sink(receiveCompletion: { [weak self] result in
+                switch result {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.showError(error: error)
+                }
+            }, receiveValue: { [weak self] (returnedImage) in
                 
                 guard let self = self, let downloadedImage = returnedImage else { return }
                 
@@ -56,5 +69,9 @@ class CoinImageService {
             })
     }
     
+    func showError(error: Error) {
+        self.isError = true
+        self.error = error
+    }
     
 }
