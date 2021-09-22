@@ -79,7 +79,7 @@ extension AboutView {
                     .fontWeight(.medium)
             }
             .padding(.vertical)
-            Link("Visit CoinGecko 🥳", destination: coingeckoURL)
+            Link("Visit CoinGecko 🦎", destination: coingeckoURL)
         }
     }
     
