@@ -11,11 +11,12 @@ struct HomeView: View {
     
     @State private var showPortfolio : Bool = false // anime right
     @State private var showPortfolioView : Bool = false // new sheet
-    @EnvironmentObject private var vm : HomeViewModel
-    
+    @State private var showSettingsView : Bool = false
     @State private var selectedCoin : Coin? = nil
     @State private var showDetailView : Bool = false
     
+    @EnvironmentObject private var vm : HomeViewModel
+
     var body: some View {
         ZStack {
             // background layer
@@ -79,7 +80,9 @@ struct HomeView: View {
                 }
                     Spacer(minLength: 0)
             }
-            
+                .sheet(isPresented: $showSettingsView) {
+                    AboutView()
+                }
         }
         .background(
             NavigationLink(destination: DetailLoadingView(coin: $selectedCoin),isActive: $showDetailView, label: { EmptyView() }))
@@ -105,6 +108,8 @@ extension HomeView {
                 .onTapGesture {
                     if showPortfolio {
                         showPortfolioView.toggle()
+                    } else {
+                        showSettingsView.toggle()
                     }
                 }
                 .background(
