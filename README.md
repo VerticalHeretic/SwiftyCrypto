@@ -7,7 +7,9 @@
 Crypto Currency feed app, made with course by: [Swiftful Thinking](https://www.youtube.com/channel/UCp25X4LzOLaksp5qY0YMUzg), and my tweaks, CI pipeline, testing etc.
 
 ### Incoming additions: 
-- [ ] More unit testing for the Combine using functions (learning Combine testing along the way)
+- [ ] More unit testing and maybe some UI testing(learning Combine testing along the way)
+- [ ] Adding more accessibility options
+- [ ] Adding spotlight and 3d touch capabilities
 - [ ] Going through the code and clean coding stuff out
 - [ ] Adding widget for the app in three sizes
 
