@@ -41,6 +41,7 @@ class DetailViewModel : ObservableObject {
         coinDetailService.$coinDetails
             .combineLatest($coin)
             .map(mapDataToStatistics)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] (returnedArrays) in
                 
                 self?.overviewStatistics = returnedArrays.overview
@@ -49,6 +50,7 @@ class DetailViewModel : ObservableObject {
             .store(in: &cancellables)
         
         coinDetailService.$coinDetails
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] (returnedCoinDetails) in
                 self?.coinDescription = returnedCoinDetails?.readableDescription
                 self?.websiteURL = returnedCoinDetails?.links?.homepage?.first

@@ -26,12 +26,13 @@ struct SwiftyCryptoApp: App {
                     HomeView()
                         .navigationBarHidden(true)
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
                 .environmentObject(vm)
                 
                 ZStack {
                     if showLaunchView  {
                         LaunchView(showLaunchView: $showLaunchView)
-                            .transition(.move(edge: .top))
+                            .transition(.move(edge: .leading))
                     }
                 }
                 .zIndex(2.0) // workaround for tricky transition
