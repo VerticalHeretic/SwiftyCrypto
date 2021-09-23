@@ -29,6 +29,8 @@
 		7A78A93626EF63DE003DCB3E /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A78A93526EF63DE003DCB3E /* CoinLogoView.swift */; };
 		7A9779FA26F6558700D8F126 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9779F926F6558700D8F126 /* String.swift */; };
 		7A977A5526FBACC700D8F126 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A977A5426FBACC700D8F126 /* AboutView.swift */; };
+		7A977A5926FCAAD200D8F126 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A977A5826FCAAD200D8F126 /* Launch Screen.storyboard */; };
+		7A977A5B26FCAC4500D8F126 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A977A5A26FCAC4500D8F126 /* LaunchView.swift */; };
 		7A9D999526EB26BA00E7F50B /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D999426EB26BA00E7F50B /* LocalFileManager.swift */; };
 		7A9D999926EB4B2400E7F50B /* LocalFileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D999826EB4B2400E7F50B /* LocalFileManagerTests.swift */; };
 		7A9D999D26EB4B7100E7F50B /* ImagesSavingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9D999C26EB4B7100E7F50B /* ImagesSavingManager.swift */; };
@@ -89,6 +91,8 @@
 		7A78A93526EF63DE003DCB3E /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
 		7A9779F926F6558700D8F126 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7A977A5426FBACC700D8F126 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		7A977A5826FCAAD200D8F126 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7A977A5A26FCAC4500D8F126 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		7A9D999426EB26BA00E7F50B /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		7A9D999826EB4B2400E7F50B /* LocalFileManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManagerTests.swift; sourceTree = "<group>"; };
 		7A9D999C26EB4B7100E7F50B /* ImagesSavingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSavingManager.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 		7A11E95A26A2DF4A00B3D36C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7A977A5626FCAABC00D8F126 /* Launch */,
 				7A977A5226FBACAC00D8F126 /* Settings */,
 				7A11E96026A2E02000B3D36C /* Components */,
 				7A11E95B26A2DF4E00B3D36C /* Home */,
@@ -303,6 +308,23 @@
 			isa = PBXGroup;
 			children = (
 				7A977A5426FBACC700D8F126 /* AboutView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A977A5626FCAABC00D8F126 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				7A977A5726FCAAC600D8F126 /* Views */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		7A977A5726FCAAC600D8F126 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A977A5826FCAAD200D8F126 /* Launch Screen.storyboard */,
+				7A977A5A26FCAC4500D8F126 /* LaunchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,6 +481,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A977A5926FCAAD200D8F126 /* Launch Screen.storyboard in Resources */,
 				7A11E95026A06E9900B3D36C /* Preview Assets.xcassets in Resources */,
 				7A11E94D26A06E9900B3D36C /* Assets.xcassets in Resources */,
 			);
@@ -494,6 +517,7 @@
 				E0AEA6DD26ED09F80085F732 /* StatisticView.swift in Sources */,
 				7A0E75BB26E9E8E500C6DFB5 /* CoinImageView.swift in Sources */,
 				E0B8DCCE26F4B0A30067648D /* CoinDetail.swift in Sources */,
+				7A977A5B26FCAC4500D8F126 /* LaunchView.swift in Sources */,
 				7A749C2C26EB7D870061C864 /* UIApplication.swift in Sources */,
 				7AF1190E26F484050054E4E1 /* DetailView.swift in Sources */,
 				7A11E94926A06E9800B3D36C /* SwiftyCryptoApp.swift in Sources */,
