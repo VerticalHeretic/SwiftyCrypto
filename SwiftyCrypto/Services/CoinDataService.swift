@@ -9,19 +9,17 @@ import Foundation
 import Combine
 
 class CoinDataService  {
-
-
     @Published var allCoins: [Coin] = []
     @Published var isLoading : Bool = false
     @Published var error : Error? = nil
-    @Published var fetcherIsActive : Bool = true
+    @Published var serviceIsActive : Bool = true
     
     var subscriptions = Set<AnyCancellable>()
     let loadCoins = CurrentValueSubject<String, Never>("")
+    let url =  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=250&page=1&sparkline=true"
     
     //MARK: Dependecies
     let networkingManager : DataProvider
-    private let url =  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=250&page=1&sparkline=true"
     
     init(networkingManager : DataProvider = NetworkingManager()) {
         self.networkingManager = networkingManager
@@ -34,6 +32,7 @@ class CoinDataService  {
             .compactMap {
                 URL(string: $0)
             }
+            .print("🅰️")
             .flatMap { (url) -> AnyPublisher<[Coin], Never> in
                 self.networkingManager.fetch(url: url)
                     .decode(type: [Coin].self, decoder: JSONDecoder())
@@ -44,6 +43,7 @@ class CoinDataService  {
                                 self.error = error
                             }
                         case .finished:
+                            print("✅ Finished loading")
                             self.isLoading = false
                         }
                     }, receiveRequest: { _ in
@@ -56,8 +56,9 @@ class CoinDataService  {
             }
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] _ in
-                self.fetcherIsActive = false
+                self.serviceIsActive = false
             } receiveValue: { [unowned self] (coins) in
+                print(coins.map({ $0.name }))
                 self.allCoins = coins
             }
             .store(in: &subscriptions)
