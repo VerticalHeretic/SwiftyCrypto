@@ -32,6 +32,7 @@ class CoinImageViewModel : ObservableObject {
     private func addSubscribers() {
         dataService.$image
             .combineLatest(dataService.$isLoading)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] (returnedImage, isLoading) in
                 self?.image = returnedImage
                 self?.isLoading = isLoading
