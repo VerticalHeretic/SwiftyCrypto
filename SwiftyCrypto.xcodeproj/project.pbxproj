@@ -33,6 +33,7 @@
 		7A10DCC626FDFE6C00D6DE1E /* CoinDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCC526FDFE6C00D6DE1E /* CoinDataServiceTests.swift */; };
 		7A10DCC726FE010900D6DE1E /* CoinDetailDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8DCCF26F4B3EA0067648D /* CoinDetailDataService.swift */; };
 		7A10DCC826FE010D00D6DE1E /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11E96726A2E9DA00B3D36C /* CoinModel.swift */; };
+		7A10DCCD26FE0E5D00D6DE1E /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCCC26FE0E5D00D6DE1E /* Info.swift */; };
 		7A11E94926A06E9800B3D36C /* SwiftyCryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */; };
 		7A11E94D26A06E9900B3D36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11E94C26A06E9900B3D36C /* Assets.xcassets */; };
 		7A11E95026A06E9900B3D36C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11E94F26A06E9900B3D36C /* Preview Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		7A10DC9C26FDEDF100D6DE1E /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		7A10DCC326FDFE1500D6DE1E /* NetworkingManagerMock .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkingManagerMock .swift"; sourceTree = "<group>"; };
 		7A10DCC526FDFE6C00D6DE1E /* CoinDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataServiceTests.swift; sourceTree = "<group>"; };
+		7A10DCCC26FE0E5D00D6DE1E /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		7A11E94526A06E9800B3D36C /* SwiftyCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyCryptoApp.swift; sourceTree = "<group>"; };
 		7A11E94C26A06E9900B3D36C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				7AF1190826F0A1720054E4E1 /* HapticManager.swift */,
 				E0B8DCD526F4BE7F0067648D /* ErrorPublisherProtocol.swift */,
 				7A10DC9C26FDEDF100D6DE1E /* DataProvider.swift */,
+				7A10DCCC26FE0E5D00D6DE1E /* Info.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				7A977A5B26FCAC4500D8F126 /* LaunchView.swift in Sources */,
 				7A749C2C26EB7D870061C864 /* UIApplication.swift in Sources */,
 				7AF1190E26F484050054E4E1 /* DetailView.swift in Sources */,
+				7A10DCCD26FE0E5D00D6DE1E /* Info.swift in Sources */,
 				7A11E94926A06E9800B3D36C /* SwiftyCryptoApp.swift in Sources */,
 				7A11E96326A2E04600B3D36C /* CircleButtonView.swift in Sources */,
 				7A11E95926A06F7800B3D36C /* Color.swift in Sources */,

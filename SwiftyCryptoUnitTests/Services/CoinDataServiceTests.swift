@@ -34,7 +34,7 @@ class CoinDataServiceTests : XCTestCase {
                 coins.count == 0
             }
             .contains(where: { (coins) in
-                print("🪙: \(coins.count)")
+                Info.debug("🪙: \(coins.count)")
                 return coins.count == 1
               
             })

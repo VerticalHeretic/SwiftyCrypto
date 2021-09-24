@@ -32,7 +32,6 @@ class CoinDataService  {
             .compactMap {
                 URL(string: $0)
             }
-            .print("🅰️")
             .flatMap { (url) -> AnyPublisher<[Coin], Never> in
                 self.networkingManager.fetch(url: url)
                     .decode(type: [Coin].self, decoder: JSONDecoder())
@@ -43,7 +42,6 @@ class CoinDataService  {
                                 self.error = error
                             }
                         case .finished:
-                            print("✅ Finished loading")
                             self.isLoading = false
                         }
                     }, receiveRequest: { _ in
@@ -58,7 +56,6 @@ class CoinDataService  {
             .sink { [unowned self] _ in
                 self.serviceIsActive = false
             } receiveValue: { [unowned self] (coins) in
-                print(coins.map({ $0.name }))
                 self.allCoins = coins
             }
             .store(in: &subscriptions)

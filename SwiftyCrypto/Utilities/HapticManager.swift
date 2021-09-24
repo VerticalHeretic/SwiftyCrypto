@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class HapticManager {
+final class HapticManager {
     
     static let generator = UINotificationFeedbackGenerator()
     

@@ -40,11 +40,9 @@ class CoinImageService  : ErrorPublishedProtocol {
     private func getCoinImage() {
         if let savedImage = fileManager.getImage(imageName: imageName, folderName: folderName) {
             image = savedImage
-            print("[✅] Retrieved image from File Manager")
         } else {
             self.isLoading = true
             downloadCoinImage()
-            print("[🛬] Downloading image now")
         }
     }
     

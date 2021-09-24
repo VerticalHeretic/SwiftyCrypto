@@ -31,7 +31,7 @@ class LocalFileManager : ImageSavingManager {
             let data = image.pngData(),
             let url = getURLForImage(imageName: imageName, folderName: folderName)
         else {
-                print("[❌] Could not get data from image")
+            Info.error("Could not get data from image")
                 return
             }
         
@@ -39,7 +39,7 @@ class LocalFileManager : ImageSavingManager {
         do {
             try data.write(to: url)
         } catch let error {
-            print("[❌] Error saving image. ImageName: \(imageName). \(error)")
+            Info.error("Error saving image. ImageName: \(imageName). \(error)")
         }
     }
     
@@ -47,7 +47,7 @@ class LocalFileManager : ImageSavingManager {
     func deleteImage(imageName: String, folderName: String) -> Bool {
         
         guard let url = getURLForImage(imageName: imageName, folderName: folderName) else {
-            print("[❌] Could not get URL for the image")
+            Info.error("Could not get URL for the image")
             return false
         }
         
@@ -57,7 +57,7 @@ class LocalFileManager : ImageSavingManager {
                 return true
             }
             catch let error {
-                print("[❌] Error deleting file at path: \(url.path). \(error)")
+                Info.error("Error deleting file at path: \(url.path). \(error)")
             }
         }
         
@@ -80,7 +80,7 @@ class LocalFileManager : ImageSavingManager {
             do {
                 try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
             } catch let error {
-                print("[❌] Error creating directory. Folder name: \(folderName). \(error)")
+                Info.error("Error creating directory. Folder name: \(folderName). \(error)")
             }
             
         }
