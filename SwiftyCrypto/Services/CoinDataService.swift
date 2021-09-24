@@ -29,7 +29,7 @@ class CoinDataService : ErrorPublishedProtocol {
         self.isLoading = true
         guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=250&page=1&sparkline=true") else { return }
         
-        coinSubscription = NetworkingManager.download(url: url)
+        coinSubscription = NetworkingManager.fetch(url: url)
             .decode(type: [Coin].self, decoder: JSONDecoder())
             .sink(receiveCompletion: { [weak self] result in
                 switch result {

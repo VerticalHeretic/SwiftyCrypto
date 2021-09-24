@@ -11,35 +11,52 @@ import Combine
 class NetworkingManager {
     
     enum NetworkingError : LocalizedError {
-        case badURLResponse(url : URL)
-        case unknown
+        
+        case url(URLError?)
+        case badResponse(statusCode: Int)
+        case unknown(Error)
         
         var errorDescription: String? {
             switch self {
-            case .badURLResponse(url: let url):
-                return "[🔥] Bad response from URL \(url)"
+            case .badResponse(statusCode: let statusCode):
+                return "[🔥] Bad response from URL \(statusCode)"
             case .unknown:
                 return "[⚠️] Unknown error occured"
+            case .url(let error):
+                return "[❌] URL error occured: \(error.debugDescription)"
             }
         }
+        
+        static func convert(error: Error) -> NetworkingError {
+            switch error {
+            case let error as URLError:
+                return .url(error)
+            case let error as NetworkingError:
+                return error
+            default:
+                return .unknown(error)
+            }
+        }
+        
     }
     
-    static func download(url: URL) -> AnyPublisher<Data, Error> {
+    static func fetch(url: URL) -> AnyPublisher<Data, NetworkingError> {
        return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap({ try handleURLResponse(output: $0, url: url)})
-            .retry(3)
+            .tryMap({ (data,response) -> Data in
+                if let response = response as? HTTPURLResponse,
+                   !(200...299).contains(response.statusCode) {
+                    throw NetworkingError.badResponse(statusCode: response.statusCode)
+                } else {
+                    return data
+                }
+            })
+            .mapError({ error in
+                NetworkingError.convert(error: error)
+            })
             .eraseToAnyPublisher()
     }
     
-    static func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url : URL) throws -> Data {
-        
-        guard let response = output.response as? HTTPURLResponse,
-              response.statusCode >= 200 && response.statusCode < 300 else {
-            throw NetworkingError.badURLResponse(url: url)
-        }
-        
-        return output.data
-    }
+
     
 }
 
