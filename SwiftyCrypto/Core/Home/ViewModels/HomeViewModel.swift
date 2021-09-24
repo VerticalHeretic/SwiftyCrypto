@@ -19,9 +19,9 @@ class HomeViewModel : ObservableObject {
     @Published var sortOption : SortOption = .holdings
     
     /// Main list of currencies service
-    private let coinDataService = CoinDataService()
+    private let coinDataService : CoinDataService
     /// Top bar market data service
-    private let marketDataService = MarketDataService()
+    private let marketDataService : MarketDataService
     /// PorfolioView service to save, get, update, remove from CoreData
     private let portfolioDataService = PortfolioDataService()
     /// Set of cancelables to store in the subscribers
@@ -37,7 +37,15 @@ class HomeViewModel : ObservableObject {
         case priceReversed
     }
     
-    init() {
+    //MARK: Dependecies
+    
+    let networkingManager : DataProvider
+    
+    init(networkingManager : DataProvider) {
+        
+        self.networkingManager = networkingManager
+        self.coinDataService = CoinDataService(networkingManager: networkingManager)
+        self.marketDataService = MarketDataService(networkingManager: networkingManager)
         
         // If we are unit testing we want to have some coins in
         if ProcessInfo.processInfo.environment["IS_UNIT_TESTING"] == "1" {

@@ -23,7 +23,9 @@ class DeveloperPreview {
     
     private init() { }
     
-    let homeVM = HomeViewModel()
+    let homeVM = HomeViewModel(networkingManager: NetworkingManager())
+    
+    let networkingManager = NetworkingManager()
     
     let previewCoin = Coin(
         id: "bitcoin",

@@ -17,9 +17,15 @@ class CoinImageViewModel : ObservableObject {
     private let dataService : CoinImageService
     private var cancellables = Set<AnyCancellable>()
     
-    init(coin: Coin) {
+    
+    //MARK: Dependecies
+    let networkingManager : DataProvider
+    
+    
+    init(networkingManager : DataProvider, coin: Coin) {
         self.coin = coin
-        self.dataService = CoinImageService(coin: coin)
+        self.networkingManager = networkingManager
+        self.dataService = CoinImageService(networkingManager: networkingManager, coin: coin)
         addSubscribers()
     }
     

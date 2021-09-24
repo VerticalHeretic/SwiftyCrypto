@@ -20,7 +20,11 @@ class MarketDataService : ErrorPublishedProtocol {
     
     var marketSubscription : AnyCancellable?
     
-    init() {
+    //MARK: Dependecies
+    let networkingManager : DataProvider
+    
+    init(networkingManager : DataProvider) {
+        self.networkingManager = networkingManager
         getMarketData()
     }
     
@@ -28,7 +32,7 @@ class MarketDataService : ErrorPublishedProtocol {
         
         guard let url = URL(string: "https://api.coingecko.com/api/v3/global") else { return }
         
-        marketSubscription = NetworkingManager.fetch(url: url)
+        marketSubscription = networkingManager.fetch(url: url)
             .decode(type: GlobalData.self, decoder: JSONDecoder())
             .sink(receiveCompletion: { [weak self] result in
                 switch result {

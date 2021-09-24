@@ -23,9 +23,13 @@ class DetailViewModel : ObservableObject {
     @Published var websiteURL: String? = nil
     @Published var redditURL: String? = nil
     
-    init(coin: Coin) {
+    //MARK: Dependecies
+    let networkingManager : DataProvider
+    
+    init(networkingManager: DataProvider ,coin: Coin) {
+        self.networkingManager = networkingManager
         self.coin = coin
-        self.coinDetailService = CoinDetailDataService(coin: coin)
+        self.coinDetailService = CoinDetailDataService(networkingManager: networkingManager, coin: coin)
         addSubscribers()
     }
     

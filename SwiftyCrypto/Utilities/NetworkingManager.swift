@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class NetworkingManager {
+class NetworkingManager : DataProvider {
     
     enum NetworkingError : LocalizedError {
         
@@ -40,7 +40,7 @@ class NetworkingManager {
         
     }
     
-    static func fetch(url: URL) -> AnyPublisher<Data, NetworkingError> {
+    func fetch(url: URL) -> AnyPublisher<Data, NetworkingError> {
        return URLSession.shared.dataTaskPublisher(for: url)
             .tryMap({ (data,response) -> Data in
                 if let response = response as? HTTPURLResponse,

@@ -26,8 +26,12 @@ class CoinImageService  : ErrorPublishedProtocol {
     let folderName = "coin_images"
     private let imageName: String
     
+    //MARK: Depedencies
+    let networkingManager : DataProvider
     
-    init(coin: Coin) {
+    
+    init(networkingManager : DataProvider, coin: Coin) {
+        self.networkingManager = networkingManager
         self.coin = coin
         self.imageName = coin.id
         getCoinImage()
@@ -47,7 +51,7 @@ class CoinImageService  : ErrorPublishedProtocol {
     private func downloadCoinImage() {
         guard let url = URL(string: coin.image ) else { return }
         
-        imageSubscription = NetworkingManager.fetch(url: url)
+        imageSubscription = networkingManager.fetch(url: url)
             .tryMap({ (data) -> UIImage? in
                 return UIImage(data: data)
             })
