@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class CoinDataService  {
+final class CoinDataService  {
     
     @Published var allCoins: [Coin] = []
     @Published var isLoading : Bool = false

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class DetailViewModel : ObservableObject {
+final class DetailViewModel : ObservableObject {
     
     private let coinDetailService : CoinDetailDataService
     private var subscriptions = Set<AnyCancellable>()

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import CoreData
 
-class PortfolioDataService {
+final class PortfolioDataService {
     
     private let container : NSPersistentContainer
     private let containerName : String = "PortfolioContainer"

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class CoinDetailDataService  {
+final class CoinDetailDataService  {
     
     @Published var coinDetails : CoinDetail? = nil
     @Published var isLoading : Bool = false

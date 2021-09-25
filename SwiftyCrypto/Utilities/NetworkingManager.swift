@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class NetworkingManager : DataProvider {
+final class NetworkingManager : DataProvider {
     
     enum NetworkingError : LocalizedError {
         

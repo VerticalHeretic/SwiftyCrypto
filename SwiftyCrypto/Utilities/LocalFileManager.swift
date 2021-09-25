@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class LocalFileManager : ImageSavingManager {
+final class LocalFileManager : ImageSavingManager {
    
     static let instance = LocalFileManager()
     
