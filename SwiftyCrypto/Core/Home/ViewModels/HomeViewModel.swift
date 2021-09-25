@@ -57,9 +57,9 @@ final class HomeViewModel : ObservableObject {
     }
     
     /// Adds subscribers to the view model
-    func addSubscribers() {
+    private func addSubscribers() {
         
-        // Updates about data loading
+        // Updates about data loading and error
         coinDataService.$isLoading
             .combineLatest(coinDataService.$error)
             .receive(on: DispatchQueue.main)

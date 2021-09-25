@@ -25,6 +25,7 @@ struct DetailView: View {
     @StateObject private var vm : DetailViewModel
     
     @State private var showFullDescription : Bool = false
+    @State private var shouldReload : Bool = false
     
     private let columns : [GridItem] = [
         GridItem(.flexible()),
@@ -37,37 +38,48 @@ struct DetailView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ChartView(coin: vm.coin)
-                    .padding(.vertical)
-                VStack(spacing: 20) {
-                                    
-                    overviewTitle
-                    Divider()
-                    
-                    descriptionSection
-                    
-                    overviewGrid
-                    
-                    additionalTitle
-                    Divider()
-                    additionalGrid
-                    
-                    websiteSection
+        ZStack {
+            if let error = vm.error {
+                ErrorView(error: error, reloadData: $shouldReload)
+            } else if vm.isLoading {
+                ProgressView()
+            } else {
+                ScrollView {
+                    VStack {
+                        ChartView(coin: vm.coin)
+                            .padding(.vertical)
+                        VStack(spacing: 20) {
+                            
+                            overviewTitle
+                            Divider()
+                            
+                            descriptionSection
+                            
+                            overviewGrid
+                            
+                            additionalTitle
+                            Divider()
+                            additionalGrid
+                            
+                            websiteSection
+                            
+                        }
+                        .padding()
+                    }
                     
                 }
-                .padding()
-            }
-            
-        }
-        .background(
-            Color.theme.background.ignoresSafeArea()
-            )
-        .navigationTitle(vm.coin.name)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                navigationBarTrailingItem
+                .background(
+                    Color.theme.background.ignoresSafeArea()
+                )
+                .navigationTitle(vm.coin.name)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        navigationBarTrailingItem
+                    }
+                }
+                .onChange(of: shouldReload) { newValue in
+                    vm.reloadData()
+                }
             }
         }
     }

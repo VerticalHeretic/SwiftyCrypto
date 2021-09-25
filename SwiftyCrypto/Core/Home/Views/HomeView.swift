@@ -66,7 +66,7 @@ struct HomeView: View {
                     AboutView()
                 }
                 .onChange(of: shouldReload, perform: { newValue in
-                    vm.addSubscribers()
+                    vm.reloadData()
                 })
                 
             }

@@ -41,7 +41,7 @@ class MarketDataServiceTests : XCTestCase {
     }
     
     func testError() throws {
-        let mock = NetworkingManagerMock(result: .failure(NetworkingManager.NetworkingError.badResponse(statusCode: 400)))
+        let mock = NetworkingManagerMock(result: .failure(NetworkingManager.NetworkingError.badResponse(statusCode: 429)))
         let service = MarketDataService(networkingManager: mock)
     
         service.$serviceIsActive

@@ -14,8 +14,8 @@ final class DetailViewModel : ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
     
     @Published var coin : Coin
-    @Published var isError : Bool = false
     @Published var error : Error? = nil
+    @Published var isLoading : Bool = false
     @Published var overviewStatistics : [Statistic] = []
     @Published var additionalStatistics : [Statistic] = []
     @Published var coinDescription : String? = nil
@@ -33,6 +33,17 @@ final class DetailViewModel : ObservableObject {
     }
     
     private func addSubscribers() {
+        
+        // Updates about data loading and error
+        coinDetailService.$isLoading
+            .combineLatest(coinDetailService.$error)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] (loading, error) in
+                self?.isLoading = loading
+                self?.error = error
+            }
+            .store(in: &subscriptions)
+
 
         coinDetailService.$coinDetails
             .combineLatest($coin)
@@ -53,6 +64,13 @@ final class DetailViewModel : ObservableObject {
                 self?.redditURL = returnedCoinDetails?.links?.subredditURL
             }
             .store(in: &subscriptions)
+    }
+    
+    /// Reloads data in API handling services
+    func reloadData() {
+        self.isLoading = true
+        coinDetailService.getCoinDetails(coin: coin)
+        HapticManager.notification(notificationType: .success)
     }
     
     /// Maps given coinDetail and coin Models to data needed for overviewa and additional information rows
