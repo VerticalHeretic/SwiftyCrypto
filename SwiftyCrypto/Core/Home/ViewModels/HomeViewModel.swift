@@ -14,8 +14,8 @@ final class HomeViewModel : ObservableObject {
     @Published var allCoins : [Coin] = []
     @Published var portfolioCoins : [Coin] = []
     @Published var searchText : String = ""
-    @Published var coinsLoading : Bool = false
-    @Published var showError : Bool = false
+    @Published var isLoading : Bool = false
+    @Published var error : Error? = nil
     @Published var sortOption : SortOption = .holdings
     
     /// Main list of currencies service
@@ -61,9 +61,11 @@ final class HomeViewModel : ObservableObject {
         
         // Updates about data loading
         coinDataService.$isLoading
+            .combineLatest(coinDataService.$error)
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] (returnedLoading) in
-                self?.coinsLoading = returnedLoading
+            .sink { [weak self] (loading, error) in
+                self?.isLoading = loading
+                self?.error = error
             }
             .store(in: &cancellables)
 
@@ -108,7 +110,7 @@ final class HomeViewModel : ObservableObject {
     
     /// Reloads data in API handling services
     func reloadData() {
-        self.coinsLoading = true
+        self.isLoading = true
         coinDataService.getCoins()
         marketDataService.getMarketData()
         HapticManager.notification(notificationType: .success)

@@ -19,11 +19,11 @@ final class NetworkingManager : DataProvider {
         var errorDescription: String? {
             switch self {
             case .badResponse(statusCode: let statusCode):
-                return "[🔥] Bad response from URL \(statusCode)"
+                return "Bad response \(statusCode)"
             case .unknown:
-                return "[⚠️] Unknown error occured"
+                return "Unknown error occured"
             case .url(let error):
-                return "[❌] URL error occured: \(error.debugDescription)"
+                return "URL error occured: \(error.debugDescription)"
             }
         }
         

@@ -14,6 +14,7 @@ struct HomeView: View {
     @State private var showSettingsView : Bool = false
     @State private var selectedCoin : Coin? = nil
     @State private var showDetailView : Bool = false
+    @State private var shouldReload : Bool = false
     
     @EnvironmentObject private var vm : HomeViewModel
     
@@ -27,68 +28,49 @@ struct HomeView: View {
                         .environmentObject(vm)
                 }
             
-            // content layer
-            VStack {
-                homeHeader
-                
-                HomeStatsView(showPortfolio: $showPortfolio)
-                SearchBarView(searchText: $vm.searchText)
-                
-                columnTitles
-                
-                if vm.coinsLoading {
-                    ProgressView()
-                        .padding(.top, 200)
-                } else if vm.showError {
-                    VStack(alignment: .center, spacing: 15){
-                        Image(systemName: "xmark.octagon.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(Color.theme.red)
-                        
-                        Text("Unfortunately error happen when getting data.")
-                            .multilineTextAlignment(.center)
-                        
-                        Button {
-                            vm.addSubscribers()
-                        } label: {
-                            Image(systemName: "repeat")
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .foregroundColor(Color.theme.red)
-                                )
+            if let error = vm.error {
+                ErrorView(error: error, reloadData: $shouldReload)
+            } else {
+                // content layer
+                VStack {
+                    homeHeader
+                    
+                    HomeStatsView(showPortfolio: $showPortfolio)
+                    SearchBarView(searchText: $vm.searchText)
+                    columnTitles
+                    
+                    if vm.isLoading {
+                        ProgressView()
+                            .offset(y: 250)
+                    } else {
+                        if !showPortfolio {
+                            allCoinsList
+                                .transition(.move(edge: .leading))
                         }
                         
-                        
-                        
-                    }
-                    .frame(width: 150)
-                    .padding(.top, 100)
-                } else {
-                    
-                    if !showPortfolio {
-                        allCoinsList
-                            .transition(.move(edge: .leading))
-                    }
-                    
-                    if showPortfolio {
-                        ZStack(alignment: .top) {
-                            if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
-                                emptyText
-                            } else {
-                                portfolioCoinsList
+                        if showPortfolio {
+                            ZStack(alignment: .top) {
+                                if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                                    emptyText
+                                } else {
+                                    portfolioCoinsList
+                                }
                             }
+                            .transition(.move(edge: .trailing))
                         }
-                        .transition(.move(edge: .trailing))
+                        
                     }
-                    
+                    Spacer(minLength: 0)
                 }
-                Spacer(minLength: 0)
+                .sheet(isPresented: $showSettingsView) {
+                    AboutView()
+                }
+                .onChange(of: shouldReload, perform: { newValue in
+                    vm.addSubscribers()
+                })
+                
             }
-            .sheet(isPresented: $showSettingsView) {
-                AboutView()
-            }
+    
         }
         .background(
             NavigationLink(destination: DetailLoadingView(coin: $selectedCoin, networkingManager: vm.networkingManager),isActive: $showDetailView, label: { EmptyView() }))
@@ -220,7 +202,7 @@ extension HomeView {
             } label: {
                 Image(systemName: "goforward")
             }
-            .rotationEffect(Angle(degrees: vm.coinsLoading ? 360 : 0), anchor: .center)
+            .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0), anchor: .center)
             
         }
         .font(.caption)
