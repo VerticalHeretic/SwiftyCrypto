@@ -8,21 +8,17 @@
 import Foundation
 import Combine
 
-class CoinDetailDataService : ErrorPublishedProtocol {
-    
-    let coin : Coin
+class CoinDetailDataService  {
     
     @Published var coinDetails : CoinDetail? = nil
     @Published var isLoading : Bool = false
-    @Published private(set) var isError : Bool = false
-    @Published private(set) var error : Error? = nil
+    @Published var error : Error? = nil
+    @Published var serviceIsActive : Bool = true
     
+    var subscriptions = Set<AnyCancellable>()
+    let loadCoinDetails = CurrentValueSubject<String, Never>("")
+    let coin : Coin
     
-    var errorPublisher: Published<Error?> { _error }
-    var isErrorPublisher: Published<Bool> { _isError }
-    
-    var coinDetailSubscription : AnyCancellable?
-
     //MARK: Depedencies
     let networkingManager : DataProvider
     
@@ -34,28 +30,41 @@ class CoinDetailDataService : ErrorPublishedProtocol {
     }
     
     func getCoinDetails(coin : Coin) {
-        self.isLoading = true
-        guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/\(coin.id)?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false") else { return }
+        let url = "https://api.coingecko.com/api/v3/coins/\(coin.id)?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false"
         
-        coinDetailSubscription = networkingManager.fetch(url: url)
-            .decode(type: CoinDetail.self, decoder: JSONDecoder())
-            .sink(receiveCompletion: { [weak self] result in
-                switch result {
-                case .finished:
-                    break
-                case .failure(let error):
-                    self?.showError(error: error)
-                }
-            }, receiveValue: { [weak self] (returnedCoinDetails) in
-                self?.isLoading = false
-                self?.coinDetails = returnedCoinDetails
-                self?.coinDetailSubscription?.cancel()
-            })
+        loadCoinDetails
+            .removeDuplicates()
+            .compactMap { URL(string: $0) }
+            .flatMap { (url) -> AnyPublisher<CoinDetail, Never> in
+                self.networkingManager.fetch(url: url)
+                    .decode(type: CoinDetail.self, decoder: JSONDecoder())
+                    .handleEvents(receiveCompletion: { (completion) in
+                        switch completion {
+                        case .failure(let error):
+                            DispatchQueue.main.async {
+                                self.error = error
+                                Info.error(error.localizedDescription)
+                            }
+                        case .finished:
+                            self.isLoading = false
+                        }
+                    }, receiveRequest: { _ in
+                        self.isLoading = true
+                    })
+                    .catch { _ in
+                        Empty()
+                    }
+                    .eraseToAnyPublisher()
+            }
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] _ in
+                self.serviceIsActive = false
+            } receiveValue: { [unowned self] (details) in
+                self.coinDetails = details
+            }
+            .store(in: &subscriptions)
         
-    }
-    
-    func showError(error: Error) {
-        self.isError = true
-        self.error = error
+        loadCoinDetails.send(url)
+        
     }
 }

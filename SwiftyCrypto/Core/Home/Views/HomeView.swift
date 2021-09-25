@@ -16,7 +16,7 @@ struct HomeView: View {
     @State private var showDetailView : Bool = false
     
     @EnvironmentObject private var vm : HomeViewModel
-
+    
     var body: some View {
         ZStack {
             // background layer
@@ -26,69 +26,69 @@ struct HomeView: View {
                     PortfolioView()
                         .environmentObject(vm)
                 }
+            
+            // content layer
+            VStack {
+                homeHeader
+                
+                HomeStatsView(showPortfolio: $showPortfolio)
+                SearchBarView(searchText: $vm.searchText)
+                
+                columnTitles
+                
+                if vm.coinsLoading {
+                    ProgressView()
+                        .padding(.top, 200)
+                } else if vm.showError {
+                    VStack(alignment: .center, spacing: 15){
+                        Image(systemName: "xmark.octagon.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(Color.theme.red)
                         
-                // content layer
-                VStack {
-                    homeHeader
+                        Text("Unfortunately error happen when getting data.")
+                            .multilineTextAlignment(.center)
+                        
+                        Button {
+                            vm.addSubscribers()
+                        } label: {
+                            Image(systemName: "repeat")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .foregroundColor(Color.theme.red)
+                                )
+                        }
+                        
+                        
+                        
+                    }
+                    .frame(width: 150)
+                    .padding(.top, 100)
+                } else {
                     
-                    HomeStatsView(showPortfolio: $showPortfolio)
-                    SearchBarView(searchText: $vm.searchText)
+                    if !showPortfolio {
+                        allCoinsList
+                            .transition(.move(edge: .leading))
+                    }
                     
-                    columnTitles
-                    
-                    if vm.coinsLoading {
-                        ProgressView()
-                            .padding(.top, 200)
-                    } else if vm.showError {
-                        VStack(alignment: .center, spacing: 15){
-                            Image(systemName: "xmark.octagon.fill")
-                                .font(.largeTitle)
-                                .foregroundColor(Color.theme.red)
-                            
-                            Text("Unfortunately error happen when getting data.")
-                                .multilineTextAlignment(.center)
-                            
-                            Button {
-                                vm.addSubscribers()
-                            } label: {
-                                Image(systemName: "repeat")
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(Color.theme.red)
-                                    )
+                    if showPortfolio {
+                        ZStack(alignment: .top) {
+                            if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                                emptyText
+                            } else {
+                                portfolioCoinsList
                             }
-
-                          
-                            
                         }
-                        .frame(width: 150)
-                        .padding(.top, 100)
-                    } else {
-                        
-                        if !showPortfolio {
-                                allCoinsList
-                                    .transition(.move(edge: .leading))
-                        }
-                        
-                        if showPortfolio {
-                            ZStack(alignment: .top) {
-                                if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
-                                    emptyText
-                                } else {
-                                    portfolioCoinsList
-                                }
-                            }
-                            .transition(.move(edge: .trailing))
-                        }
-                   
+                        .transition(.move(edge: .trailing))
+                    }
+                    
                 }
-                    Spacer(minLength: 0)
+                Spacer(minLength: 0)
             }
-                .sheet(isPresented: $showSettingsView) {
-                    AboutView()
-                }
+            .sheet(isPresented: $showSettingsView) {
+                AboutView()
+            }
         }
         .background(
             NavigationLink(destination: DetailLoadingView(coin: $selectedCoin, networkingManager: vm.networkingManager),isActive: $showDetailView, label: { EmptyView() }))
@@ -97,11 +97,11 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-            NavigationView {
-                HomeView()
-                    .navigationBarHidden(true)
-            }
-            .environmentObject(dev.homeVM)
+        NavigationView {
+            HomeView()
+                .navigationBarHidden(true)
+        }
+        .environmentObject(dev.homeVM)
     }
 }
 
@@ -119,8 +119,8 @@ extension HomeView {
                     }
                 }
                 .background(
-                CircleButtonAnimationView(animate: $showPortfolio
-                ))
+                    CircleButtonAnimationView(animate: $showPortfolio
+                                             ))
             Spacer()
             Text(showPortfolio ? "Portfolio" : "Live Prices")
                 .font(.headline)
@@ -159,7 +159,7 @@ extension HomeView {
                 CoinRowView(coin: coin, showHoldingsColumn: false, networkingManager: vm.networkingManager)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .onTapGesture {
-                       segue(coin: coin)
+                        segue(coin: coin)
                     }
                     .listRowBackground(Color.theme.background)
             }
@@ -221,7 +221,7 @@ extension HomeView {
                 Image(systemName: "goforward")
             }
             .rotationEffect(Angle(degrees: vm.coinsLoading ? 360 : 0), anchor: .center)
-
+            
         }
         .font(.caption)
         .foregroundColor(Color.theme.secondaryText)

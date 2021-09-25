@@ -10,9 +10,8 @@ import Combine
 
 class DetailViewModel : ObservableObject {
     
-   
     private let coinDetailService : CoinDetailDataService
-    private var cancellables = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
     @Published var coin : Coin
     @Published var isError : Bool = false
@@ -34,14 +33,7 @@ class DetailViewModel : ObservableObject {
     }
     
     private func addSubscribers() {
-        coinDetailService.$isError
-            .combineLatest(coinDetailService.$error)
-            .sink { (returnedIsError, returnedError) in
-                self.isError = returnedIsError
-                self.error = returnedError
-            }
-            .store(in: &cancellables)
-        
+
         coinDetailService.$coinDetails
             .combineLatest($coin)
             .map(mapDataToStatistics)
@@ -51,7 +43,7 @@ class DetailViewModel : ObservableObject {
                 self?.overviewStatistics = returnedArrays.overview
                 self?.additionalStatistics = returnedArrays.additional
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
         
         coinDetailService.$coinDetails
             .receive(on: DispatchQueue.main)
@@ -60,7 +52,7 @@ class DetailViewModel : ObservableObject {
                 self?.websiteURL = returnedCoinDetails?.links?.homepage?.first
                 self?.redditURL = returnedCoinDetails?.links?.subredditURL
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
     }
     
     /// Maps given coinDetail and coin Models to data needed for overviewa and additional information rows

@@ -8,15 +8,9 @@
 import Foundation
 import Combine
 
-class MarketDataService : ErrorPublishedProtocol {
+class MarketDataService {
     
     @Published var marketData: MarketData? = nil
-    @Published private(set) var isError : Bool = false
-    @Published private(set) var error : Error? = nil
-    
-    
-    var errorPublisher: Published<Error?> { _error }
-    var isErrorPublisher: Published<Bool> { _isError }
     
     var marketSubscription : AnyCancellable?
     
@@ -39,16 +33,12 @@ class MarketDataService : ErrorPublishedProtocol {
                 case .finished:
                     break
                 case .failure(let error):
-                    self?.showError(error: error)
+                   break
                 }
             }, receiveValue: { [weak self] (returnedGlobalData) in
                 self?.marketData = returnedGlobalData.data
                 self?.marketSubscription?.cancel()
             })
     }
-    
-    func showError(error: Error) {
-        self.isError = true
-        self.error = error
-    }
+
 }

@@ -68,6 +68,7 @@ class CoinImageService {
                     .catch { _ in
                         Empty()
                     }
+                    .retry(2)
                     .eraseToAnyPublisher()
             }
             .receive(on: DispatchQueue.main)
