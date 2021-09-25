@@ -59,7 +59,7 @@
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Components/CoinImage/CoinImageView.swift",
       "line": 15,
-      "symbol": "CoinImageView.init(coin:)",
+      "symbol": "CoinImageView.init(networkingManager:coin:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -93,8 +93,15 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Components/CoinImage/CoinImageViewModel.swift",
-      "line": 20,
-      "symbol": "CoinImageViewModel.init(coin:)",
+      "line": 22,
+      "symbol": "CoinImageViewModel.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Components/CoinImage/CoinImageViewModel.swift",
+      "line": 25,
+      "symbol": "CoinImageViewModel.init(networkingManager:coin:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -114,8 +121,43 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Components/CoinImage/CoinLogoView.swift",
-      "line": 33,
+      "line": 13,
+      "symbol": "CoinLogoView.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Components/CoinImage/CoinLogoView.swift",
+      "line": 34,
       "symbol": "CoinLogoView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Components/Error/ErrorView.swift",
+      "line": 10,
+      "symbol": "ErrorView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Components/Error/ErrorView.swift",
+      "line": 12,
+      "symbol": "ErrorView.error",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Components/Error/ErrorView.swift",
+      "line": 13,
+      "symbol": "ErrorView.reloadData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Components/Error/ErrorView.swift",
+      "line": 55,
+      "symbol": "ErrorView_Previews",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
@@ -162,6 +204,27 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/ChartView.swift",
+      "line": 10,
+      "symbol": "ChartView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/ChartView.swift",
+      "line": 21,
+      "symbol": "ChartView.init(coin:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/ChartView.swift",
+      "line": 54,
+      "symbol": "ChartView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
       "line": 10,
       "symbol": "DetailLoadingView",
@@ -177,28 +240,28 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
-      "line": 24,
+      "line": 12,
+      "symbol": "DetailLoadingView.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
+      "line": 23,
       "symbol": "DetailView",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
-      "line": 26,
-      "symbol": "DetailView.coin",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
-      "line": 28,
-      "symbol": "DetailView.init(coin:)",
+      "line": 36,
+      "symbol": "DetailView.init(networkingManager:coin:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Detail/Views/DetailView.swift",
-      "line": 37,
+      "line": 88,
       "symbol": "DetailView_Previews",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
@@ -241,14 +304,14 @@
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
       "line": 17,
-      "symbol": "HomeViewModel.coinsLoading",
+      "symbol": "HomeViewModel.isLoading",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
       "line": 18,
-      "symbol": "HomeViewModel.showError",
+      "symbol": "HomeViewModel.error",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -303,8 +366,15 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
-      "line": 40,
-      "symbol": "HomeViewModel.init()",
+      "line": 42,
+      "symbol": "HomeViewModel.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/ViewModels/HomeViewModel.swift",
+      "line": 44,
+      "symbol": "HomeViewModel.init(networkingManager:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -331,7 +401,14 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/Views/CoinRowView.swift",
-      "line": 31,
+      "line": 14,
+      "symbol": "CoinRowView.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/Views/CoinRowView.swift",
+      "line": 32,
       "symbol": "CoinRowView_Previews",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
@@ -366,7 +443,7 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/Views/HomeView.swift",
-      "line": 89,
+      "line": 80,
       "symbol": "HomeView_Previews",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
@@ -387,8 +464,78 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Home/Views/PortfolioView.swift",
-      "line": 57,
+      "line": 60,
       "symbol": "PortfolioView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Launch/Views/LaunchView.swift",
+      "line": 10,
+      "symbol": "LaunchView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Launch/Views/LaunchView.swift",
+      "line": 18,
+      "symbol": "LaunchView.showLaunchView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Launch/Views/LaunchView.swift",
+      "line": 67,
+      "symbol": "LaunchView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Settings/Views/AboutView.swift",
+      "line": 10,
+      "symbol": "AboutView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Settings/Views/AboutView.swift",
+      "line": 12,
+      "symbol": "AboutView.presentationMode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Settings/Views/AboutView.swift",
+      "line": 13,
+      "symbol": "AboutView.defaultURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Settings/Views/AboutView.swift",
+      "line": 14,
+      "symbol": "AboutView.coingeckoURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Settings/Views/AboutView.swift",
+      "line": 15,
+      "symbol": "AboutView.youtubeURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Settings/Views/AboutView.swift",
+      "line": 16,
+      "symbol": "AboutView.personalURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Core/Settings/Views/AboutView.swift",
+      "line": 56,
+      "symbol": "SettingsView_Previews",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
@@ -401,44 +548,79 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Color.swift",
-      "line": 16,
+      "line": 14,
+      "symbol": "Color.launch",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Color.swift",
+      "line": 17,
       "symbol": "ColorTheme",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Color.swift",
-      "line": 18,
+      "line": 19,
       "symbol": "ColorTheme.accent",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Color.swift",
-      "line": 19,
+      "line": 20,
       "symbol": "ColorTheme.background",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Color.swift",
-      "line": 20,
+      "line": 21,
       "symbol": "ColorTheme.green",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Color.swift",
-      "line": 21,
+      "line": 22,
       "symbol": "ColorTheme.red",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Color.swift",
-      "line": 22,
+      "line": 23,
       "symbol": "ColorTheme.secondaryText",
       "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Color.swift",
+      "line": 26,
+      "symbol": "LaunchTheme",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Color.swift",
+      "line": 27,
+      "symbol": "LaunchTheme.accent",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Color.swift",
+      "line": 28,
+      "symbol": "LaunchTheme.background",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/Date.swift",
+      "line": 27,
+      "symbol": "Date.asShortDateString()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -472,28 +654,42 @@
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/PreviewProvider.swift",
       "line": 28,
+      "symbol": "DeveloperPreview.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/PreviewProvider.swift",
+      "line": 30,
       "symbol": "DeveloperPreview.previewCoin",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/PreviewProvider.swift",
-      "line": 227,
+      "line": 229,
       "symbol": "DeveloperPreview.stat1",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/PreviewProvider.swift",
-      "line": 228,
+      "line": 230,
       "symbol": "DeveloperPreview.stat2",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/PreviewProvider.swift",
-      "line": 229,
+      "line": 231,
       "symbol": "DeveloperPreview.stat3",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Extensions/String.swift",
+      "line": 12,
+      "symbol": "String.removingHTMLOccurances",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -502,6 +698,188 @@
       "line": 13,
       "symbol": "UIApplication.endEditing()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 104,
+      "symbol": "CoinDetail",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 105,
+      "symbol": "CoinDetail.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 105,
+      "symbol": "CoinDetail.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 105,
+      "symbol": "CoinDetail.symbol",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 106,
+      "symbol": "CoinDetail.blockTimeInMinutes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 107,
+      "symbol": "CoinDetail.hashingAlgorithm",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 108,
+      "symbol": "CoinDetail.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 109,
+      "symbol": "CoinDetail.links",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 111,
+      "symbol": "CoinDetail.CodingKeys",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 112,
+      "symbol": "CoinDetail.CodingKeys.description",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 112,
+      "symbol": "CoinDetail.CodingKeys.id",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 112,
+      "symbol": "CoinDetail.CodingKeys.links",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 112,
+      "symbol": "CoinDetail.CodingKeys.name",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 112,
+      "symbol": "CoinDetail.CodingKeys.symbol",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 113,
+      "symbol": "CoinDetail.CodingKeys.blockTimeInMinutes",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 114,
+      "symbol": "CoinDetail.CodingKeys.hashingAlgorithm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 117,
+      "symbol": "CoinDetail.readableDescription",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 121,
+      "symbol": "CoinDetail.testableCoinDetail",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 127,
+      "symbol": "Description",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 128,
+      "symbol": "Description.en",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 132,
+      "symbol": "Links",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 133,
+      "symbol": "Links.homepage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 134,
+      "symbol": "Links.subredditURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 136,
+      "symbol": "Links.CodingKeys",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 137,
+      "symbol": "Links.CodingKeys.homepage",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/CoinDetail.swift",
+      "line": 138,
+      "symbol": "Links.CodingKeys.subredditURL",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
@@ -1095,13 +1473,20 @@
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
       "line": 190,
+      "symbol": "MarketData.testableMarketData",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
+      "line": 194,
       "symbol": "MarketData.marketCap",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Models/MarketDataModel.swift",
-      "line": 198,
+      "line": 202,
       "symbol": "MarketData.volume",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1165,28 +1550,133 @@
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDataService.swift",
       "line": 15,
-      "symbol": "CoinDataService.isError",
+      "symbol": "CoinDataService.error",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDataService.swift",
-      "line": 17,
-      "symbol": "CoinDataService.coinSubscription",
+      "line": 16,
+      "symbol": "CoinDataService.serviceIsActive",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDataService.swift",
+      "line": 18,
+      "symbol": "CoinDataService.subscriptions",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDataService.swift",
       "line": 19,
-      "symbol": "CoinDataService.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "symbol": "CoinDataService.loadCoins",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDataService.swift",
+      "line": 20,
+      "symbol": "CoinDataService.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDataService.swift",
       "line": 23,
+      "symbol": "CoinDataService.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDataService.swift",
+      "line": 25,
+      "symbol": "CoinDataService.init(networkingManager:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDataService.swift",
+      "line": 30,
       "symbol": "CoinDataService.getCoins()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 11,
+      "symbol": "CoinDetailDataService",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 13,
+      "symbol": "CoinDetailDataService.coinDetails",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 14,
+      "symbol": "CoinDetailDataService.isLoading",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 15,
+      "symbol": "CoinDetailDataService.error",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 16,
+      "symbol": "CoinDetailDataService.serviceIsActive",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 18,
+      "symbol": "CoinDetailDataService.subscriptions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 19,
+      "symbol": "CoinDetailDataService.loadCoinDetails",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 20,
+      "symbol": "CoinDetailDataService.coin",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 23,
+      "symbol": "CoinDetailDataService.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 25,
+      "symbol": "CoinDetailDataService.init(networkingManager:coin:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinDetailDataService.swift",
+      "line": 32,
+      "symbol": "CoinDetailDataService.getCoinDetails(coin:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -1213,7 +1703,21 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinImageService.swift",
-      "line": 20,
+      "line": 16,
+      "symbol": "CoinImageService.error",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinImageService.swift",
+      "line": 17,
+      "symbol": "CoinImageService.serviceIsActive",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinImageService.swift",
+      "line": 22,
       "symbol": "CoinImageService.folderName",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1221,7 +1725,98 @@
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinImageService.swift",
       "line": 24,
-      "symbol": "CoinImageService.init(coin:)",
+      "symbol": "CoinImageService.loadImage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinImageService.swift",
+      "line": 27,
+      "symbol": "CoinImageService.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/CoinImageService.swift",
+      "line": 30,
+      "symbol": "CoinImageService.init(networkingManager:coin:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 11,
+      "symbol": "DetailViewModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 16,
+      "symbol": "DetailViewModel.coin",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 17,
+      "symbol": "DetailViewModel.error",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 18,
+      "symbol": "DetailViewModel.isLoading",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 19,
+      "symbol": "DetailViewModel.overviewStatistics",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 20,
+      "symbol": "DetailViewModel.additionalStatistics",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 21,
+      "symbol": "DetailViewModel.coinDescription",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 22,
+      "symbol": "DetailViewModel.websiteURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 23,
+      "symbol": "DetailViewModel.redditURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 26,
+      "symbol": "DetailViewModel.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/DetailViewModel.swift",
+      "line": 28,
+      "symbol": "DetailViewModel.init(networkingManager:coin:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -1241,21 +1836,56 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
-      "line": 15,
-      "symbol": "MarketDataService.marketSubscription",
+      "line": 14,
+      "symbol": "MarketDataService.isLoading",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
-      "line": 17,
-      "symbol": "MarketDataService.init()",
+      "line": 15,
+      "symbol": "MarketDataService.error",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
+      "line": 16,
+      "symbol": "MarketDataService.serviceIsActive",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
+      "line": 18,
+      "symbol": "MarketDataService.subscriptions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
+      "line": 19,
+      "symbol": "MarketDataService.loadMarketData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
+      "line": 22,
+      "symbol": "MarketDataService.networkingManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
+      "line": 24,
+      "symbol": "MarketDataService.init(networkingManager:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Services/MarketDataService.swift",
-      "line": 21,
+      "line": 29,
       "symbol": "MarketDataService.getMarketData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1286,6 +1916,20 @@
       "line": 11,
       "symbol": "SwiftyCryptoApp",
       "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/DataProvider.swift",
+      "line": 11,
+      "symbol": "DataProvider",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/DataProvider.swift",
+      "line": 12,
+      "symbol": "DataProvider.fetch(url:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -1338,6 +1982,34 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/Info.swift",
+      "line": 10,
+      "symbol": "Info",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/Info.swift",
+      "line": 12,
+      "symbol": "Info.log(_:function:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/Info.swift",
+      "line": 16,
+      "symbol": "Info.error(_:file:function:line:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/Info.swift",
+      "line": 20,
+      "symbol": "Info.debug(_:function:line:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/LocalFileManager.swift",
       "line": 11,
       "symbol": "LocalFileManager",
@@ -1367,37 +2039,37 @@
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/NetworkingManager.swift",
-      "line": 14,
-      "symbol": "NetworkingManager.NetworkingError.badURLResponse(url:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/NetworkingManager.swift",
       "line": 15,
-      "symbol": "NetworkingManager.NetworkingError.unknown",
+      "symbol": "NetworkingManager.NetworkingError.url(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/NetworkingManager.swift",
-      "line": 27,
-      "symbol": "NetworkingManager.download(url:)",
+      "line": 16,
+      "symbol": "NetworkingManager.NetworkingError.badResponse(statusCode:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/NetworkingManager.swift",
+      "line": 17,
+      "symbol": "NetworkingManager.NetworkingError.unknown(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/NetworkingManager.swift",
+      "line": 30,
+      "symbol": "NetworkingManager.NetworkingError.convert(error:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/NetworkingManager.swift",
-      "line": 35,
-      "symbol": "NetworkingManager.handleURLResponse(output:url:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/warss/ProjectsSpace/SwiftyCrypto/SwiftyCrypto/Utilities/NetworkingManager.swift",
-      "line": 46,
-      "symbol": "NetworkingManager.handleCompletion(completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "line": 43,
+      "symbol": "NetworkingManager.fetch(url:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
