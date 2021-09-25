@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct SwiftyCryptoApp: App {
     
-    @StateObject private var vm = HomeViewModel()
+    @StateObject private var vm = HomeViewModel(networkingManager: NetworkingManager())
     @State private var showLaunchView : Bool = true
     
     init() {

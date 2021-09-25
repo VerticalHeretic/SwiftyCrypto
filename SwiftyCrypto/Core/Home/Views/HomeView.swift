@@ -14,9 +14,10 @@ struct HomeView: View {
     @State private var showSettingsView : Bool = false
     @State private var selectedCoin : Coin? = nil
     @State private var showDetailView : Bool = false
+    @State private var shouldReload : Bool = false
     
     @EnvironmentObject private var vm : HomeViewModel
-
+    
     var body: some View {
         ZStack {
             // background layer
@@ -26,50 +27,25 @@ struct HomeView: View {
                     PortfolioView()
                         .environmentObject(vm)
                 }
-                        
+            
+            if let error = vm.error {
+                ErrorView(error: error, reloadData: $shouldReload)
+            } else {
                 // content layer
                 VStack {
                     homeHeader
                     
                     HomeStatsView(showPortfolio: $showPortfolio)
                     SearchBarView(searchText: $vm.searchText)
-                    
                     columnTitles
                     
-                    if vm.coinsLoading {
+                    if vm.isLoading {
                         ProgressView()
-                            .padding(.top, 200)
-                    } else if vm.showError {
-                        VStack(alignment: .center, spacing: 15){
-                            Image(systemName: "xmark.octagon.fill")
-                                .font(.largeTitle)
-                                .foregroundColor(Color.theme.red)
-                            
-                            Text("Unfortunately error happen when getting data.")
-                                .multilineTextAlignment(.center)
-                            
-                            Button {
-                                vm.addSubscribers()
-                            } label: {
-                                Image(systemName: "repeat")
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(Color.theme.red)
-                                    )
-                            }
-
-                          
-                            
-                        }
-                        .frame(width: 150)
-                        .padding(.top, 100)
+                            .offset(y: 250)
                     } else {
-                        
                         if !showPortfolio {
-                                allCoinsList
-                                    .transition(.move(edge: .leading))
+                            allCoinsList
+                                .transition(.move(edge: .leading))
                         }
                         
                         if showPortfolio {
@@ -82,26 +58,32 @@ struct HomeView: View {
                             }
                             .transition(.move(edge: .trailing))
                         }
-                   
-                }
+                        
+                    }
                     Spacer(minLength: 0)
-            }
+                }
                 .sheet(isPresented: $showSettingsView) {
                     AboutView()
                 }
+                .onChange(of: shouldReload, perform: { newValue in
+                    vm.reloadData()
+                })
+                
+            }
+    
         }
         .background(
-            NavigationLink(destination: DetailLoadingView(coin: $selectedCoin),isActive: $showDetailView, label: { EmptyView() }))
+            NavigationLink(destination: DetailLoadingView(coin: $selectedCoin, networkingManager: vm.networkingManager),isActive: $showDetailView, label: { EmptyView() }))
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-            NavigationView {
-                HomeView()
-                    .navigationBarHidden(true)
-            }
-            .environmentObject(dev.homeVM)
+        NavigationView {
+            HomeView()
+                .navigationBarHidden(true)
+        }
+        .environmentObject(dev.homeVM)
     }
 }
 
@@ -119,8 +101,8 @@ extension HomeView {
                     }
                 }
                 .background(
-                CircleButtonAnimationView(animate: $showPortfolio
-                ))
+                    CircleButtonAnimationView(animate: $showPortfolio
+                                             ))
             Spacer()
             Text(showPortfolio ? "Portfolio" : "Live Prices")
                 .font(.headline)
@@ -141,7 +123,7 @@ extension HomeView {
     private var portfolioCoinsList : some View {
         List {
             ForEach(vm.portfolioCoins) { coin in
-                CoinRowView(coin: coin, showHoldingsColumn: true)
+                CoinRowView(coin: coin, showHoldingsColumn: true, networkingManager: vm.networkingManager)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .onTapGesture {
                         segue(coin: coin)
@@ -156,10 +138,10 @@ extension HomeView {
     private var allCoinsList : some View {
         List {
             ForEach(vm.allCoins) { coin in
-                CoinRowView(coin: coin, showHoldingsColumn: false)
+                CoinRowView(coin: coin, showHoldingsColumn: false, networkingManager: vm.networkingManager)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .onTapGesture {
-                       segue(coin: coin)
+                        segue(coin: coin)
                     }
                     .listRowBackground(Color.theme.background)
             }
@@ -220,8 +202,8 @@ extension HomeView {
             } label: {
                 Image(systemName: "goforward")
             }
-            .rotationEffect(Angle(degrees: vm.coinsLoading ? 360 : 0), anchor: .center)
-
+            .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0), anchor: .center)
+            
         }
         .font(.caption)
         .foregroundColor(Color.theme.secondaryText)

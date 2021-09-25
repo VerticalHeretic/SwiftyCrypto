@@ -8,36 +8,43 @@
 import Foundation
 import Combine
 
-class DetailViewModel : ObservableObject {
+final class DetailViewModel : ObservableObject {
     
-   
     private let coinDetailService : CoinDetailDataService
-    private var cancellables = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
     @Published var coin : Coin
-    @Published var isError : Bool = false
     @Published var error : Error? = nil
+    @Published var isLoading : Bool = false
     @Published var overviewStatistics : [Statistic] = []
     @Published var additionalStatistics : [Statistic] = []
     @Published var coinDescription : String? = nil
     @Published var websiteURL: String? = nil
     @Published var redditURL: String? = nil
     
-    init(coin: Coin) {
+    //MARK: Dependecies
+    let networkingManager : DataProvider
+    
+    init(networkingManager: DataProvider ,coin: Coin) {
+        self.networkingManager = networkingManager
         self.coin = coin
-        self.coinDetailService = CoinDetailDataService(coin: coin)
+        self.coinDetailService = CoinDetailDataService(networkingManager: networkingManager, coin: coin)
         addSubscribers()
     }
     
     private func addSubscribers() {
-        coinDetailService.$isError
-            .combineLatest(coinDetailService.$error)
-            .sink { (returnedIsError, returnedError) in
-                self.isError = returnedIsError
-                self.error = returnedError
-            }
-            .store(in: &cancellables)
         
+        // Updates about data loading and error
+        coinDetailService.$isLoading
+            .combineLatest(coinDetailService.$error)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] (loading, error) in
+                self?.isLoading = loading
+                self?.error = error
+            }
+            .store(in: &subscriptions)
+
+
         coinDetailService.$coinDetails
             .combineLatest($coin)
             .map(mapDataToStatistics)
@@ -47,7 +54,7 @@ class DetailViewModel : ObservableObject {
                 self?.overviewStatistics = returnedArrays.overview
                 self?.additionalStatistics = returnedArrays.additional
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
         
         coinDetailService.$coinDetails
             .receive(on: DispatchQueue.main)
@@ -56,7 +63,14 @@ class DetailViewModel : ObservableObject {
                 self?.websiteURL = returnedCoinDetails?.links?.homepage?.first
                 self?.redditURL = returnedCoinDetails?.links?.subredditURL
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
+    }
+    
+    /// Reloads data in API handling services
+    func reloadData() {
+        self.isLoading = true
+        coinDetailService.getCoinDetails(coin: coin)
+        HapticManager.notification(notificationType: .success)
     }
     
     /// Maps given coinDetail and coin Models to data needed for overviewa and additional information rows

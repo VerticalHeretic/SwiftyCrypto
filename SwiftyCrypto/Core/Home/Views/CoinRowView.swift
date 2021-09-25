@@ -11,6 +11,7 @@ struct CoinRowView: View {
     
     let coin: Coin
     let showHoldingsColumn : Bool
+    let networkingManager : DataProvider
     
     var body: some View {
         HStack(spacing: 0) {
@@ -30,9 +31,9 @@ struct CoinRowView: View {
 
 struct CoinRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CoinRowView(coin: dev.previewCoin, showHoldingsColumn: true)
+        CoinRowView(coin: dev.previewCoin, showHoldingsColumn: true, networkingManager: dev.networkingManager)
             .previewLayout(.sizeThatFits)
-        CoinRowView(coin: dev.previewCoin, showHoldingsColumn: true)
+        CoinRowView(coin: dev.previewCoin, showHoldingsColumn: true, networkingManager: dev.networkingManager)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }
@@ -46,7 +47,7 @@ extension CoinRowView {
                 .font(.caption)
                 .foregroundColor(Color.theme.secondaryText)
                 .frame(minWidth: 30)
-            CoinImageView(coin: coin)
+            CoinImageView(networkingManager: networkingManager, coin: coin)
                 .frame(width: 30, height: 30)
             Text(coin.symbol.uppercased())
                 .font(.headline)

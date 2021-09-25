@@ -60,7 +60,7 @@ struct PortfolioView: View {
 struct PortfolioView_Previews: PreviewProvider {
     static var previews: some View {
         PortfolioView()
-            .environmentObject(HomeViewModel())
+            .environmentObject(HomeViewModel(networkingManager: dev.networkingManager))
     }
 }
 
@@ -71,7 +71,7 @@ extension PortfolioView {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
                 ForEach(vm.searchText.isEmpty ? vm.portfolioCoins : vm.allCoins) { coin in
-                    CoinLogoView(coin: coin)
+                    CoinLogoView(coin: coin, networkingManager: vm.networkingManager)
                         .frame(width: 75)
                         .padding(4)
                         .onTapGesture {

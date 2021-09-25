@@ -8,20 +8,20 @@
 import Foundation
 import Combine
 
-class HomeViewModel : ObservableObject {
+final class HomeViewModel : ObservableObject {
     
     @Published var statistics : [Statistic] = []
     @Published var allCoins : [Coin] = []
     @Published var portfolioCoins : [Coin] = []
     @Published var searchText : String = ""
-    @Published var coinsLoading : Bool = false
-    @Published var showError : Bool = false
+    @Published var isLoading : Bool = false
+    @Published var error : Error? = nil
     @Published var sortOption : SortOption = .holdings
     
     /// Main list of currencies service
-    private let coinDataService = CoinDataService()
+    private let coinDataService : CoinDataService
     /// Top bar market data service
-    private let marketDataService = MarketDataService()
+    private let marketDataService : MarketDataService
     /// PorfolioView service to save, get, update, remove from CoreData
     private let portfolioDataService = PortfolioDataService()
     /// Set of cancelables to store in the subscribers
@@ -37,7 +37,15 @@ class HomeViewModel : ObservableObject {
         case priceReversed
     }
     
-    init() {
+    //MARK: Dependecies
+    
+    let networkingManager : DataProvider
+    
+    init(networkingManager : DataProvider) {
+        
+        self.networkingManager = networkingManager
+        self.coinDataService = CoinDataService(networkingManager: networkingManager)
+        self.marketDataService = MarketDataService(networkingManager: networkingManager)
         
         // If we are unit testing we want to have some coins in
         if ProcessInfo.processInfo.environment["IS_UNIT_TESTING"] == "1" {
@@ -49,13 +57,15 @@ class HomeViewModel : ObservableObject {
     }
     
     /// Adds subscribers to the view model
-    func addSubscribers() {
+    private func addSubscribers() {
         
-        // Updates about data loading
+        // Updates about data loading and error
         coinDataService.$isLoading
+            .combineLatest(coinDataService.$error)
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] (returnedLoading) in
-                self?.coinsLoading = returnedLoading
+            .sink { [weak self] (loading, error) in
+                self?.isLoading = loading
+                self?.error = error
             }
             .store(in: &cancellables)
 
@@ -100,7 +110,7 @@ class HomeViewModel : ObservableObject {
     
     /// Reloads data in API handling services
     func reloadData() {
-        self.coinsLoading = true
+        self.isLoading = true
         coinDataService.getCoins()
         marketDataService.getMarketData()
         HapticManager.notification(notificationType: .success)

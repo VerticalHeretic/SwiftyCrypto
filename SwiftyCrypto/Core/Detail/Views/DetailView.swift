@@ -9,11 +9,12 @@ import SwiftUI
 
 struct DetailLoadingView : View {
     @Binding var coin : Coin?
+    let networkingManager : DataProvider
     
     var body: some View {
         ZStack {
             if let coin = coin {
-                DetailView(coin: coin)
+                DetailView(networkingManager: networkingManager, coin: coin)
             }
         }
     }
@@ -24,6 +25,7 @@ struct DetailView: View {
     @StateObject private var vm : DetailViewModel
     
     @State private var showFullDescription : Bool = false
+    @State private var shouldReload : Bool = false
     
     private let columns : [GridItem] = [
         GridItem(.flexible()),
@@ -31,42 +33,53 @@ struct DetailView: View {
     ]
     private let spacing: CGFloat = 30
     
-    init(coin: Coin) {
-        _vm = StateObject(wrappedValue: DetailViewModel(coin: coin))
+    init(networkingManager: DataProvider ,coin: Coin) {
+        _vm = StateObject(wrappedValue: DetailViewModel(networkingManager: networkingManager, coin: coin))
     }
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ChartView(coin: vm.coin)
-                    .padding(.vertical)
-                VStack(spacing: 20) {
-                                    
-                    overviewTitle
-                    Divider()
-                    
-                    descriptionSection
-                    
-                    overviewGrid
-                    
-                    additionalTitle
-                    Divider()
-                    additionalGrid
-                    
-                    websiteSection
+        ZStack {
+            if let error = vm.error {
+                ErrorView(error: error, reloadData: $shouldReload)
+            } else if vm.isLoading {
+                ProgressView()
+            } else {
+                ScrollView {
+                    VStack {
+                        ChartView(coin: vm.coin)
+                            .padding(.vertical)
+                        VStack(spacing: 20) {
+                            
+                            overviewTitle
+                            Divider()
+                            
+                            descriptionSection
+                            
+                            overviewGrid
+                            
+                            additionalTitle
+                            Divider()
+                            additionalGrid
+                            
+                            websiteSection
+                            
+                        }
+                        .padding()
+                    }
                     
                 }
-                .padding()
-            }
-            
-        }
-        .background(
-            Color.theme.background.ignoresSafeArea()
-            )
-        .navigationTitle(vm.coin.name)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                navigationBarTrailingItem
+                .background(
+                    Color.theme.background.ignoresSafeArea()
+                )
+                .navigationTitle(vm.coin.name)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        navigationBarTrailingItem
+                    }
+                }
+                .onChange(of: shouldReload) { newValue in
+                    vm.reloadData()
+                }
             }
         }
     }
@@ -75,7 +88,7 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DetailView(coin: dev.previewCoin)
+            DetailView(networkingManager: dev.networkingManager, coin: dev.previewCoin)
         }
     }
 }
@@ -128,7 +141,7 @@ extension DetailView {
         Text(vm.coin.symbol.uppercased())
             .font(.headline)
             .foregroundColor(Color.theme.secondaryText)
-            CoinImageView(coin: vm.coin)
+            CoinImageView(networkingManager: vm.networkingManager, coin: vm.coin)
                 .frame(width: 25, height: 25)
         }
     }

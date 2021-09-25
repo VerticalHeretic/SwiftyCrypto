@@ -12,8 +12,8 @@ struct CoinImageView: View {
     
     @StateObject var vm : CoinImageViewModel
     
-    init(coin: Coin) {
-        _vm = StateObject(wrappedValue: CoinImageViewModel(coin: coin))
+    init(networkingManager : DataProvider, coin: Coin) {
+        _vm = StateObject(wrappedValue: CoinImageViewModel(networkingManager: networkingManager, coin: coin))
     }
  
     
@@ -35,7 +35,7 @@ struct CoinImageView: View {
 
 struct CoinImageView_Previews: PreviewProvider {
     static var previews: some View {
-        CoinImageView(coin: dev.previewCoin)
+        CoinImageView(networkingManager: dev.networkingManager, coin: dev.previewCoin)
             .padding()
             .previewLayout(.sizeThatFits)
     }

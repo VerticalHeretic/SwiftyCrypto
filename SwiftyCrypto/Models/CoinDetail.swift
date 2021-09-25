@@ -117,6 +117,10 @@ struct CoinDetail : Codable{
     var readableDescription : String? {
         return description?.en?.removingHTMLOccurances
     }
+    
+    static var testableCoinDetail : CoinDetail {
+        return CoinDetail(id: "testcoin", symbol: "tit", name: "Testcoin", blockTimeInMinutes: 10, hashingAlgorithm: "test", description: Description(en: "Ahhh test here we go again"), links: nil)
+    }
 }
 
 // MARK: - Description
