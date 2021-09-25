@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 class CoinDataService  {
+    
     @Published var allCoins: [Coin] = []
     @Published var isLoading : Bool = false
     @Published var error : Error? = nil
@@ -21,7 +22,7 @@ class CoinDataService  {
     //MARK: Dependecies
     let networkingManager : DataProvider
     
-    init(networkingManager : DataProvider = NetworkingManager()) {
+    init(networkingManager : DataProvider) {
         self.networkingManager = networkingManager
         getCoins()
     }
@@ -40,6 +41,7 @@ class CoinDataService  {
                         case .failure(let error):
                             DispatchQueue.main.async {
                                 self.error = error
+                                Info.error(error.localizedDescription)
                             }
                         case .finished:
                             self.isLoading = false

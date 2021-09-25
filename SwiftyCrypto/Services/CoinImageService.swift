@@ -9,22 +9,19 @@ import Foundation
 import SwiftUI
 import Combine
 
-class CoinImageService  : ErrorPublishedProtocol {
+class CoinImageService {
     
     @Published var image : UIImage? = nil
     @Published var isLoading : Bool = false
-    @Published private(set) var isError : Bool = false
-    @Published private(set) var error : Error? = nil
-    
-    
-    var errorPublisher: Published<Error?> { _error }
-    var isErrorPublisher: Published<Bool> { _isError }
+    @Published var error : Error? = nil
+    @Published var serviceIsActive : Bool = true
     
     private let fileManager = LocalFileManager.instance
-    private var imageSubscription : AnyCancellable?
+    private var subscriptions = Set<AnyCancellable>()
     private let coin : Coin
     let folderName = "coin_images"
     private let imageName: String
+    let loadImage = CurrentValueSubject<String, Never>("")
     
     //MARK: Depedencies
     let networkingManager : DataProvider
@@ -47,33 +44,41 @@ class CoinImageService  : ErrorPublishedProtocol {
     }
     
     private func downloadCoinImage() {
-        guard let url = URL(string: coin.image ) else { return }
+        loadImage
+            .removeDuplicates() // if the path is the same it will be removed
+            .compactMap{ URL(string: $0)}
+            .flatMap { (url) -> AnyPublisher<UIImage, Never> in
+                self.networkingManager.fetch(url: url)
+                    .compactMap {
+                        UIImage(data: $0)
+                    }
+                    .handleEvents(receiveCompletion: { (completion) in
+                        switch completion {
+                        case .failure(let error):
+                            DispatchQueue.main.async {
+                                self.error = error
+                                Info.error(error.errorDescription ?? "")
+                            }
+                        case .finished:
+                            self.isLoading = false
+                        }
+                    }, receiveRequest: { _ in
+                        self.isLoading = true
+                    })
+                    .catch { _ in
+                        Empty()
+                    }
+                    .eraseToAnyPublisher()
+            }
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] _ in
+                self.serviceIsActive = false
+            } receiveValue: { [unowned self] (image) in
+                self.image = image
+            }
+            .store(in: &subscriptions)
         
-        imageSubscription = networkingManager.fetch(url: url)
-            .tryMap({ (data) -> UIImage? in
-                return UIImage(data: data)
-            })
-            .sink(receiveCompletion: { [weak self] result in
-                switch result {
-                case .finished:
-                    break
-                case .failure(let error):
-                    self?.showError(error: error)
-                }
-            }, receiveValue: { [weak self] (returnedImage) in
-                
-                guard let self = self, let downloadedImage = returnedImage else { return }
-                
-                self.isLoading = false
-                self.image = returnedImage
-                self.imageSubscription?.cancel()
-                self.fileManager.saveImage(image: downloadedImage, imageName: self.imageName, folderName: self.folderName)
-            })
-    }
-    
-    func showError(error: Error) {
-        self.isError = true
-        self.error = error
+        loadImage.send(coin.image)
     }
     
 }

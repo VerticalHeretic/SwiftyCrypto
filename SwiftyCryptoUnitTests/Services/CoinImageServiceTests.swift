@@ -13,46 +13,45 @@ import Combine
 
 class CoinImageServiceTests : XCTestCase {
     
-    lazy var mockCoins : [Coin] = {
-        return [Coin.testableCoin]
+    lazy var mockImage : UIImage = {
+        return UIImage(systemName: "plus")!
     }()
-
+    
+    lazy var mockData : Data = {
+        mockImage.pngData()!
+    }()
+    
+    lazy var mockCoin : Coin = {
+        Coin.testableCoin
+    }()
+    
     var subscriptions = Set<AnyCancellable>()
     
     override func tearDown() {
         subscriptions = []
     }
     
-    func testLoadingCoinsAtLaunch() throws {
-        let data = try JSONEncoder().encode(mockCoins)
-        let mock = NetworkingManagerMock(result: .success(data))
-        let service = CoinImageService(networkingManager: mock)
-        XCTAssertEqual(service.allCoins.count,0, "starting with no coins")
+    func testLoadingImageAtInit() throws {
+        let mock = NetworkingManagerMock(result: .success(mockData))
+        let service = CoinImageService(networkingManager: mock, coin: mockCoin)
         
-        let promise = expectation(description: "loading 1 coin")
-        service.$allCoins
-            .drop { coins in
-                coins.count == 0
-            }
-            .contains(where: { (coins) in
-                Info.debug("🪙: \(coins.count)")
-                return coins.count == 1
-              
+        let promise = expectation(description: "loading 1 image")
+        service.$image
+            .contains(where: { image in
+                image != nil
             })
-            .sink(receiveValue: { (value) in
+            .sink { value in
                 promise.fulfill()
-            })
+            }
             .store(in: &subscriptions)
         
         wait(for: [promise], timeout: 1)
     }
-    
+//    
     func testError() throws {
         let mock = NetworkingManagerMock(result: .failure(NetworkingManager.NetworkingError.badResponse(statusCode: 400)))
-        let service = CoinDataService(networkingManager: mock)
-        XCTAssertEqual(service.allCoins.count,0, "starting with no coins")
-        
-        
+        let service = CoinImageService(networkingManager: mock, coin: mockCoin)
+
         service.$serviceIsActive
             .filter({
                 !$0 //is not active
@@ -70,7 +69,7 @@ class CoinImageServiceTests : XCTestCase {
                 error != nil
             })
             .first()
-            .sink { (message) in
+            .sink { (error) in
                 promise.fulfill()
             }
             .store(in: &subscriptions)

@@ -37,7 +37,8 @@
 		7A10DCCF26FE5F1D00D6DE1E /* CoinImageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCCE26FE5F1D00D6DE1E /* CoinImageServiceTests.swift */; };
 		7A10DCD126FE5F3900D6DE1E /* MarketDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCD026FE5F3900D6DE1E /* MarketDataServiceTests.swift */; };
 		7A10DCD526FE5F5800D6DE1E /* PortfolioDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCD426FE5F5800D6DE1E /* PortfolioDataServiceTests.swift */; };
-		7A10DCD726FE5F8B00D6DE1E /* CoinDetailDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCD626FE5F8B00D6DE1E /* CoinDetailDataService.swift */; };
+		7A10DCD726FE5F8B00D6DE1E /* CoinDetailDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCD626FE5F8B00D6DE1E /* CoinDetailDataServiceTests.swift */; };
+		7A10DCD826FF632F00D6DE1E /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCCC26FE0E5D00D6DE1E /* Info.swift */; };
 		7A11E94926A06E9800B3D36C /* SwiftyCryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */; };
 		7A11E94D26A06E9900B3D36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11E94C26A06E9900B3D36C /* Assets.xcassets */; };
 		7A11E95026A06E9900B3D36C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11E94F26A06E9900B3D36C /* Preview Assets.xcassets */; };
@@ -102,7 +103,7 @@
 		7A10DCCE26FE5F1D00D6DE1E /* CoinImageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageServiceTests.swift; sourceTree = "<group>"; };
 		7A10DCD026FE5F3900D6DE1E /* MarketDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataServiceTests.swift; sourceTree = "<group>"; };
 		7A10DCD426FE5F5800D6DE1E /* PortfolioDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataServiceTests.swift; sourceTree = "<group>"; };
-		7A10DCD626FE5F8B00D6DE1E /* CoinDetailDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailDataService.swift; sourceTree = "<group>"; };
+		7A10DCD626FE5F8B00D6DE1E /* CoinDetailDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailDataServiceTests.swift; sourceTree = "<group>"; };
 		7A11E94526A06E9800B3D36C /* SwiftyCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyCryptoApp.swift; sourceTree = "<group>"; };
 		7A11E94C26A06E9900B3D36C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -198,7 +199,7 @@
 				7A10DCCE26FE5F1D00D6DE1E /* CoinImageServiceTests.swift */,
 				7A10DCD026FE5F3900D6DE1E /* MarketDataServiceTests.swift */,
 				7A10DCD426FE5F5800D6DE1E /* PortfolioDataServiceTests.swift */,
-				7A10DCD626FE5F8B00D6DE1E /* CoinDetailDataService.swift */,
+				7A10DCD626FE5F8B00D6DE1E /* CoinDetailDataServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -608,6 +609,7 @@
 				7A10DCC626FDFE6C00D6DE1E /* CoinDataServiceTests.swift in Sources */,
 				7A10DCC426FDFE1500D6DE1E /* NetworkingManagerMock .swift in Sources */,
 				7A10DCC826FE010D00D6DE1E /* CoinModel.swift in Sources */,
+				7A10DCD826FF632F00D6DE1E /* Info.swift in Sources */,
 				7A10DCBD26FDF60100D6DE1E /* CoinDataService.swift in Sources */,
 				7A10DCBA26FDF5C900D6DE1E /* UIApplication.swift in Sources */,
 				7A10DCAD26FDF59A00D6DE1E /* MarketDataModel.swift in Sources */,
@@ -615,7 +617,7 @@
 				7A10DCB926FDF5C900D6DE1E /* Color.swift in Sources */,
 				7A10DCAC26FDF59A00D6DE1E /* CoinDetail.swift in Sources */,
 				7A10DCA926FDF58100D6DE1E /* HapticManager.swift in Sources */,
-				7A10DCD726FE5F8B00D6DE1E /* CoinDetailDataService.swift in Sources */,
+				7A10DCD726FE5F8B00D6DE1E /* CoinDetailDataServiceTests.swift in Sources */,
 				7A9D999926EB4B2400E7F50B /* LocalFileManagerTests.swift in Sources */,
 				7A10DCB626FDF5C900D6DE1E /* String.swift in Sources */,
 				7A10DCB826FDF5C900D6DE1E /* Double.swift in Sources */,

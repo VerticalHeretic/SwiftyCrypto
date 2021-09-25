@@ -275,9 +275,9 @@ struct Coin : Identifiable, Codable {
     
     static var testableCoin : Coin {
         return Coin(
-        id: "bitcoin",
-        symbol: "btc",
-        name: "Bitcoin",
+        id: "testcoin",
+        symbol: "tit",
+        name: "Testcoin",
         image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
         currentPrice: 61408,
         marketCap: 1141731099010,
