@@ -17,11 +17,11 @@ struct HomeView: View {
     @State private var shouldReload : Bool = false
     
     @EnvironmentObject private var vm : HomeViewModel
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @Environment(\.scenePhase) var scenePhase
-    
+    @EnvironmentObject var quickActions: QuickActionService
+
     var body: some View {
         ZStack {
+
             // background layer
             Color.theme.background
                 .ignoresSafeArea()
@@ -70,23 +70,25 @@ struct HomeView: View {
                 .onChange(of: shouldReload, perform: { newValue in
                     vm.reloadData()
                 })
-                .onChange(of: scenePhase) { scenePhase in
-                    switch scenePhase {
-                    case .background: addDynamicQuickActions()
-                    default: return
-                    }
-                }
                 
             }
             
         }
         .background(
             NavigationLink(destination: DetailLoadingView(coin: $selectedCoin, networkingManager: vm.networkingManager),isActive: $showDetailView, label: { EmptyView() }))
-    }
-    
-    private func addDynamicQuickActions() {
-        UIApplication.shared.shortcutItems  = [
-        ]
+        .onAppear {
+            if let quickAction = quickActions.action {
+                Info.log(quickAction.rawValue)
+                switch quickAction {
+                case .protfolio:
+                    Info.log("showingProftolio")
+                    showPortfolio.toggle()
+                case .about:
+                    Info.log("showingSettings")
+                    showSettingsView.toggle()
+                }
+            }
+        }
     }
 }
 

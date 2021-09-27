@@ -39,6 +39,7 @@
 		7A10DCD826FF632F00D6DE1E /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCCC26FE0E5D00D6DE1E /* Info.swift */; };
 		7A10DCDB26FF7D6D00D6DE1E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCDA26FF7D6D00D6DE1E /* ErrorView.swift */; };
 		7A10DCDD2702274400D6DE1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCDC2702274400D6DE1E /* AppDelegate.swift */; };
+		7A10DCDF27022DEF00D6DE1E /* QuickActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10DCDE27022DEF00D6DE1E /* QuickActionService.swift */; };
 		7A11E94926A06E9800B3D36C /* SwiftyCryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */; };
 		7A11E94D26A06E9900B3D36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11E94C26A06E9900B3D36C /* Assets.xcassets */; };
 		7A11E95026A06E9900B3D36C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11E94F26A06E9900B3D36C /* Preview Assets.xcassets */; };
@@ -104,6 +105,7 @@
 		7A10DCD626FE5F8B00D6DE1E /* CoinDetailDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailDataServiceTests.swift; sourceTree = "<group>"; };
 		7A10DCDA26FF7D6D00D6DE1E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		7A10DCDC2702274400D6DE1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A10DCDE27022DEF00D6DE1E /* QuickActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionService.swift; sourceTree = "<group>"; };
 		7A11E94526A06E9800B3D36C /* SwiftyCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A11E94826A06E9800B3D36C /* SwiftyCryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyCryptoApp.swift; sourceTree = "<group>"; };
 		7A11E94C26A06E9900B3D36C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				E0B8DCCF26F4B3EA0067648D /* CoinDetailDataService.swift */,
 				7A78A92F26EF301D003DCB3E /* MarketDataService.swift */,
 				7AF1190526F07B6C0054E4E1 /* PortfolioDataService.swift */,
+				7A10DCDE27022DEF00D6DE1E /* QuickActionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				E0B8DCD026F4B3EA0067648D /* CoinDetailDataService.swift in Sources */,
 				7AA8719526A5E9C300D3B2FE /* Double.swift in Sources */,
 				E0B8DCD226F4B7BF0067648D /* DetailViewModel.swift in Sources */,
+				7A10DCDF27022DEF00D6DE1E /* QuickActionService.swift in Sources */,
 				7A11E96826A2E9DA00B3D36C /* CoinModel.swift in Sources */,
 				7A977A5526FBACC700D8F126 /* AboutView.swift in Sources */,
 			);
