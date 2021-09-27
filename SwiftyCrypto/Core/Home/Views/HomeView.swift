@@ -17,6 +17,8 @@ struct HomeView: View {
     @State private var shouldReload : Bool = false
     
     @EnvironmentObject private var vm : HomeViewModel
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
         ZStack {
@@ -68,14 +70,26 @@ struct HomeView: View {
                 .onChange(of: shouldReload, perform: { newValue in
                     vm.reloadData()
                 })
+                .onChange(of: scenePhase) { scenePhase in
+                    switch scenePhase {
+                    case .background: addDynamicQuickActions()
+                    default: return
+                    }
+                }
                 
             }
-    
+            
         }
         .background(
             NavigationLink(destination: DetailLoadingView(coin: $selectedCoin, networkingManager: vm.networkingManager),isActive: $showDetailView, label: { EmptyView() }))
     }
+    
+    private func addDynamicQuickActions() {
+        UIApplication.shared.shortcutItems  = [
+        ]
+    }
 }
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
