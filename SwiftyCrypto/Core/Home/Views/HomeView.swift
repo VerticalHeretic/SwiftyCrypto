@@ -74,21 +74,11 @@ struct HomeView: View {
             }
             
         }
+        .onChange(of: quickActions.action, perform: { action in
+            handleQuickAction(action: action)
+        })
         .background(
             NavigationLink(destination: DetailLoadingView(coin: $selectedCoin, networkingManager: vm.networkingManager),isActive: $showDetailView, label: { EmptyView() }))
-        .onAppear {
-            if let quickAction = quickActions.action {
-                Info.log(quickAction.rawValue)
-                switch quickAction {
-                case .protfolio:
-                    Info.log("showingProftolio")
-                    showPortfolio.toggle()
-                case .about:
-                    Info.log("showingSettings")
-                    showSettingsView.toggle()
-                }
-            }
-        }
     }
 }
 
@@ -233,5 +223,18 @@ extension HomeView {
             .fontWeight(.medium)
             .multilineTextAlignment(.center)
             .padding(50)
+    }
+    
+    private func handleQuickAction(action : QuickAction?) {
+        switch action {
+        case .protfolio:
+            Info.log("showingProftolio")
+            showPortfolio.toggle()
+        case .about:
+            Info.log("showingSettings")
+            showSettingsView.toggle()
+        case .none:
+            break
+        }
     }
 }

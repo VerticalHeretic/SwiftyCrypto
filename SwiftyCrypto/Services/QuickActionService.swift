@@ -19,7 +19,6 @@ final class QuickActionService : ObservableObject {
     @Published var action: QuickAction?
     
     init(initialValue: QuickAction? = nil) {
-        Info.debug("Initialized with \(initialValue?.rawValue)")
         action = initialValue
     }
     
