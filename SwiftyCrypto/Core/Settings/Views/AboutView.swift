@@ -68,6 +68,7 @@ extension AboutView {
                     .resizable()
                     .frame(width: 80, height: 80)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
+                // swiftlint:disable:next line_length
                 Text("This app was made with companion of @SwiftfulThinking Cource on YouTube and with my own tweaks to it. Like more clean code, testing, theme changes, CI/CD processes etc. It uses MVVM Architecture, Combine and CoreData.")
                     .font(.callout)
                     .fontWeight(.medium)
