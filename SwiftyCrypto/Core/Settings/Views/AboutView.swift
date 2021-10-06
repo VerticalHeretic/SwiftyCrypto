@@ -86,7 +86,10 @@ extension AboutView {
                     .scaledToFit()
                     .frame(height: 80)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-                Text("The cryptocurrency data that is used in this app comes from a free API from CoinGecko! Prices may vary or be little delayed.")
+                Text("""
+                     The cryptocurrency data that is used in this app comes from a free API from CoinGecko!
+                     Prices may vary or be little delayed.
+                    """)
                     .font(.callout)
                     .fontWeight(.medium)
             }
@@ -102,7 +105,11 @@ extension AboutView {
                     .resizable()
                     .frame(width: 80, height: 80)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-                Text("Łukasz Stachnik, iOS developer with 1 year of exp commercially at the moment of writing this description. Passionate about new tech, coffee and all around sport.")
+                Text("""
+                     Łukasz Stachnik, iOS developer with 1 year of exp
+                    commercially at the moment of writing this description.
+                    Passionate about new tech, coffee and all around sport.
+                    """)
                     .font(.callout)
                     .fontWeight(.medium)
             }

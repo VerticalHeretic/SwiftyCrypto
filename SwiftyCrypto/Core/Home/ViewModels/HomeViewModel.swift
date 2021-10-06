@@ -175,7 +175,9 @@ final class HomeViewModel: ObservableObject {
         let lowercasedText = text.lowercased()
 
         return coins.filter { coin -> Bool in
-            return coin.name.lowercased().contains(lowercasedText) || coin.symbol.lowercased().contains(lowercasedText) || coin.id.contains(lowercasedText)
+            return coin.name.lowercased().contains(lowercasedText) ||
+            coin.symbol.lowercased().contains(lowercasedText) ||
+            coin.id.contains(lowercasedText)
         }
     }
 
@@ -213,7 +215,9 @@ final class HomeViewModel: ObservableObject {
             return stats
         }
 
-        let marketCap = Statistic(title: "Market Cap", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd)
+        let marketCap = Statistic(title: "Market Cap",
+                                  value: data.marketCap,
+                                  percentageChange: data.marketCapChangePercentage24HUsd)
         let volume = Statistic(title: "24h Volume", value: data.volume)
         let btcDominance = Statistic(title: "BTC Dominance", value: data.btcDominance)
 
@@ -232,7 +236,9 @@ final class HomeViewModel: ObservableObject {
 
         let percentageChange = ((currentPortfolioValue - previousValue) / previousValue)
 
-        let portfolio = Statistic(title: "Portfolio Value", value: currentPortfolioValue.asCurrencyWith2Decimals(), percentageChange: percentageChange)
+        let portfolio = Statistic(title: "Portfolio Value",
+                                  value: currentPortfolioValue.asCurrencyWith2Decimals(),
+                                  percentageChange: percentageChange)
 
         stats.append(contentsOf: [marketCap, volume, btcDominance, portfolio])
 

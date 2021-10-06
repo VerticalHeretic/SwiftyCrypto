@@ -16,7 +16,7 @@ struct HomeView: View {
     @State private var showDetailView: Bool = false
     @State private var shouldReload: Bool = false
 
-    @EnvironmentObject private var vm: HomeViewModel
+    @EnvironmentObject private var viewModel: HomeViewModel
     @EnvironmentObject var quickActions: QuickActionService
 
     var body: some View {
@@ -27,10 +27,10 @@ struct HomeView: View {
                 .ignoresSafeArea()
                 .sheet(isPresented: $showPortfolioView) {
                     PortfolioView()
-                        .environmentObject(vm)
+                        .environmentObject(viewModel)
                 }
 
-            if let error = vm.error {
+            if let error = viewModel.error {
                 ErrorView(error: error, reloadData: $shouldReload)
             } else {
                 // content layer
@@ -38,10 +38,10 @@ struct HomeView: View {
                     homeHeader
 
                     HomeStatsView(showPortfolio: $showPortfolio)
-                    SearchBarView(searchText: $vm.searchText)
+                    SearchBarView(searchText: $viewModel.searchText)
                     columnTitles
 
-                    if vm.isLoading {
+                    if viewModel.isLoading {
                         ProgressView()
                             .offset(y: 250)
                     } else {
@@ -52,7 +52,7 @@ struct HomeView: View {
 
                         if showPortfolio {
                             ZStack(alignment: .top) {
-                                if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                                if viewModel.portfolioCoins.isEmpty && viewModel.searchText.isEmpty {
                                     emptyText
                                 } else {
                                     portfolioCoinsList
@@ -68,7 +68,7 @@ struct HomeView: View {
                     AboutView()
                 }
                 .onChange(of: shouldReload, perform: { _ in
-                    vm.reloadData()
+                    viewModel.reloadData()
                 })
 
             }
@@ -78,7 +78,11 @@ struct HomeView: View {
             handleQuickAction(action: action)
         })
         .background(
-            NavigationLink(destination: DetailLoadingView(coin: $selectedCoin, networkingManager: vm.networkingManager), isActive: $showDetailView, label: { EmptyView() }))
+            NavigationLink(destination: DetailLoadingView(
+                coin: $selectedCoin,
+                networkingManager: viewModel.networkingManager),
+                isActive: $showDetailView,
+                label: { EmptyView() }))
     }
 }
 
@@ -127,8 +131,8 @@ extension HomeView {
 
     private var portfolioCoinsList : some View {
         List {
-            ForEach(vm.portfolioCoins) { coin in
-                CoinRowView(coin: coin, showHoldingsColumn: true, networkingManager: vm.networkingManager)
+            ForEach(viewModel.portfolioCoins) { coin in
+                CoinRowView(coin: coin, showHoldingsColumn: true, networkingManager: viewModel.networkingManager)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .onTapGesture {
                         segue(coin: coin)
@@ -142,8 +146,8 @@ extension HomeView {
 
     private var allCoinsList : some View {
         List {
-            ForEach(vm.allCoins) { coin in
-                CoinRowView(coin: coin, showHoldingsColumn: false, networkingManager: vm.networkingManager)
+            ForEach(viewModel.allCoins) { coin in
+                CoinRowView(coin: coin, showHoldingsColumn: false, networkingManager: viewModel.networkingManager)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .onTapGesture {
                         segue(coin: coin)
@@ -164,13 +168,13 @@ extension HomeView {
             HStack(spacing: 4) {
                 Text("Coin")
                 Image(systemName: "chevron.down")
-                    .opacity((vm.sortOption == .rank || vm.sortOption == .rankReversed) ? 1.0 : 0.0)
-                    .rotationEffect(Angle(degrees: vm.sortOption == .rank ? 0 : 180))
+                    .opacity((viewModel.sortOption == .rank || viewModel.sortOption == .rankReversed) ? 1.0 : 0.0)
+                    .rotationEffect(Angle(degrees: viewModel.sortOption == .rank ? 0 : 180))
 
             }
             .onTapGesture {
                 withAnimation(.default) {
-                    vm.sortOption = vm.sortOption == .rank ? .rankReversed : .rank
+                    viewModel.sortOption = viewModel.sortOption == .rank ? .rankReversed : .rank
                 }
             }
             Spacer()
@@ -178,36 +182,37 @@ extension HomeView {
                 HStack(spacing: 4) {
                     Text("Holdings")
                     Image(systemName: "chevron.down")
-                        .opacity((vm.sortOption == .holdings || vm.sortOption == .holdingsReversed) ? 1.0 : 0.0)
-                        .rotationEffect(Angle(degrees: vm.sortOption == .holdings ? 0 : 180))
+                        .opacity((viewModel.sortOption == .holdings ||
+                                  viewModel.sortOption == .holdingsReversed) ? 1.0 : 0.0)
+                        .rotationEffect(Angle(degrees: viewModel.sortOption == .holdings ? 0 : 180))
                 }
                 .onTapGesture {
                     withAnimation(.default) {
-                        vm.sortOption = vm.sortOption == .holdings ? .holdingsReversed : .holdings
+                        viewModel.sortOption = viewModel.sortOption == .holdings ? .holdingsReversed : .holdings
                     }
                 }
             }
             HStack(spacing: 4) {
                 Text("Price")
                 Image(systemName: "chevron.down")
-                    .opacity((vm.sortOption == .price || vm.sortOption == .priceReversed) ? 1.0 : 0.0)
-                    .rotationEffect(Angle(degrees: vm.sortOption == .price ? 0 : 180))
+                    .opacity((viewModel.sortOption == .price || viewModel.sortOption == .priceReversed) ? 1.0 : 0.0)
+                    .rotationEffect(Angle(degrees: viewModel.sortOption == .price ? 0 : 180))
             }
             .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
             .onTapGesture {
                 withAnimation(.default) {
-                    vm.sortOption = vm.sortOption == .price ? .priceReversed : .price
+                    viewModel.sortOption = viewModel.sortOption == .price ? .priceReversed : .price
                 }
             }
 
             Button {
                 withAnimation(.default, {
-                    vm.reloadData()
+                    viewModel.reloadData()
                 })
             } label: {
                 Image(systemName: "goforward")
             }
-            .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0), anchor: .center)
+            .rotationEffect(Angle(degrees: viewModel.isLoading ? 360 : 0), anchor: .center)
 
         }
         .font(.caption)

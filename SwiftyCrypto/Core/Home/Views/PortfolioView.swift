@@ -10,7 +10,7 @@ import SwiftUI
 struct PortfolioView: View {
 
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var vm: HomeViewModel
+    @EnvironmentObject private var viewModel: HomeViewModel
     @State private var selectedCoin: Coin?
     @State private var quantityText: String = ""
     @State private var showCheckmark: Bool = false
@@ -19,7 +19,7 @@ struct PortfolioView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0, content: {
-                    SearchBarView(searchText: $vm.searchText)
+                    SearchBarView(searchText: $viewModel.searchText)
                     coinLogoList
 
                     if selectedCoin != nil {
@@ -46,7 +46,7 @@ struct PortfolioView: View {
                 }
 
             })
-            .onChange(of: vm.searchText) { newValue in
+            .onChange(of: viewModel.searchText) { newValue in
                 if newValue == "" {
                     removeSelectedCoin()
                 }
@@ -69,8 +69,8 @@ extension PortfolioView {
     private var coinLogoList : some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
-                ForEach(vm.searchText.isEmpty ? vm.portfolioCoins : vm.allCoins) { coin in
-                    CoinLogoView(coin: coin, networkingManager: vm.networkingManager)
+                ForEach(viewModel.searchText.isEmpty ? viewModel.portfolioCoins : viewModel.allCoins) { coin in
+                    CoinLogoView(coin: coin, networkingManager: viewModel.networkingManager)
                         .frame(width: 75)
                         .padding(4)
                         .onTapGesture {
@@ -95,7 +95,7 @@ extension PortfolioView {
             quantityText = ""
         } else {
             selectedCoin = coin
-            if let protfolioCoin = vm.portfolioCoins.first(where: { $0.id == coin.id }),
+            if let protfolioCoin = viewModel.portfolioCoins.first(where: { $0.id == coin.id }),
                 let amount = protfolioCoin.currentHoldings {
                     quantityText = "\(amount)"
             } else {
@@ -146,7 +146,9 @@ extension PortfolioView {
                     Text("Save".uppercased())
                 }
                 .opacity(
-                    (selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText.replacingOccurrences(of: ",", with: "."))) ? 1.0 : 0.0
+                    (selectedCoin != nil &&
+                     selectedCoin?.currentHoldings != Double(quantityText.replacingOccurrences(of: ",", with: ".")))
+                    ? 1.0 : 0.0
                 )
             }
             .font(.headline)
@@ -172,7 +174,7 @@ extension PortfolioView {
         else { return }
 
         // save to portfolio
-        vm.updatePortfolio(coin: coin, amount: amount)
+        viewModel.updatePortfolio(coin: coin, amount: amount)
 
         // show checkmark
         withAnimation(.easeIn) {
@@ -194,6 +196,6 @@ extension PortfolioView {
 
     private func removeSelectedCoin() {
         selectedCoin = nil
-        vm.searchText = ""
+        viewModel.searchText = ""
     }
 }
