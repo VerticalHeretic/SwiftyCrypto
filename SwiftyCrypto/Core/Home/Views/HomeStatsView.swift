@@ -9,13 +9,13 @@ import SwiftUI
 
 struct HomeStatsView: View {
 
-    @EnvironmentObject private var vm: HomeViewModel
+    @EnvironmentObject private var viewModel: HomeViewModel
 
     @Binding var showPortfolio: Bool
 
     var body: some View {
         HStack {
-            ForEach(vm.statistics) { stat in
+            ForEach(viewModel.statistics) { stat in
                 StatisticView(stat: stat)
                     .frame(width: UIScreen.main.bounds.width / 3)
             }

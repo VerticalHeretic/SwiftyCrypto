@@ -20,6 +20,11 @@ or alternatively using `brew install fastlane`
 fastlane tests
 ```
 
+### lint
+```
+fastlane lint
+```
+Does a static analysis of the project. Configure the options in .swiftlint.yml
 
 ----
 

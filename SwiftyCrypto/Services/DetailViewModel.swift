@@ -116,11 +116,15 @@ final class DetailViewModel: ObservableObject {
 
         let priceChange = coinModel.priceChange24H?.asCurrencyWith6Decimals() ?? "n/a"
         let priceercentChangeAdditonal = coinModel.priceChangePercentage24H
-        let priceChangeStat = Statistic(title: "24h Price Change", value: priceChange, percentageChange: priceercentChangeAdditonal)
+        let priceChangeStat = Statistic(title: "24h Price Change",
+                                        value: priceChange,
+                                        percentageChange: priceercentChangeAdditonal)
 
         let marketCapChangeAdditional = "€" + (coinModel.marketCapChange24H?.formattedWithAbbreviations() ?? "")
         let marketCapPercentChangeAdditional = coinModel.marketCapChangePercentage24H
-        let marketCapChangeStat = Statistic(title: "24h Market Cap Change", value: marketCapChangeAdditional, percentageChange: marketCapPercentChangeAdditional)
+        let marketCapChangeStat = Statistic(title: "24h Market Cap Change",
+                                            value: marketCapChangeAdditional,
+                                            percentageChange: marketCapPercentChangeAdditional)
 
         var blockTimeString = ""
         if let blockTime = coinDetail?.blockTimeInMinutes {

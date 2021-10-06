@@ -73,7 +73,8 @@ extension CoinRowView {
                 .foregroundColor(
                     (coin.priceChangePercentage24H ?? 0) >= 0 ? Color.theme.green : Color.theme.red)
         }
-        .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing) // we don't need to use GeometryReader while we only use portrait mode
-        // TODO: Maybe add it in the future
+        // we don't need to use GeometryReader while we only use portrait mode
+        .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+
     }
 }

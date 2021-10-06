@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct SwiftyCryptoApp: App {
 
-    @StateObject private var vm = HomeViewModel(networkingManager: NetworkingManager())
+    @StateObject private var viewModel = HomeViewModel(networkingManager: NetworkingManager())
     private let quickActionService = QuickActionService()
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
@@ -35,7 +35,7 @@ struct SwiftyCryptoApp: App {
                 }
                 .navigationViewStyle(StackNavigationViewStyle())
                 .environmentObject(quickActionService)
-                .environmentObject(vm)
+                .environmentObject(viewModel)
                 .onChange(of: scenePhase) { scenePhase in
                     switch scenePhase {
                     case .active:

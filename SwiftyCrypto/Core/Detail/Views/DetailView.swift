@@ -22,7 +22,7 @@ struct DetailLoadingView: View {
 
 struct DetailView: View {
 
-    @StateObject private var vm: DetailViewModel
+    @StateObject private var viewModel: DetailViewModel
 
     @State private var showFullDescription: Bool = false
     @State private var shouldReload: Bool = false
@@ -34,19 +34,19 @@ struct DetailView: View {
     private let spacing: CGFloat = 30
 
     init(networkingManager: DataProvider, coin: Coin) {
-        _vm = StateObject(wrappedValue: DetailViewModel(networkingManager: networkingManager, coin: coin))
+        _viewModel = StateObject(wrappedValue: DetailViewModel(networkingManager: networkingManager, coin: coin))
     }
 
     var body: some View {
         ZStack {
-            if let error = vm.error {
+            if let error = viewModel.error {
                 ErrorView(error: error, reloadData: $shouldReload)
-            } else if vm.isLoading {
+            } else if viewModel.isLoading {
                 ProgressView()
             } else {
                 ScrollView {
                     VStack {
-                        ChartView(coin: vm.coin)
+                        ChartView(coin: viewModel.coin)
                             .padding(.vertical)
                         VStack(spacing: 20) {
 
@@ -71,14 +71,14 @@ struct DetailView: View {
                 .background(
                     Color.theme.background.ignoresSafeArea()
                 )
-                .navigationTitle(vm.coin.name)
+                .navigationTitle(viewModel.coin.name)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         navigationBarTrailingItem
                     }
                 }
                 .onChange(of: shouldReload) { _ in
-                    vm.reloadData()
+                    viewModel.reloadData()
                 }
             }
         }
@@ -117,7 +117,7 @@ extension DetailView {
             alignment: .leading,
             spacing: spacing,
             pinnedViews: []) {
-                ForEach(vm.overviewStatistics) { stat in
+                ForEach(viewModel.overviewStatistics) { stat in
                     StatisticView(stat: stat)
                 }
             }
@@ -129,7 +129,7 @@ extension DetailView {
             alignment: .leading,
             spacing: spacing,
             pinnedViews: []) {
-                ForEach(vm.additionalStatistics) { stat in
+                ForEach(viewModel.additionalStatistics) { stat in
                     StatisticView(stat: stat)
                 }
             }
@@ -138,17 +138,17 @@ extension DetailView {
 
     private var navigationBarTrailingItem : some View {
         HStack {
-        Text(vm.coin.symbol.uppercased())
+        Text(viewModel.coin.symbol.uppercased())
             .font(.headline)
             .foregroundColor(Color.theme.secondaryText)
-            CoinImageView(networkingManager: vm.networkingManager, coin: vm.coin)
+            CoinImageView(networkingManager: viewModel.networkingManager, coin: viewModel.coin)
                 .frame(width: 25, height: 25)
         }
     }
 
     private var descriptionSection : some View {
         ZStack {
-            if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
+            if let coinDescription = viewModel.coinDescription, !coinDescription.isEmpty {
                 VStack(alignment: .leading) {
                     Text(coinDescription)
                         .lineLimit(showFullDescription ? nil : 3)
@@ -177,7 +177,7 @@ extension DetailView {
 
     private var websiteSection : some View {
         HStack(spacing: 20) {
-            if let website = vm.websiteURL,
+            if let website = viewModel.websiteURL,
                let url = URL(string: website) {
                 HStack {
                     Link("Website", destination: url)
@@ -186,7 +186,7 @@ extension DetailView {
                 }
             }
 
-            if let redditString = vm.redditURL, let url = URL(string: redditString) {
+            if let redditString = viewModel.redditURL, let url = URL(string: redditString) {
                 HStack(spacing: 15) {
                     Link("Reddit", destination: url)
                     Image("reddit")
