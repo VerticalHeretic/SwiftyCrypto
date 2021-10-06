@@ -17,9 +17,11 @@ struct HomeView: View {
     @State private var shouldReload : Bool = false
     
     @EnvironmentObject private var vm : HomeViewModel
-    
+    @EnvironmentObject var quickActions: QuickActionService
+
     var body: some View {
         ZStack {
+
             // background layer
             Color.theme.background
                 .ignoresSafeArea()
@@ -70,12 +72,16 @@ struct HomeView: View {
                 })
                 
             }
-    
+            
         }
+        .onChange(of: quickActions.action, perform: { action in
+            handleQuickAction(action: action)
+        })
         .background(
             NavigationLink(destination: DetailLoadingView(coin: $selectedCoin, networkingManager: vm.networkingManager),isActive: $showDetailView, label: { EmptyView() }))
     }
 }
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
@@ -217,5 +223,18 @@ extension HomeView {
             .fontWeight(.medium)
             .multilineTextAlignment(.center)
             .padding(50)
+    }
+    
+    private func handleQuickAction(action : QuickAction?) {
+        switch action {
+        case .protfolio:
+            Info.log("showingProftolio")
+            showPortfolio.toggle()
+        case .about:
+            Info.log("showingSettings")
+            showSettingsView.toggle()
+        case .none:
+            break
+        }
     }
 }

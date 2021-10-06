@@ -11,6 +11,11 @@ import SwiftUI
 struct SwiftyCryptoApp: App {
     
     @StateObject private var vm = HomeViewModel(networkingManager: NetworkingManager())
+    private let quickActionService = QuickActionService()
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @Environment(\.scenePhase) var scenePhase
+    
     @State private var showLaunchView : Bool = true
     
     init() {
@@ -29,7 +34,18 @@ struct SwiftyCryptoApp: App {
                         .navigationBarHidden(true)
                 }
                 .navigationViewStyle(StackNavigationViewStyle())
+                .environmentObject(quickActionService)
                 .environmentObject(vm)
+                .onChange(of: scenePhase) { scenePhase in
+                    switch scenePhase {
+                    case .active:
+                        guard let shortcutItem = appDelegate.shortcutItem else { return }
+                        quickActionService.action = QuickAction(rawValue: shortcutItem.type)
+                    case .background:
+                        addDynamicQuickActions()
+                    default: return
+                    }
+                }
                 
                 ZStack {
                     if showLaunchView  {
@@ -40,9 +56,28 @@ struct SwiftyCryptoApp: App {
                 .zIndex(2.0) // workaround for tricky transition
                 
             }
-            
-            
-            
         }
+    }
+}
+
+extension SwiftyCryptoApp {
+    
+    private func addDynamicQuickActions() {
+        UIApplication.shared.shortcutItems = [
+            UIApplicationShortcutItem(
+                type: QuickAction.protfolio.rawValue,
+                localizedTitle: "Your porfolio value",
+                localizedSubtitle: UserDefaults.standard.double(forKey: "currentPortfolioValue").asCurrencyWith2Decimals(),
+                icon: UIApplicationShortcutIcon(systemImageName: "bitcoinsign.circle"),
+                userInfo: nil
+            ),
+            UIApplicationShortcutItem(
+                type: QuickAction.about.rawValue,
+                localizedTitle: "About the App",
+                localizedSubtitle: nil,
+                icon: UIApplicationShortcutIcon(systemImageName: "questionmark.circle"),
+                userInfo: nil
+            )
+        ]
     }
 }

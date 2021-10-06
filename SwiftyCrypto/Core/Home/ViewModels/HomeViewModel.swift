@@ -17,6 +17,12 @@ final class HomeViewModel : ObservableObject {
     @Published var isLoading : Bool = false
     @Published var error : Error? = nil
     @Published var sortOption : SortOption = .holdings
+    @Published var currentPortfolioValue : Double = 0.0 {
+        didSet {
+            UserDefaults.standard.set(currentPortfolioValue, forKey: "currentPortfolioValue")
+        }
+    }
+    
     
     /// Main list of currencies service
     private let coinDataService : CoinDataService
@@ -214,7 +220,7 @@ final class HomeViewModel : ObservableObject {
         let volume = Statistic(title: "24h Volume", value: data.volume)
         let btcDominance = Statistic(title: "BTC Dominance", value: data.btcDominance)
                 
-        let portfolioValue = portfolioCoins
+        self.currentPortfolioValue = portfolioCoins
             .map({ $0.currentHoldingsValue })
             .reduce(0, +)
         
@@ -227,9 +233,9 @@ final class HomeViewModel : ObservableObject {
             }
             .reduce(0, +)
         
-        let percentageChange = ((portfolioValue - previousValue) / previousValue)
+        let percentageChange = ((currentPortfolioValue - previousValue) / previousValue)
         
-        let portfolio = Statistic(title: "Portfolio Value", value: portfolioValue.asCurrencyWith2Decimals(), percentageChange: percentageChange)
+        let portfolio = Statistic(title: "Portfolio Value", value: currentPortfolioValue.asCurrencyWith2Decimals(), percentageChange: percentageChange)
         
         stats.append(contentsOf: [marketCap, volume, btcDominance, portfolio])
         
