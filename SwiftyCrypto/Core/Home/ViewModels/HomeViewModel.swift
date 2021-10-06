@@ -17,7 +17,12 @@ final class HomeViewModel : ObservableObject {
     @Published var isLoading : Bool = false
     @Published var error : Error? = nil
     @Published var sortOption : SortOption = .holdings
-    @Published var currentPortfolioValue : Double = 0.0
+    @Published var currentPortfolioValue : Double = 0.0 {
+        didSet {
+            UserDefaults.standard.set(currentPortfolioValue, forKey: "currentPortfolioValue")
+        }
+    }
+    
     
     /// Main list of currencies service
     private let coinDataService : CoinDataService

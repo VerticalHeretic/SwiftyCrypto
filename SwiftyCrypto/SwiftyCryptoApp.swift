@@ -67,7 +67,7 @@ extension SwiftyCryptoApp {
             UIApplicationShortcutItem(
                 type: QuickAction.protfolio.rawValue,
                 localizedTitle: "Your porfolio value",
-                localizedSubtitle: vm.currentPortfolioValue.asCurrencyWith2Decimals(),
+                localizedSubtitle: UserDefaults.standard.double(forKey: "currentPortfolioValue").asCurrencyWith2Decimals(),
                 icon: UIApplicationShortcutIcon(systemImageName: "bitcoinsign.circle"),
                 userInfo: nil
             ),
