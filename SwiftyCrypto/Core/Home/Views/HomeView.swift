@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @State private var showPortfolio : Bool = false // anime right
-    @State private var showPortfolioView : Bool = false // new sheet
-    @State private var showSettingsView : Bool = false
-    @State private var selectedCoin : Coin? = nil
-    @State private var showDetailView : Bool = false
-    @State private var shouldReload : Bool = false
-    
-    @EnvironmentObject private var vm : HomeViewModel
+
+    @State private var showPortfolio: Bool = false // anime right
+    @State private var showPortfolioView: Bool = false // new sheet
+    @State private var showSettingsView: Bool = false
+    @State private var selectedCoin: Coin?
+    @State private var showDetailView: Bool = false
+    @State private var shouldReload: Bool = false
+
+    @EnvironmentObject private var vm: HomeViewModel
     @EnvironmentObject var quickActions: QuickActionService
 
     var body: some View {
@@ -29,18 +29,18 @@ struct HomeView: View {
                     PortfolioView()
                         .environmentObject(vm)
                 }
-            
+
             if let error = vm.error {
                 ErrorView(error: error, reloadData: $shouldReload)
             } else {
                 // content layer
                 VStack {
                     homeHeader
-                    
+
                     HomeStatsView(showPortfolio: $showPortfolio)
                     SearchBarView(searchText: $vm.searchText)
                     columnTitles
-                    
+
                     if vm.isLoading {
                         ProgressView()
                             .offset(y: 250)
@@ -49,7 +49,7 @@ struct HomeView: View {
                             allCoinsList
                                 .transition(.move(edge: .leading))
                         }
-                        
+
                         if showPortfolio {
                             ZStack(alignment: .top) {
                                 if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
@@ -60,28 +60,27 @@ struct HomeView: View {
                             }
                             .transition(.move(edge: .trailing))
                         }
-                        
+
                     }
                     Spacer(minLength: 0)
                 }
                 .sheet(isPresented: $showSettingsView) {
                     AboutView()
                 }
-                .onChange(of: shouldReload, perform: { newValue in
+                .onChange(of: shouldReload, perform: { _ in
                     vm.reloadData()
                 })
-                
+
             }
-            
+
         }
         .onChange(of: quickActions.action, perform: { action in
             handleQuickAction(action: action)
         })
         .background(
-            NavigationLink(destination: DetailLoadingView(coin: $selectedCoin, networkingManager: vm.networkingManager),isActive: $showDetailView, label: { EmptyView() }))
+            NavigationLink(destination: DetailLoadingView(coin: $selectedCoin, networkingManager: vm.networkingManager), isActive: $showDetailView, label: { EmptyView() }))
     }
 }
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
@@ -94,9 +93,9 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 extension HomeView {
-    
+
     private var homeHeader : some View {
-        HStack{
+        HStack {
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
                 .animation(.none)
                 .onTapGesture {
@@ -125,7 +124,7 @@ extension HomeView {
                 }
         }
     }
-    
+
     private var portfolioCoinsList : some View {
         List {
             ForEach(vm.portfolioCoins) { coin in
@@ -138,9 +137,9 @@ extension HomeView {
             }
         }
         .listStyle(PlainListStyle())
-        
+
     }
-    
+
     private var allCoinsList : some View {
         List {
             ForEach(vm.allCoins) { coin in
@@ -154,12 +153,12 @@ extension HomeView {
         }
         .listStyle(PlainListStyle())
     }
-    
+
     private func segue(coin: Coin) {
         selectedCoin = coin
         showDetailView.toggle()
     }
-    
+
     private var columnTitles : some View {
         HStack {
             HStack(spacing: 4) {
@@ -167,7 +166,7 @@ extension HomeView {
                 Image(systemName: "chevron.down")
                     .opacity((vm.sortOption == .rank || vm.sortOption == .rankReversed) ? 1.0 : 0.0)
                     .rotationEffect(Angle(degrees: vm.sortOption == .rank ? 0 : 180))
-                
+
             }
             .onTapGesture {
                 withAnimation(.default) {
@@ -200,7 +199,7 @@ extension HomeView {
                     vm.sortOption = vm.sortOption == .price ? .priceReversed : .price
                 }
             }
-            
+
             Button {
                 withAnimation(.default, {
                     vm.reloadData()
@@ -209,13 +208,13 @@ extension HomeView {
                 Image(systemName: "goforward")
             }
             .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0), anchor: .center)
-            
+
         }
         .font(.caption)
         .foregroundColor(Color.theme.secondaryText)
         .padding(.horizontal)
     }
-    
+
     private var emptyText : some View {
         Text("You haven't added any coins to your porfolio yet! Click the + button to get started. 🧐")
             .font(.callout)
@@ -224,8 +223,8 @@ extension HomeView {
             .multilineTextAlignment(.center)
             .padding(50)
     }
-    
-    private func handleQuickAction(action : QuickAction?) {
+
+    private func handleQuickAction(action: QuickAction?) {
         switch action {
         case .protfolio:
             Info.log("showingProftolio")

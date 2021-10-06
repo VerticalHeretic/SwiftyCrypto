@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CoinRowView: View {
-    
+
     let coin: Coin
-    let showHoldingsColumn : Bool
-    let networkingManager : DataProvider
-    
+    let showHoldingsColumn: Bool
+    let networkingManager: DataProvider
+
     var body: some View {
         HStack(spacing: 0) {
             leftColumn
@@ -24,7 +24,7 @@ struct CoinRowView: View {
         }
         .font(.subheadline)
         .background(
-            Color.theme.background.opacity(0.001) //it will make all view clickable
+            Color.theme.background.opacity(0.001) // it will make all view clickable
         )
     }
 }
@@ -40,7 +40,7 @@ struct CoinRowView_Previews: PreviewProvider {
 }
 
 extension CoinRowView {
-    
+
     private var leftColumn : some View {
         HStack(spacing: 0) {
             Text("\(coin.rank)")
@@ -55,18 +55,18 @@ extension CoinRowView {
                 .foregroundColor(Color.theme.accent)
         }
     }
-    
+
     private var centerColumn : some View {
-        VStack(alignment: .trailing){
+        VStack(alignment: .trailing) {
             Text(coin.currentHoldingsValue.asCurrencyWith2Decimals())
                 .bold()
             Text((coin.currentHoldings ?? 0).asNumberString())
         }
         .foregroundColor(Color.theme.accent)
     }
-    
+
     private var rightColumn : some View {
-        VStack(alignment: .trailing){
+        VStack(alignment: .trailing) {
             Text("\(coin.currentPrice.asCurrencyWith6Decimals())")
                 .foregroundColor(Color.theme.accent)
             Text(coin.priceChangePercentage24H?.asPercentString() ?? "")
@@ -74,6 +74,6 @@ extension CoinRowView {
                     (coin.priceChangePercentage24H ?? 0) >= 0 ? Color.theme.green : Color.theme.red)
         }
         .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing) // we don't need to use GeometryReader while we only use portrait mode
-        //TODO: Maybe add it in the future
+        // TODO: Maybe add it in the future
     }
 }

@@ -8,13 +8,13 @@
 import Foundation
 import Combine
 
-struct NetworkingManagerMock : DataProvider {
-    
-    var result : Result<Data, NetworkingManager.NetworkingError>
-    
+struct NetworkingManagerMock: DataProvider {
+
+    var result: Result<Data, NetworkingManager.NetworkingError>
+
     func fetch(url: URL) -> AnyPublisher<Data, NetworkingManager.NetworkingError> {
         result.publisher
             .eraseToAnyPublisher()
     }
-    
+
 }

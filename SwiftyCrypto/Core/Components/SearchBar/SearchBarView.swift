@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SearchBarView: View {
-    
-    @Binding var searchText : String
-    
+
+    @Binding var searchText: String
+
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
@@ -30,9 +30,7 @@ struct SearchBarView: View {
                         .onTapGesture {
                             UIApplication.shared.endEditing()
                             searchText = ""
-                        }
-                    ,alignment: .trailing)
-            
+                        }, alignment: .trailing)
         }
         .font(.headline)
         .padding()
@@ -42,7 +40,7 @@ struct SearchBarView: View {
                 .shadow(color: Color.theme.accent.opacity(0.15), radius: 10, x: 0, y: 0)
         )
         .padding()
-        
+
     }
 }
 
@@ -56,6 +54,6 @@ struct SearchBarView_Previews: PreviewProvider {
                 .previewLayout(.sizeThatFits)
                 .preferredColorScheme(.dark)
         }
-  
+
     }
 }

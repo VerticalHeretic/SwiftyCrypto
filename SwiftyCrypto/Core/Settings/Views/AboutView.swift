@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct AboutView: View {
-    
+
     @Environment(\.presentationMode) var presentationMode
     let defaultURL = URL(string: "https://www.google.com")!
     let coingeckoURL = URL(string: "https://www.coingecko.com")!
     let youtubeURL = URL(string: "https://www.youtube.com/c/swiftfulthinking")!
     let personalURL = URL(string: "https://www.github.com/lswarss")!
-    
+
     var body: some View {
         NavigationView {
             ZStack {
-                
+
                 // background
                 Color.theme.background.ignoresSafeArea()
-                
+
                 // content
                 List {
                     swiftfulThinkingSection
@@ -33,11 +33,11 @@ struct AboutView: View {
                     appSection
                         .listRowBackground(Color.theme.background.opacity(0.5))
                 }
-                
+
             }
             .font(.headline)
             .accentColor(Color.theme.accent)
-          
+
             .navigationTitle("About App")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -59,9 +59,8 @@ struct SettingsView_Previews: PreviewProvider {
     }
 }
 
-
 extension AboutView {
-    
+
     private var swiftfulThinkingSection : some View {
         Section(header: Text("Swiftful Thinking")) {
             VStack(alignment: .leading) {
@@ -77,7 +76,7 @@ extension AboutView {
             Link("Subscribe SwiftfulThinking on YouTube 🥳", destination: youtubeURL)
         }
     }
-    
+
     private var coingeckoSection : some View {
         Section(header: Text("CoinGecko")) {
             VStack(alignment: .leading) {
@@ -94,7 +93,7 @@ extension AboutView {
             Link("Visit CoinGecko 🦎", destination: coingeckoURL)
         }
     }
-    
+
     private var developerSection : some View {
         Section(header: Text("Developer")) {
             VStack(alignment: .leading) {
@@ -110,7 +109,7 @@ extension AboutView {
             Link("My personal Github page 💻", destination: personalURL)
         }
     }
-    
+
     private var appSection : some View {
         Section(header: Text("Application")) {
             Link("Terms of Service", destination: defaultURL)
@@ -119,5 +118,5 @@ extension AboutView {
             Link("Learn more", destination: defaultURL)
         }
     }
-    
+
 }

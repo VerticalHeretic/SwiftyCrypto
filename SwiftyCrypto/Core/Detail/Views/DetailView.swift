@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct DetailLoadingView : View {
-    @Binding var coin : Coin?
-    let networkingManager : DataProvider
-    
+struct DetailLoadingView: View {
+    @Binding var coin: Coin?
+    let networkingManager: DataProvider
+
     var body: some View {
         ZStack {
             if let coin = coin {
@@ -21,22 +21,22 @@ struct DetailLoadingView : View {
 }
 
 struct DetailView: View {
-    
-    @StateObject private var vm : DetailViewModel
-    
-    @State private var showFullDescription : Bool = false
-    @State private var shouldReload : Bool = false
-    
-    private let columns : [GridItem] = [
+
+    @StateObject private var vm: DetailViewModel
+
+    @State private var showFullDescription: Bool = false
+    @State private var shouldReload: Bool = false
+
+    private let columns: [GridItem] = [
         GridItem(.flexible()),
-        GridItem(.flexible()),
+        GridItem(.flexible())
     ]
     private let spacing: CGFloat = 30
-    
-    init(networkingManager: DataProvider ,coin: Coin) {
+
+    init(networkingManager: DataProvider, coin: Coin) {
         _vm = StateObject(wrappedValue: DetailViewModel(networkingManager: networkingManager, coin: coin))
     }
-    
+
     var body: some View {
         ZStack {
             if let error = vm.error {
@@ -49,24 +49,24 @@ struct DetailView: View {
                         ChartView(coin: vm.coin)
                             .padding(.vertical)
                         VStack(spacing: 20) {
-                            
+
                             overviewTitle
                             Divider()
-                            
+
                             descriptionSection
-                            
+
                             overviewGrid
-                            
+
                             additionalTitle
                             Divider()
                             additionalGrid
-                            
+
                             websiteSection
-                            
+
                         }
                         .padding()
                     }
-                    
+
                 }
                 .background(
                     Color.theme.background.ignoresSafeArea()
@@ -77,7 +77,7 @@ struct DetailView: View {
                         navigationBarTrailingItem
                     }
                 }
-                .onChange(of: shouldReload) { newValue in
+                .onChange(of: shouldReload) { _ in
                     vm.reloadData()
                 }
             }
@@ -101,16 +101,16 @@ extension DetailView {
             .foregroundColor(Color.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
-    
+
     private var additionalTitle : some View {
         Text("Additional details")
             .font(.title)
             .bold()
             .foregroundColor(Color.theme.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
-        
+
     }
-    
+
     private var overviewGrid : some View {
         LazyVGrid(
             columns: columns,
@@ -122,7 +122,7 @@ extension DetailView {
                 }
             }
     }
-    
+
     private var additionalGrid : some View {
         LazyVGrid(
             columns: columns,
@@ -135,7 +135,7 @@ extension DetailView {
             }
 
     }
-    
+
     private var navigationBarTrailingItem : some View {
         HStack {
         Text(vm.coin.symbol.uppercased())
@@ -145,7 +145,7 @@ extension DetailView {
                 .frame(width: 25, height: 25)
         }
     }
-    
+
     private var descriptionSection : some View {
         ZStack {
             if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
@@ -169,12 +169,12 @@ extension DetailView {
 
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-             
+
             }
         }
 
     }
-    
+
     private var websiteSection : some View {
         HStack(spacing: 20) {
             if let website = vm.websiteURL,
@@ -185,7 +185,7 @@ extension DetailView {
                         .foregroundColor(.blue)
                 }
             }
-            
+
             if let redditString = vm.redditURL, let url = URL(string: redditString) {
                 HStack(spacing: 15) {
                     Link("Reddit", destination: url)
@@ -196,7 +196,7 @@ extension DetailView {
                         Circle()
                             .fill(Color.blue)
                             .frame(width: 25, height: 25, alignment: .center)
-                            
+
                         )
                         .frame(width: 15, height: 15)
                 }
@@ -205,6 +205,6 @@ extension DetailView {
         .accentColor(.blue)
         .frame(maxWidth: .infinity, alignment: .leading)
         .font(.headline)
-        
+
     }
 }

@@ -9,25 +9,25 @@ import Foundation
 import Combine
 
 final class MarketDataService {
-    
-    @Published var marketData: MarketData? = nil
-    @Published var isLoading : Bool = false
-    @Published var error : Error? = nil
-    @Published var serviceIsActive : Bool = true
-    
+
+    @Published var marketData: MarketData?
+    @Published var isLoading: Bool = false
+    @Published var error: Error?
+    @Published var serviceIsActive: Bool = true
+
     var subscriptions = Set<AnyCancellable>()
     let loadMarketData = CurrentValueSubject<String, Never>("")
-    private let url : String = "https://api.coingecko.com/api/v3/global"
-    //MARK: Dependecies
-    let networkingManager : DataProvider
-    
-    init(networkingManager : DataProvider) {
+    private let url: String = "https://api.coingecko.com/api/v3/global"
+    // MARK: Dependecies
+    let networkingManager: DataProvider
+
+    init(networkingManager: DataProvider) {
         self.networkingManager = networkingManager
         getMarketData()
     }
-    
+
     func getMarketData() {
-        
+
         loadMarketData
             .removeDuplicates()
             .compactMap({ URL(string: $0)})
@@ -59,7 +59,7 @@ final class MarketDataService {
                 self.marketData = globalData.data
             }
             .store(in: &subscriptions)
-        
+
         loadMarketData.send(url)
     }
 

@@ -10,12 +10,12 @@ import Combine
 import CoreData
 
 final class PortfolioDataService {
-    
-    private let container : NSPersistentContainer
-    private let containerName : String = "PortfolioContainer"
-    
-    @Published var savedEntities : [PortfolioEntity] = []
-    
+
+    private let container: NSPersistentContainer
+    private let containerName: String = "PortfolioContainer"
+
+    @Published var savedEntities: [PortfolioEntity] = []
+
     init() {
         container = NSPersistentContainer(name: containerName)
         container.loadPersistentStores { (_, error) in
@@ -24,32 +24,31 @@ final class PortfolioDataService {
             }
             self.getPortfolio()
         }
-        
+
     }
-    
-    //MARK: - Public
-    
+
+    // MARK: - Public
+
     /// Updates portfolio for given **Coin** and **Amount**
     ///
     /// If given coin id is in CoreData storage and amount if bigger then 0 we update it, if is 0 then we remove the coin from storage.  Else we add new coin to storage.
     func updatePortfolio(coin: Coin, amount: Double) {
-        
+
         if let entity = savedEntities.first(where: { $0.coinID == coin.id }) {
-            
+
             if amount > 0 {
                 update(entity: entity, amount: amount)
             } else {
                 remove(entity: entity)
             }
-            
+
         } else {
             add(coin: coin, amount: amount)
         }
-        
+
     }
-    
-    
-    //MARK: - Private
+
+    // MARK: - Private
     private func getPortfolio() {
         let request = NSFetchRequest<PortfolioEntity>(entityName: "PortfolioEntity")
         do {
@@ -58,24 +57,24 @@ final class PortfolioDataService {
             Info.error("Error fetching Portfolio Entities. \(error)")
         }
     }
-    
-    private func add(coin : Coin, amount: Double) {
+
+    private func add(coin: Coin, amount: Double) {
         let entity = PortfolioEntity(context: container.viewContext)
         entity.coinID = coin.id
         entity.amount = amount
         applyChanges()
     }
-    
-    private func update(entity : PortfolioEntity, amount: Double) {
+
+    private func update(entity: PortfolioEntity, amount: Double) {
         entity.amount = amount
         applyChanges()
     }
-    
-    private func remove(entity : PortfolioEntity) {
+
+    private func remove(entity: PortfolioEntity) {
         container.viewContext.delete(entity)
         applyChanges()
     }
-    
+
     private func save() {
         do {
             try container.viewContext.save()
@@ -83,10 +82,10 @@ final class PortfolioDataService {
             Info.error("Error saving to Core Data. \(error)")
         }
     }
-    
+
     private func applyChanges() {
         save()
         getPortfolio()
     }
-    
+
 }

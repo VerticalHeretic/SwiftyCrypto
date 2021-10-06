@@ -8,30 +8,30 @@
 import Foundation
 import Combine
 
-final class CoinDetailDataService  {
-    
-    @Published var coinDetails : CoinDetail? = nil
-    @Published var isLoading : Bool = false
-    @Published var error : Error? = nil
-    @Published var serviceIsActive : Bool = true
-    
+final class CoinDetailDataService {
+
+    @Published var coinDetails: CoinDetail?
+    @Published var isLoading: Bool = false
+    @Published var error: Error?
+    @Published var serviceIsActive: Bool = true
+
     var subscriptions = Set<AnyCancellable>()
     let loadCoinDetails = CurrentValueSubject<String, Never>("")
-    let coin : Coin
-    
-    //MARK: Depedencies
-    let networkingManager : DataProvider
-    
-    init(networkingManager : DataProvider, coin : Coin) {
+    let coin: Coin
+
+    // MARK: Depedencies
+    let networkingManager: DataProvider
+
+    init(networkingManager: DataProvider, coin: Coin) {
         self.coin = coin
         self.networkingManager = networkingManager
-        
+
         getCoinDetails(coin: coin)
     }
-    
-    func getCoinDetails(coin : Coin) {
+
+    func getCoinDetails(coin: Coin) {
         let url = "https://api.coingecko.com/api/v3/coins/\(coin.id)?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false"
-        
+
         loadCoinDetails
             .removeDuplicates()
             .compactMap { URL(string: $0) }
@@ -63,8 +63,8 @@ final class CoinDetailDataService  {
                 self.coinDetails = details
             }
             .store(in: &subscriptions)
-        
+
         loadCoinDetails.send(url)
-        
+
     }
 }

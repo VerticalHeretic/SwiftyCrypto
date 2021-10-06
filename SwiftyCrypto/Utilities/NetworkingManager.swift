@@ -8,14 +8,14 @@
 import Foundation
 import Combine
 
-final class NetworkingManager : DataProvider {
-    
-    enum NetworkingError : LocalizedError {
-        
+final class NetworkingManager: DataProvider {
+
+    enum NetworkingError: LocalizedError {
+
         case url(URLError?)
         case badResponse(statusCode: Int)
         case unknown(Error)
-        
+
         var errorDescription: String? {
             switch self {
             case .badResponse(statusCode: let statusCode):
@@ -26,7 +26,7 @@ final class NetworkingManager : DataProvider {
                 return "URL error occured: \(error.debugDescription)"
             }
         }
-        
+
         static func convert(error: Error) -> NetworkingError {
             switch error {
             case let error as URLError:
@@ -37,12 +37,12 @@ final class NetworkingManager : DataProvider {
                 return .unknown(error)
             }
         }
-        
+
     }
-    
+
     func fetch(url: URL) -> AnyPublisher<Data, NetworkingError> {
        return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap({ (data,response) -> Data in
+            .tryMap({ (data, response) -> Data in
                 if let response = response as? HTTPURLResponse,
                    !(200...299).contains(response.statusCode) {
                     throw NetworkingError.badResponse(statusCode: response.statusCode)
@@ -55,8 +55,5 @@ final class NetworkingManager : DataProvider {
             })
             .eraseToAnyPublisher()
     }
-    
 
-    
 }
-

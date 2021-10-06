@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct ErrorView: View {
-    
-    let error : Error
-    @Binding var reloadData : Bool
-    
+
+    let error: Error
+    @Binding var reloadData: Bool
+
     var body: some View {
-        VStack(alignment: .center, spacing: 15){
+        VStack(alignment: .center, spacing: 15) {
             Image(systemName: "xmark.octagon.fill")
                 .resizable()
                 .font(.largeTitle)
                 .foregroundColor(Color.theme.red)
                 .frame(width: 100, height: 100)
-            
+
             VStack(spacing: 0) {
                 Text("Unfortunately error occured: ")
                     .font(.headline)
                 Text(error.localizedDescription)
                     .font(.callout)
             }
-            
+
             VStack {
                 Button {
                     reloadData = true
@@ -44,7 +44,7 @@ struct ErrorView: View {
                             .foregroundColor(Color.theme.accent)
                     )
                 }
-               
+
             }
         }
         .multilineTextAlignment(.center)
@@ -57,6 +57,6 @@ struct ErrorView_Previews: PreviewProvider {
         ErrorView(error: NetworkingManager.NetworkingError.badResponse(statusCode: 400), reloadData: .constant(false))
             .preferredColorScheme(.dark)
         ErrorView(error: NetworkingManager.NetworkingError.badResponse(statusCode: 400), reloadData: .constant(false))
-            
+
     }
 }

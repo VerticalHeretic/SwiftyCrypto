@@ -10,16 +10,16 @@ import Foundation
 /**
  Enum of app's QuickAction types
  */
-enum QuickAction : String {
+enum QuickAction: String {
     case protfolio, about
 }
 
-final class QuickActionService : ObservableObject {
-    
+final class QuickActionService: ObservableObject {
+
     @Published var action: QuickAction?
-    
+
     init(initialValue: QuickAction? = nil) {
         action = initialValue
     }
-    
+
 }

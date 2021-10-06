@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct HomeStatsView: View {
-    
-    @EnvironmentObject private var vm : HomeViewModel
-    
-    @Binding var showPortfolio : Bool
-    
+
+    @EnvironmentObject private var vm: HomeViewModel
+
+    @Binding var showPortfolio: Bool
+
     var body: some View {
         HStack {
             ForEach(vm.statistics) { stat in

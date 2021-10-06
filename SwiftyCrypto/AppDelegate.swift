@@ -17,7 +17,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         configurationForConnecting connectingSceneSession: UISceneSession,
         options: UIScene.ConnectionOptions
     ) -> UISceneConfiguration {
-        
+
         if let shortcutItem = options.shortcutItem {
             AppDelegate.shortcutItem = shortcutItem
         }

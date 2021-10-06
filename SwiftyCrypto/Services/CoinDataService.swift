@@ -8,25 +8,25 @@
 import Foundation
 import Combine
 
-final class CoinDataService  {
-    
+final class CoinDataService {
+
     @Published var allCoins: [Coin] = []
-    @Published var isLoading : Bool = false
-    @Published var error : Error? = nil
-    @Published var serviceIsActive : Bool = true
-    
+    @Published var isLoading: Bool = false
+    @Published var error: Error?
+    @Published var serviceIsActive: Bool = true
+
     var subscriptions = Set<AnyCancellable>()
     let loadCoins = CurrentValueSubject<String, Never>("")
     let url =  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=250&page=1&sparkline=true"
-    
-    //MARK: Dependecies
-    let networkingManager : DataProvider
-    
-    init(networkingManager : DataProvider) {
+
+    // MARK: Dependecies
+    let networkingManager: DataProvider
+
+    init(networkingManager: DataProvider) {
         self.networkingManager = networkingManager
         getCoins()
     }
-    
+
     func getCoins() {
         loadCoins
             .removeDuplicates()
@@ -61,9 +61,8 @@ final class CoinDataService  {
                 self.allCoins = coins
             }
             .store(in: &subscriptions)
-        
+
         loadCoins.send(url)
     }
-    
-    
+
 }

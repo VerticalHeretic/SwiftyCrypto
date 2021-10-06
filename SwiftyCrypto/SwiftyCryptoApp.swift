@@ -9,25 +9,25 @@ import SwiftUI
 
 @main
 struct SwiftyCryptoApp: App {
-    
+
     @StateObject private var vm = HomeViewModel(networkingManager: NetworkingManager())
     private let quickActionService = QuickActionService()
-    
+
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) var scenePhase
-    
-    @State private var showLaunchView : Bool = true
-    
+
+    @State private var showLaunchView: Bool = true
+
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.theme.accent)]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.theme.accent)]
         UINavigationBar.appearance().tintColor = UIColor(Color.theme.accent)
         UITableView.appearance().backgroundColor = UIColor.clear
     }
-    
+
     var body: some Scene {
         WindowGroup {
-            
+
             ZStack {
                 NavigationView {
                     HomeView()
@@ -46,22 +46,22 @@ struct SwiftyCryptoApp: App {
                     default: return
                     }
                 }
-                
+
                 ZStack {
-                    if showLaunchView  {
+                    if showLaunchView {
                         LaunchView(showLaunchView: $showLaunchView)
                             .transition(.move(edge: .leading))
                     }
                 }
                 .zIndex(2.0) // workaround for tricky transition
-                
+
             }
         }
     }
 }
 
 extension SwiftyCryptoApp {
-    
+
     private func addDynamicQuickActions() {
         UIApplication.shared.shortcutItems = [
             UIApplicationShortcutItem(

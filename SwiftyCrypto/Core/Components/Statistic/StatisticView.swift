@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct StatisticView: View {
-    
-    let stat : Statistic
+
+    let stat: Statistic
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(stat.title)
@@ -40,6 +40,6 @@ struct StatisticView_Previews: PreviewProvider {
             StatisticView(stat: dev.stat2)
             StatisticView(stat: dev.stat3)
         }
-        
+
     }
 }

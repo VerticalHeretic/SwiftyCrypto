@@ -7,16 +7,14 @@
 
 import SwiftUI
 
-
 struct CoinImageView: View {
-    
-    @StateObject var vm : CoinImageViewModel
-    
-    init(networkingManager : DataProvider, coin: Coin) {
+
+    @StateObject var vm: CoinImageViewModel
+
+    init(networkingManager: DataProvider, coin: Coin) {
         _vm = StateObject(wrappedValue: CoinImageViewModel(networkingManager: networkingManager, coin: coin))
     }
- 
-    
+
     var body: some View {
         ZStack {
             if let image = vm.image {

@@ -216,7 +216,7 @@ import Foundation
  */
 
 // MARK: - Coin
-struct Coin : Identifiable, Codable {
+struct Coin: Identifiable, Codable {
     let id, symbol, name: String
     let image: String
     let currentPrice: Double
@@ -233,9 +233,9 @@ struct Coin : Identifiable, Codable {
     let atlDate: String?
     let lastUpdated: String?
     let sparkline7d: SparklineIn7D?
-    let currentHoldings : Double?
-    
-    enum CodingKeys : String, CodingKey  {
+    let currentHoldings: Double?
+
+    enum CodingKeys: String, CodingKey {
         case id, symbol, name, image, ath, atl
         case currentPrice = "current_price"
         case marketCap = "market_cap"
@@ -259,21 +259,20 @@ struct Coin : Identifiable, Codable {
         case sparkline7d = "sparkline_in_7d"
         case currentHoldings
     }
-    
+
     func updateHoldings(amount: Double) -> Coin {
         return Coin(id: id, symbol: symbol, name: name, image: image, currentPrice: currentPrice, marketCap: marketCap, marketCapRank: marketCapRank, fullyDilutedValuation: fullyDilutedValuation, totalVolume: totalVolume, high24H: high24H, low24H: low24H, priceChange24H: priceChange24H, priceChangePercentage24H: priceChangePercentage24H, marketCapChange24H: marketCapChange24H, marketCapChangePercentage24H: marketCapChangePercentage24H, circulatingSupply: circulatingSupply, totalSupply: totalSupply, maxSupply: maxSupply, ath: ath, athChangePercentage: athChangePercentage, athDate: athDate, atl: atl, atlChangePercentage: atlChangePercentage, atlDate: atlDate, lastUpdated: lastUpdated, sparkline7d: sparkline7d, currentHoldings: amount)
     }
-    
-    var currentHoldingsValue : Double {
+
+    var currentHoldingsValue: Double {
         return (currentHoldings ?? 0) * currentPrice
     }
-    
+
     var rank: Int {
         return Int(marketCapRank ?? 0)
     }
-    
-    
-    static var testableCoin : Coin {
+
+    static var testableCoin: Coin {
         return Coin(
         id: "testcoin",
         symbol: "tit",
@@ -472,12 +471,10 @@ struct Coin : Identifiable, Codable {
 
         ]),
         currentHoldings: 1.5)}
-    
+
 }
 
 // MARK: - SparklineIn7D
-struct SparklineIn7D : Codable {
+struct SparklineIn7D: Codable {
     let price: [Double]?
 }
-
-
